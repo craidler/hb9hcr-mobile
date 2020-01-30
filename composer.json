@@ -1,0 +1,28 @@
+{
+  "name": "craidler/hb9hcr-mobile",
+  "description": "HB9HCR Mobile",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Chris Raidler",
+      "email": "chris@raidler.ch"
+    }
+  ],
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "zendframework/zend-mvc": "^3.0.1",
+    "craidler/hb9hcr-library": "^1.0.1"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/craidler/hb9hcr-library"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Application\\": "module/Application/src"
+    }
+  }
+}
