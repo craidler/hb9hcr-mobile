@@ -1,0 +1,32 @@
+body {
+    font: 400 1rem monospace;
+    margin: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    padding: .5rem;
+    box-sizing: border-box;
+    min-height: 480px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 .5rem 0;
+}
+
+button, input, select {
+    font: inherit;
+    height: 1.5rem;
+    min-width: 1.5rem;
+    box-sizing: border-box;
+}
+
+th, td, input::placeholder {
+    text-align: left;
+    white-space: nowrap;
+    text-transform: capitalize;
+}

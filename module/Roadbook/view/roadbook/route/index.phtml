@@ -1,0 +1,65 @@
+<section id="route">
+    <h2>Route</h2>
+    <form method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>date</th>
+                    <th>region</th>
+                    <th>name</th>
+                    <th>position</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($this->roadbook as $i => $waypoint): ?>
+                <tr>
+                    <td><?= sprintf('%02d', $i) ?></td>
+                    <td><?= $waypoint->date ?></td>
+                    <td><?= $waypoint->region ?></td>
+                    <td><?= $waypoint->name ?></td>
+                    <td><?= $waypoint->position ?></td>
+                    <td><?= $waypoint->type ?></td>
+                    <td>
+                        <button type="submit" name="action" value="edit,<?= $waypoint->id ?>">e</button>
+                        <button type="submit" name="action" value="delete,<?= $waypoint->id ?>">d</button>
+                        <button type="submit" name="action" value="move,<?= $waypoint->id ?>,0">&uarr;</button>
+                        <button type="submit" name="action" value="move,<?= $waypoint->id ?>,1">&darr;</button>
+                        <button type="submit" name="action" value="view,<?= $waypoint->id ?>">&rarr;</button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <input type="hidden" name="id" value="<?= $this->selected->id ?>">
+                    </td>
+                    <td>
+                        <input type="date" name="date" value="<?= $this->selected->date ?>">
+                    </td>
+                    <td>
+                        <input type="text" name="region" value="<?= $this->selected->region ?>" placeholder="region">
+                    </td>
+                    <td>
+                        <input type="text" name="name" value="<?= $this->selected->name ?>" placeholder="name">
+                    </td>
+                    <td>
+                        <input type="text" name="position" value="<?= $this->selected->position ?>" placeholder="position">
+                    </td>
+                    <td>
+                        <select name="type">
+                            <?php foreach (\HB9HCR\Entity\Waypoint::TYPES as $type): ?>
+                            <option value="<?= $type ?>"<?=  $this->selected->type == $type ? ' selected' : '' ?>><?= ucfirst($type) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit" name="action" value="save">s</button>
+                        <button type="submit" name="action" value="cancel">c</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</section>
