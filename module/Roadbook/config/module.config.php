@@ -2,20 +2,19 @@
 namespace Roadbook;
 
 use HB9HCR\Service\Map\Google;
-use Roadbook\Factory\GoogleMapsFactory;
-use Roadbook\Factory\RouteControllerFactory;
+use Roadbook\Factory\MapsFactory;
+use Roadbook\Factory\ControllerFactory;
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'router' => [
         'routes' => [
-            'route' => [
+            'roadbook' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/roadbook/route[/:action]',
+                    'route'    => '/roadbook[/:action]',
                     'defaults' => [
-                        'controller' => Controller\RouteController::class,
+                        'controller' => Controller\RoadbookController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -24,8 +23,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\RoadbookController::class => InvokableFactory::class,
-            Controller\RouteController::class => RouteControllerFactory::class,
+            Controller\RoadbookController::class => ControllerFactory::class,
         ],
     ],
     'view_manager' => [
@@ -35,7 +33,7 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            Google::class => GoogleMapsFactory::class,
+            Google::class => MapsFactory::class,
         ],
         'aliases' => [
             'GoogleMaps' => Google::class,
