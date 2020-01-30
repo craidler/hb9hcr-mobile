@@ -3,11 +3,17 @@ namespace Roadbook\Controller;
 
 use HB9HCR\Entity\Roadbook;
 use HB9HCR\Entity\Waypoint;
+use HB9HCR\Service\Map\Google;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class RouteController extends AbstractActionController
 {
+    public function __construct(Google $maps)
+    {
+        $this->maps = $maps;
+    }
+
     public function indexAction()
     {
         $filename = __DIR__ . '/../../data/rim.2020.json';

@@ -1,6 +1,9 @@
 <?php
 namespace Roadbook;
 
+use HB9HCR\Service\Map\Google;
+use Roadbook\Factory\GoogleMapsFactory;
+use Roadbook\Factory\RouteControllerFactory;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -22,12 +25,20 @@ return [
     'controllers' => [
         'factories' => [
             Controller\RoadbookController::class => InvokableFactory::class,
-            Controller\RouteController::class => InvokableFactory::class,
+            Controller\RouteController::class => RouteControllerFactory::class,
         ],
     ],
     'view_manager' => [
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
+            Google::class => GoogleMapsFactory::class,
+        ],
+        'aliases' => [
+            'GoogleMaps' => Google::class,
         ],
     ],
 ];
