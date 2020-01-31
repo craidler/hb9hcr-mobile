@@ -3,7 +3,7 @@ namespace Roadbook\Factory;
 
 use Interop\Container\ContainerInterface;
 use Roadbook\Controller\RoadbookController;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class ControllerFactory implements FactoryInterface
 {

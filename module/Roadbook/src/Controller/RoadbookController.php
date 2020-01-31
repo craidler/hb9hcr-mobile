@@ -4,8 +4,8 @@ namespace Roadbook\Controller;
 use HB9HCR\Entity\Roadbook;
 use HB9HCR\Entity\Waypoint;
 use HB9HCR\Service\Map\Google;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\View\Model\ViewModel;
 
 class RoadbookController extends AbstractActionController
 {

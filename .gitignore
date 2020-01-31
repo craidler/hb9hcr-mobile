@@ -1,4 +1,5 @@
 .idea
 vendor
 data/cache/*.php
+composer.lock
 !.gitignore

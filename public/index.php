@@ -1,5 +1,5 @@
 <?php
-use Zend\Mvc\Application;
+use Laminas\Mvc\Application;
 
 /**
  * This makes our life easier when dealing with paths. Everything is relative
