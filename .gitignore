@@ -1,5 +1,6 @@
 .idea
 vendor
 data/cache/*.php
+public/data/map/*.png
 composer.lock
 !.gitignore

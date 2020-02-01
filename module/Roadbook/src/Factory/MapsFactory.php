@@ -9,8 +9,8 @@ class MapsFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         \HB9HCR\Service\Map\Google::configure([
-            'cache' => __DIR__ . '/../../data',
-            'key' => '',
+            'cache' => __DIR__ . '/../../../../public/data',
+            'key' => 'AIzaSyASv1hxoflfS4zj9G0P9TZ6SRso5mjfqUc',
         ]);
 
         return \HB9HCR\Service\Map\Google::instance();

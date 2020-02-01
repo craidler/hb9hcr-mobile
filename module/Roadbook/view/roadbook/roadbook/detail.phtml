@@ -1,0 +1,52 @@
+<form method="post">
+    <section id="<?= $this->waypoint->id ?>" class="waypoint">
+        <h2><?= sprintf('Waypoint %s: %s - %s', is_int($this->i) ? sprintf('%02d', $this->i) : $this->i, $this->waypoint->region, $this->waypoint->name) ?></h2>
+        <div>
+            <div>
+                <div class="bg <?= $this->waypoint->type ?>">
+                    <div><?= $this->waypoint->type ?></div>
+                </div>
+            </div>
+            <table>
+                <tbody>
+                <?php foreach (['id', 'date', 'region', 'name', 'position', 'type'] as $prop): ?>
+                    <tr>
+                        <td><?= $prop ?></td>
+                        <td><strong><?= $this->waypoint->{$prop} ?></strong></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <div>
+                <?php if ($this->form): ?>
+                    <textarea name="comment"><?= $this->waypoint->comment ?></textarea>
+                <?php else: ?>
+                    <p><?= $this->waypoint->comment ?></p>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div>
+            <?php foreach ($this->waypoint->maps as $i => $map): ?>
+                <figure>
+                    <img src="/data/map/<?= $this->maps->image($map)->src ?>">
+                    <figcaption class="d-rpi-none">
+                        <p>Center: <strong><?= $map->center ?></strong></p>
+                        <p>Marker: <strong><?= $map->markers[0] ?></strong></p>
+                        <p>Type: <strong><?= $map->type ?></strong> Zoom: <strong><?= $map->zoom ?></strong></p>
+                    </figcaption>
+                    <?php if ($this->form): ?>
+                        <select name="type[<?= $i ?>]">
+                            <?php foreach ($map::TYPES as $type): ?>
+                                <option value="<?= $type ?>" <?= $map->type == $type ? ' selected' : '' ?>><?= ucfirst($type) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="range" name="zoom[<?= $i ?>]" min="6" max="21" value="<?= $map->zoom ?>">
+                    <?php endif; ?>
+                </figure>
+            <?php endforeach; ?>
+        </div>
+        <?php if ($this->form): ?>
+            <button type="submit" name="action" value="save,<?= $this->waypoint->id ?>">save</button>
+        <?php endif; ?>
+    </section>
+</form>

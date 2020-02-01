@@ -15,6 +15,11 @@ class RoadbookController extends AbstractActionController
     protected $maps;
 
     /**
+     * @var Roadbook
+     */
+    protected $roadbook;
+
+    /**
      * @param Google $maps
      */
     public function __construct(Google $maps)
@@ -24,8 +29,7 @@ class RoadbookController extends AbstractActionController
 
     public function routeAction()
     {
-        $filename = __DIR__ . '/../../data/rim.2020.json';
-        $roadbook = Roadbook::load($filename, Waypoint::class);
+        $roadbook = $this->getRoadbook();
         $selected = Waypoint::create();
 
         if ($this->getRequest()->isPost()) {
@@ -34,15 +38,15 @@ class RoadbookController extends AbstractActionController
 
             switch ($params[0]) {
                 case 'save':
-                    $roadbook->update($post->toArray())->persist($filename);
+                    $roadbook->update($post->toArray())->persist();
                     return $this->redirect()->refresh();
 
                 case 'move':
-                    $roadbook->move($params[1], $params[2])->persist($filename);
+                    $roadbook->move($params[1], $params[2])->persist();
                     return $this->redirect()->refresh();
 
                 case 'delete':
-                    $roadbook->delete($params[1])->persist($filename);
+                    $roadbook->delete($params[1])->persist();
                     return $this->redirect()->refresh();
 
                 case 'cancel':
@@ -51,6 +55,9 @@ class RoadbookController extends AbstractActionController
                 case 'edit':
                     $selected = $roadbook->item($params[1]);
                     break;
+
+                case 'view':
+                    return $this->redirect()->toRoute('roadbook', ['action' => 'waypoint', 'id' => $params[1]]);
             }
         }
 
@@ -58,5 +65,43 @@ class RoadbookController extends AbstractActionController
             'roadbook' => $roadbook,
             'selected' => $selected,
         ]);
+    }
+
+    public function waypointAction()
+    {
+        $id = $this->params()->fromRoute('id');
+        $waypoint = $this->getRoadbook()->item($id);
+
+        if ($this->request->isPost() && $this->params()->fromPost('action')) {
+            $params = explode(',', $this->params()->fromPost('action'));
+            $post = $this->params()->fromPost();
+
+            switch ($params[0]) {
+                case 'save':
+                    $waypoint->comment = $post['comment'];
+
+                    foreach ($waypoint->maps as $i => $map) {
+                        $map->zoom = $post['zoom'][$i];
+                        $map->type = $post['type'][$i];
+                    }
+
+                    $this->getRoadbook()->persist();
+                    return $this->redirect()->refresh();
+            }
+        }
+
+        return new ViewModel([
+            'maps' => $this->maps,
+            'waypoint' => $waypoint,
+        ]);
+    }
+
+    /**
+     * @return Roadbook
+     */
+    protected function getRoadbook(): Roadbook
+    {
+        $filename = __DIR__ . '/../../data/rim.2020.json';
+        return $this->roadbook = $this->roadbook ?? Roadbook::load($filename, Waypoint::class);
     }
 }

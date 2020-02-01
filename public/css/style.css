@@ -18,9 +18,19 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 .5rem 0;
 }
 
-button, input, select {
+p, span {
+    text-transform: capitalize;
+    margin: 2px 0;
+}
+
+strong {
+    text-transform: uppercase;
+}
+
+button, input, select, textarea {
     font: inherit;
     height: 1.5rem;
+    margin: 0;
     min-width: 1.5rem;
     box-sizing: border-box;
 }
@@ -29,4 +39,68 @@ th, td, input::placeholder {
     text-align: left;
     white-space: nowrap;
     text-transform: capitalize;
+}
+
+
+.waypoint > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.waypoint > div > * {
+    margin: 0;
+    width: 32%;
+}
+
+.waypoint img {
+    width: 100%;
+    height: auto;
+}
+
+.waypoint button, input, select, textarea {
+    width: 100%;
+}
+
+.waypoint select {
+    margin: 1rem 0;
+}
+
+.waypoint textarea {
+    height: 100%;
+}
+
+.waypoint .bg {
+    display: table;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.waypoint .bg > div {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.bg.origin {
+    background: rgba(100, 100, 100, .5);
+}
+
+.bg.camping, .bg.bivouac {
+    background: rgba(25, 150, 50, 1);
+}
+
+.bg.checkpoint {
+    background: rgba(50, 150, 175, 1);
+}
+
+.bg.service, .bg.sightseeing {
+    background: rgba(50, 150, 175, .5);
+}
+
+@media screen and (max-height: 480px) {
+    .d-rpi-none {
+        display: none;
+    }
 }

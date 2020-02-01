@@ -4,7 +4,7 @@ namespace Roadbook;
 use HB9HCR\Service\Map\Google;
 use Roadbook\Factory\MapsFactory;
 use Roadbook\Factory\ControllerFactory;
-use Zend\Router\Http\Segment;
+use Laminas\Router\Http\Segment;
 
 return [
     'router' => [
@@ -12,7 +12,7 @@ return [
             'roadbook' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/roadbook[/:action]',
+                    'route'    => '/roadbook[/:action][/:id]',
                     'defaults' => [
                         'controller' => Controller\RoadbookController::class,
                         'action'     => 'index',
