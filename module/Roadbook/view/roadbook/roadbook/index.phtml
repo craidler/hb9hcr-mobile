@@ -40,7 +40,8 @@
     </article>
     <footer class="dg c5">
         <?= $this->partial('pagination', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/roadbook/index', 'prev' => $this->prev, 'next' => $this->next]) ?>
-        <a href="/roadbook/create" class="tc s2">new</a>
+        <a href="/roadbook/create" class="tc">new</a>
+        <a href="/roadbook/edit/<?= $this->waypoint->id ?>" class="tc">edit</a>
         <a href="/roadbook/grid" class="tc">manage</a>
         <a href="/roadbook/file" class="tc s2">select</a>
     </footer>

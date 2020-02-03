@@ -1,0 +1,33 @@
+<section>
+    <form method="post">
+        <header>
+            <h2>Roadbook - Manage</h2>
+        </header>
+        <article>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Date</th>
+                        <th>Region</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($this->collection as $i => $item): ?>
+                        <tr>
+                            <td><?= sprintf('%02d', $i) ?></td>
+                            <td><?= $item->date ?></td>
+                            <td><?= $item->region ?></td>
+                            <td><?= $item->name ?></td>
+                            <td class="p0"><a href="/roadbook/index/<?= $item->id ?>" class="b">view</a> </td>
+                            <td class="p0"><button type="submit" name="action" value="delete,<?= $item->id ?>">delete</button> </td>
+                            <td class="p0"><button type="submit" name="action" value="move,<?= $item->id ?>,0">&uarr;</button> </td>
+                            <td class="p0"><button type="submit" name="action" value="move,<?= $item->id ?>,1">&darr;</button> </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </article>
+    </form>
+</section>

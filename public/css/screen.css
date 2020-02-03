@@ -99,9 +99,11 @@ footer {
     position: absolute;
 }
 
-footer * {
+footer *, td a {
     height: 2rem;
     padding: 0 .5rem;
+    display: block;
+    text-align: center;
     background: #666;
     line-height: 2rem;
 }

@@ -1,0 +1,69 @@
+<section>
+    <form method="post">
+        <header>
+            <h2>Roadbook - New Entry</h2>
+        </header>
+        <article>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Date:</td>
+                        <td class="p0" colspan="2"><input type="date" name="date" value="<?= $this->item ? $this->item->date : null ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Region:</td>
+                        <td class="p0" colspan="2"><input type="text" name="region" value="<?= $this->item ? $this->item->region : null ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td class="p0" colspan="2"><input type="text" name="name" value="<?= $this->item ? $this->item->name : null ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Position:</td>
+                        <td class="p0" colspan="2"><input type="text" name="position" value="<?= $this->item ? $this->item->position : null ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Type:</td>
+                        <td class="p0" colspan="2">
+                            <select name="type">
+                                <?php foreach ($this->types as $type): ?>
+                                    <option value="<?= $type ?>"<?= $this->item && $this->item->type == $type ? ' selected' : '' ?>><?= ucfirst($type) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <?php foreach ([['road', 10], ['road', 14], ['satellite', 18]] as $i => $default): ?>
+                    <tr>
+                        <td>Map <?= $i ?>:</td>
+                        <td class="p0">
+                            <select name="maps[<?= $i ?>][type]">
+                                <?php foreach ($this->maptypes as $type): ?>
+                                    <option value="<?= $type ?>"<?= ($this->item && $this->item->maps[$i]->type == $type) || $type == $default[0] ? ' selected' : '' ?>><?= ucfirst($type) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                        <td class="p0">
+                            <select name="maps[<?= $i ?>][zoom]">
+                                <?php for ($j = 10; $j <= 21; $j++): ?>
+                                    <option value="<?= $j ?>"<?= ($this->item && $this->item->maps[$i]->zoom == $j) || $j == $default[1] ? ' selected' : '' ?>><?= $j ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <tr>
+                        <td>Comment:</td>
+                        <td class="p0" colspan="2">
+                            <input type="text" name="comment" value="<?= $this->item ? $this->item->comment : null ?>">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <footer class="dg c3">
+            <button type="submit" name="action" value="save">save</button>
+            <a href="/roadbook" class="tc">cancel</a>
+            <a href="/roadbook/file" class="tc">select</a>
+        </footer>
+    </form>
+</section>
