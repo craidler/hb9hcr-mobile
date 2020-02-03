@@ -32,7 +32,7 @@ abstract class AbstractController extends AbstractActionController
     {
         $this->config = $config;
         $this->session = $session;
-        $this->collection = $collection = Collection::load($this->getFilename(), FuelItem::class);
+        $this->collection = Collection::load($this->getFilename(), FuelItem::class);
     }
 
     /**

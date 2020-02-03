@@ -1,13 +1,12 @@
 <?php
 namespace Roadbook\Controller;
 
-use HB9HCR\Entity\Roadbook;
+use HB9HCR\Base\Collection;
+use HB9HCR\Entity\Waypoint;
 use HB9HCR\Service\Map\Google as MapService;
 use Laminas\Config\Config;
 use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\Session\Container;
-use Laminas\Session\SessionManager;
-use Roadbook\Module;
 
 abstract class AbstractController extends AbstractActionController
 {
@@ -22,9 +21,9 @@ abstract class AbstractController extends AbstractActionController
     protected $maps;
 
     /**
-     * @var Roadbook
+     * @var Collection
      */
-    protected $roadbook;
+    protected $collection;
 
     /**
      * @var Container
@@ -42,17 +41,14 @@ abstract class AbstractController extends AbstractActionController
         $this->config = $config;
         $this->session = $session;
         $this->maps = $maps;
-
-        if ($this->session->offsetExists('file')) {
-            $this->roadbook = Roadbook::load(sprintf('%s/%s', $this->getDirectory(), $this->session->offsetGet('file')));
-        }
+        $this->collection = Collection::load($this->getFilename(), Waypoint::class);
     }
 
     /**
      * @return string
      */
-    protected function getDirectory(): string
+    protected function getFilename()
     {
-        return $this->config->get('path');
+        return sprintf('%s/%s', $this->config->get('path'), $this->session->offsetGet('file'));
     }
 }

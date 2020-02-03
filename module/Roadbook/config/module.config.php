@@ -10,32 +10,22 @@ return [
     'router' => [
         'routes' => [
             'roadbook' => [
-                'type'    => Segment::class,
+                'type' => Segment::class,
                 'options' => [
-                    'route'    => '/roadbook[/:action]',
-                    'defaults' => [
-                        'controller' => Controller\FileController::class,
-                        'action'     => 'index',
-                    ],
-                ],
-            ],
-            'route' => [
-                'type'    => Segment::class,
-                'options' => [
-                    'route'    => '/route',
+                    'route' => '/roadbook[/:action][/:id]',
                     'defaults' => [
                         'controller' => Controller\RoadbookController::class,
-                        'action'     => 'index',
+                        'action' => 'index',
                     ],
                 ],
             ],
-            'waypoint' => [
-                'type'    => Segment::class,
+            'roadbook/file' => [
+                'type' => Segment::class,
                 'options' => [
-                    'route'    => '/waypoint[/:action][/:id]',
+                    'route' => '/roadbook/file',
                     'defaults' => [
-                        'controller' => Controller\WaypointController::class,
-                        'action'     => 'index',
+                        'controller' => Controller\FileController::class,
+                        'action' => 'index',
                     ],
                 ],
             ],

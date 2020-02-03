@@ -115,8 +115,9 @@ footer * {
 }
 
 .dg {
-    display: grid;
     margin: 0 0 .25rem 0;
+    display: grid;
+    grid-gap: .25rem;
 }
 
 .dt {
@@ -133,11 +134,22 @@ footer * {
 
 .c3 {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: .25rem;
+}
+
+.c5 {
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+}
+
+.s2 {
+    grid-column: span 2;
 }
 
 .mw {
     width: 100%;
+}
+
+.mb25:not(:last-child) {
+    margin-bottom: .25rem;
 }
 
 .fl {
