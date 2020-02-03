@@ -1,42 +1,94 @@
 <?php
+
 namespace Roadbook\Controller;
 
+use HB9HCR\Base\Collection;
 use HB9HCR\Entity\Roadbook;
 use HB9HCR\Entity\Waypoint;
-use HB9HCR\Service\Map\Google;
-use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\View\Model\ViewModel;
 
-class RoadbookController extends AbstractActionController
+class RoadbookController extends AbstractController
 {
-    /**
-     * @var Google
-     */
-    protected $maps;
-
     /**
      * @var Roadbook
      */
     protected $roadbook;
 
     /**
-     * @param Google $maps
+     * @return \Laminas\Http\Response|ViewModel
      */
-    public function __construct(Google $maps)
+    public function indexAction()
     {
-        $this->maps = $maps;
+        if ($this->request->isPost()) {
+            $params = explode(',', $this->params()->fromPost('action'));
+
+            switch ($params[0]) {
+                case 'create':
+                    $item = Roadbook::create();
+                    $item->persist($this->makeFilename($this->params()->fromPost('filename')));
+                    break;
+
+                case 'delete':
+                    unlink($this->makeFilename($params[1]));
+                    break;
+
+                case 'select':
+                    $this->session->offsetSet('filename', $params[1]);
+                    break;
+            }
+
+            return $this->redirect()->refresh();
+        }
+
+        $items = glob($this->getDirectory() . '/*.json');
+        array_walk($items, function (&$item) { $item = basename($item); });
+
+        return new ViewModel([
+            'selected' => $this->session->offsetExists('filename') ? $this->session->offsetGet('filename') : null,
+            'items' => $items
+        ]);
     }
 
+    /**
+     * @return ViewModel
+     */
+    public function roadbookAction()
+    {
+        $roadbook = $this->getRoadbook();
+        $types = $this->getTypes();
+
+        $roadbook = $roadbook->filter(function (Waypoint $waypoint) use ($types) {
+            return $types[$waypoint->type];
+        });
+
+        return new ViewModel([
+            'roadbook' => $roadbook,
+            'maps' => $this->maps,
+        ]);
+    }
+
+    /**
+     * @return \Laminas\Http\Response|ViewModel
+     */
     public function routeAction()
     {
         $roadbook = $this->getRoadbook();
         $selected = Waypoint::create();
+        $types = $this->getTypes();
 
         if ($this->getRequest()->isPost()) {
             $post = $this->getRequest()->getPost();
             $params = explode(',', $post->get('action'));
 
             switch ($params[0]) {
+                case 'export':
+                    return $this->redirect()->toRoute('roadbook', ['action' => 'export']);
+
+                case 'filter':
+                    $types[$post['filter']['type']] = !$types[$post['filter']['type']];
+                    $this->session->offsetSet('type', $types);
+                    return $this->redirect()->refresh();
+
                 case 'save':
                     $roadbook->update($post->toArray())->persist();
                     return $this->redirect()->refresh();
@@ -61,47 +113,29 @@ class RoadbookController extends AbstractActionController
             }
         }
 
+        $roadbook = $roadbook->filter(function (Waypoint $waypoint) use ($types) {
+            return $types[$waypoint->type];
+        });
+
         return new ViewModel([
             'roadbook' => $roadbook,
             'selected' => $selected,
-        ]);
-    }
-
-    public function waypointAction()
-    {
-        $id = $this->params()->fromRoute('id');
-        $waypoint = $this->getRoadbook()->item($id);
-
-        if ($this->request->isPost() && $this->params()->fromPost('action')) {
-            $params = explode(',', $this->params()->fromPost('action'));
-            $post = $this->params()->fromPost();
-
-            switch ($params[0]) {
-                case 'save':
-                    $waypoint->comment = $post['comment'];
-
-                    foreach ($waypoint->maps as $i => $map) {
-                        $map->zoom = $post['zoom'][$i];
-                        $map->type = $post['type'][$i];
-                    }
-
-                    $this->getRoadbook()->persist();
-                    return $this->redirect()->refresh();
-            }
-        }
-
-        return new ViewModel([
+            'types' => $types,
             'maps' => $this->maps,
-            'waypoint' => $waypoint,
         ]);
     }
 
     /**
-     * @return Roadbook
+     * @return array
      */
-    protected function getRoadbook(): Roadbook
+    protected function getTypes(): array
     {
-        $filename = __DIR__ . '/../../data/rim.2020.json';
-        return $this->roadbook = $this->roadbook ?? Roadbook::load($filename, Waypoint::class);
+        $types = array_fill_keys(Waypoint::TYPES, 1);
+
+        if ($this->session->offsetExists('type')) {
+            $types = $this->session->offsetGet('type');
+        }
+
+        return $types;
     }
 }

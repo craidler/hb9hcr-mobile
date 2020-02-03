@@ -12,9 +12,29 @@ return [
             'roadbook' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/roadbook[/:action][/:id]',
+                    'route'    => '/roadbook[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\FileController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'route' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/route',
                     'defaults' => [
                         'controller' => Controller\RoadbookController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'waypoint' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/waypoint[/:action][/:id]',
+                    'defaults' => [
+                        'controller' => Controller\WaypointController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -23,7 +43,9 @@ return [
     ],
     'controllers' => [
         'factories' => [
+            Controller\FileController::class => ControllerFactory::class,
             Controller\RoadbookController::class => ControllerFactory::class,
+            Controller\WaypointController::class => ControllerFactory::class,
         ],
     ],
     'view_manager' => [
@@ -36,7 +58,13 @@ return [
             Google::class => MapsFactory::class,
         ],
         'aliases' => [
-            'GoogleMaps' => Google::class,
+            'MapService' => Google::class,
         ],
+    ],
+    Module::class => [
+        'data' => __DIR__ . '/../../../public/data',
+        'path' => __DIR__ . '/../../../public/data/roadbook',
+        'extension' => 'json',
+        'prefix' => basename(__NAMESPACE__),
     ],
 ];

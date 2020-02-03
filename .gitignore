@@ -2,5 +2,6 @@
 vendor
 data/cache/*.php
 public/data/map/*.png
+public/data/route/*.json
 composer.lock
 !.gitignore

@@ -1,0 +1,41 @@
+<section>
+    <header>
+        <h2>Fuel</h2>
+    </header>
+    <article>
+        <form method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>Odometer</th>
+                        <th>Volume</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($this->collection as $i => $item): ?>
+                    <tr>
+                        <td><?= sprintf('%02d', $i) ?></td>
+                        <td><?= $item->id ?></td>
+                        <td><?= $item->date ?></td>
+                        <td><?= $item->odometer ?></td>
+                        <td><?= $item->volume ?></td>
+                        <td><?= $item->amount ?></td>
+                        <td><?= $item->currency ?></td>
+                        <td class="p0">
+                            <button type="submit" name="action" value="delete,<?= $item->id ?>">delete</button>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </form>
+    </article>
+    <footer class="dg c3">
+        <?= $this->partial('pagination.phtml', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/fuel/grid', 'prev' => $this->prev, 'next' => $this->next]) ?>
+    </footer>
+</section>

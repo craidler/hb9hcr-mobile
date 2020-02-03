@@ -1,0 +1,59 @@
+<section>
+    <header>
+        <h2>Fuel</h2>
+    </header>
+    <article class="dg c3">
+        <div class="dt">
+            <div class="dtc bg origin h3">
+                <p class="f3"><?= sprintf('%d', $this->calculation['volume']) ?><small>l</small></p>
+                <p class="f1 o25">volume &sum;</p>
+            </div>
+        </div>
+        <div class="dt">
+            <div class="dtc bg origin h3">
+                <p class="f3"><?= sprintf('%d', $this->calculation['distance']) ?><small>km</small></p>
+                <p class="f1 o25">distance &sum;</p>
+            </div>
+        </div>
+        <div class="dt">
+            <div class="dtc bg origin h3">
+                <p class="f3"><?= sprintf('%.01f', $this->calculation['consumption']) ?></p>
+                <p class="f1 o25">volume &oslash;</p>
+            </div>
+        </div>
+    </article>
+    <article>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Odometer</th>
+                    <th>Distance</th>
+                    <th>Volume</th>
+                    <th>Volume &sum;</th>
+                    <th>Consumption</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($this->collection as $item): ?>
+            <?php $prev = $this->collection->prev($item) ?>
+            <?php $first = $item === $this->collection->first() ?>
+            <tr>
+                <td><?= $item->date ?></td>
+                <td class="tr"><?= sprintf('%d', $item->odometer) ?></td>
+                <td class="tr"><?= sprintf('%d', $item->distance) ?></td>
+                <td class="tr"><?= sprintf('%d', $item->volume) ?></td>
+                <td class="tr"><?= sprintf('%d', $item->volume_total) ?></td>
+                <td class="tr"><?= sprintf('%.02f', $item->consumption) ?></td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </article>
+    <footer class="dg c3">
+        <?= $this->partial('pagination.phtml', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/fuel/index', 'prev' => $this->prev, 'next' => $this->next]) ?>
+        <a href="/fuel/create" class="tc">new</a>
+        <a href="/fuel/grid" class="tc">manage</a>
+        <a href="/fuel/file" class="tc">select</a>
+    </footer>
+</section>

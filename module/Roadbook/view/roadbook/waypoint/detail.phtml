@@ -1,0 +1,66 @@
+<form method="post">
+    <section id="<?= $this->item->id ?>">
+        <header>
+            <h2>
+                <?= sprintf('Waypoint %s: %s - %s', is_int($this->i) ? sprintf('#%02d', $this->i) : $this->item->id, $this->item->region, $this->item->name) ?>
+            </h2>
+        </header>
+        <article class="dg c3">
+            <div>
+                <div class="dt bg <?= $this->item->type ?>">
+                    <div class="dtc">
+                        <?php if ($this->route): ?>
+                            <p><?= sprintf('%dkm [%s]', $this->route->distance->km, $this->route->duration->hm) ?></p>
+                        <?php endif; ?>
+                        <p class="ttu"><?= $this->item->type ?></p>
+                    </div>
+                </div>
+            </div>
+            <table>
+                <tbody>
+                <?php foreach (['id', 'date', 'position'] as $prop): ?>
+                    <tr>
+                        <td><?= ucfirst($prop) ?></td>
+                        <td><strong><?= $this->item->{$prop} ?></strong></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <div>
+                <?php if ($this->form): ?>
+                    <textarea name="comment"><?= $this->item->comment ?></textarea>
+                <?php else: ?>
+                    <p><?= str_replace("\n", '<br>', $this->item->comment) ?></p>
+                <?php endif; ?>
+            </div>
+        </article>
+        <article class="dg c3">
+            <?php foreach ($this->item->maps as $i => $map): ?>
+                <figure>
+                    <img src="/data/map/<?= $this->maps->image($map)->src ?>" class="map <?= $map->type ?>">
+                    <figcaption class="rpi-hide">
+                        <p>Center: <strong><?= $map->center ?></strong></p>
+                        <p>Marker: <strong><?= $map->markers[0] ?></strong></p>
+                        <p>Type: <strong><?= $map->type ?></strong> Zoom: <strong><?= $map->zoom ?></strong></p>
+                    </figcaption>
+                    <?php if ($this->form): ?>
+                        <select name="type[<?= $i ?>]">
+                            <?php foreach ($map::TYPES as $type): ?>
+                                <option value="<?= $type ?>" <?= $map->type == $type ? ' selected' : '' ?>><?= ucfirst($type) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="range" name="zoom[<?= $i ?>]" min="6" max="21" value="<?= $map->zoom ?>">
+                    <?php endif; ?>
+                </figure>
+            <?php endforeach; ?>
+            <?php if ($this->form): ?>
+                <button type="submit" name="action" value="save,<?= $this->item->id ?>">save</button>
+            <?php endif; ?>
+        </article>
+        <footer class="dg c3">
+            <a href="/waypoint/detail/<?= $this->prev->id ?>" class="tl">&larr;</a>
+            <a href="#<?= $this->item->id ?>" class="tc">&therefore;</a>
+            <a href="/waypoint/detail/<?= $this->next->id ?>" class="tr">&rarr;</a>
+        </footer>
+    </section>
+</form>

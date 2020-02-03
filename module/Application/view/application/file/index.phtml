@@ -1,0 +1,38 @@
+<section>
+    <header>
+        <h2><?= sprintf('%s files', $this->prefix) ?></h2>
+    </header>
+    <article>
+        <form method="post">
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="mw">Filename</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($this->collection as $i => $item): ?>
+                <tr class="<?= $this->selected == $item->getBasename() ? 'a' : '' ?>">
+                    <td><?= sprintf('%02d', $i) ?></td>
+                    <td><?= $item->getBasename() ?></td>
+                    <td class="p0">
+                        <button type="submit" name="action" value="delete,<?= $item->getBasename() ?>">delete</button>
+                    </td>
+                    <td class="p0">
+                        <button type="submit" name="action" value="select,<?= $item->getBasename() ?>">select</button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="p0"><input type="text" name="filename"></td>
+                    <td class="p0"><button type="submit" name="action" value="create">create</button></td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </article>
+</section>

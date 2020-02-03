@@ -1,0 +1,15 @@
+@media print {
+    body {
+        color: initial;
+        display: initial;
+        background: initial;
+    }
+
+    aside {
+        display: none !important;
+    }
+
+    footer {
+        display: none !important;
+    }
+}

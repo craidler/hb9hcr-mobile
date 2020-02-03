@@ -1,0 +1,56 @@
+<section>
+    <header>
+        <h2>Fuel new entry</h2>
+    </header>
+    <article>
+        <form method="post">
+            <table>
+                <tbody>
+                <tr>
+                    <td>Date</td>
+                    <td class="p0"><input type="date" name="date" value="<?= date('Y-m-d') ?>"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Odometer</td>
+                    <td class="p0">
+                        <input type="number" name="odometer" value="">
+                    </td>
+                    <td>km</td>
+                </tr>
+                <tr>
+                    <td>Volume</td>
+                    <td class="p0"><input type="number" name="volume"></td>
+                    <td>l</td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td class="p0"><input type="number" name="amount"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Currency</td>
+                    <td class="p0">
+                        <select name="currency">
+                            <?php foreach (['CHF', 'EUR', 'MAD', 'MRU'] as $currency): ?>
+                                <option value="<?= $currency ?>"><?= $currency ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td class="mw">&nbsp;</td>
+                    <td class="p0">
+                        <button type="submit" name="action" value="create">save</button>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </article>
+    <footer>
+    </footer>
+</section>

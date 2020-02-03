@@ -5,6 +5,8 @@
  * @see https://docs.zendframework.com/tutorials/advanced-config/#environment-specific-system-configuration
  * @see https://docs.zendframework.com/tutorials/advanced-config/#environment-specific-application-configuration
  */
+use Laminas\Session;
+
 return [
     // Retrieve list of modules used in this application.
     'modules' => require __DIR__ . '/modules.config.php',
@@ -59,5 +61,9 @@ return [
 
     // Initial configuration with which to seed the ServiceManager.
     // Should be compatible with Zend\ServiceManager\Config.
-    // 'service_manager' => [],
+    'service_manager' => [
+        'factories' => [
+            Session\SessionManager::class => Session\Service\SessionManagerFactory::class
+        ]
+    ],
 ];

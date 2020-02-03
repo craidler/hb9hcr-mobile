@@ -1,12 +1,12 @@
 <?php
-namespace Roadbook\Factory;
+namespace Fuel\Factory;
 
 use Interop\Container\ContainerInterface;
 use Laminas\Config\Config;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\Session\Container;
 use Laminas\Session\SessionManager;
-use Laminas\ServiceManager\Factory\FactoryInterface;
-use Roadbook\Module;
+use Fuel\Module;
 
 class ControllerFactory implements FactoryInterface
 {
@@ -14,8 +14,7 @@ class ControllerFactory implements FactoryInterface
     {
         return new $requestedName(
             (new Config($container->get(('config'))))->get(Module::class),
-            new Container(Module::class, $container->get(SessionManager::class)),
-            $container->get('MapService')
+            new Container(Module::class, $container->get(SessionManager::class))
         );
     }
 }
