@@ -6,7 +6,7 @@
  */
 namespace Application;
 
-use Roadbook\Factory\MapsFactory;
+use Application\Factory\MapsFactory;
 use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;

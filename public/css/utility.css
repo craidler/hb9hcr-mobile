@@ -25,6 +25,15 @@
     height: calc(6rem + 8px);
 }
 
+/* width */
+.w-0 {
+    width: 1%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
 /* display */
 .db {
     display: block;

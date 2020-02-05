@@ -1,5 +1,5 @@
 <?php
-namespace Roadbook\Factory;
+namespace Application\Factory;
 
 use HB9HCR\Service\Map\Google;
 use Interop\Container\ContainerInterface;

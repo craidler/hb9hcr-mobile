@@ -40,7 +40,7 @@ class ControllerFactory implements FactoryInterface
         }
 
         if ($controller instanceof UsesMaps) {
-            $controller->setMaps($container->get('GoogleMaps'));
+            $controller->setMaps($container->get('Maps'));
         }
 
         return $controller;

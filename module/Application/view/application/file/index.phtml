@@ -1,19 +1,21 @@
-<form method="post">
-    <header class="dt h-2">
-        <h2><?= sprintf('%s files', $this->prefix) ?></h2>
-    </header>
-    <article>
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th class="w-100">Filename</th>
-                </tr>
-            </thead>
+<header class="dt h-2">
+    <h2><?= sprintf('%s files', $this->prefix) ?></h2>
+</header>
+<article>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th class="w-100">Filename</th>
+            </tr>
+        </thead>
+        <form method="post">
             <tbody>
                 <?php foreach ($this->collection as $i => $item): ?>
                     <tr class="<?= $this->selected == $item->getBasename() ? 'a' : '' ?>">
                         <td><?= sprintf('%02d', $i) ?></td>
+                        <td><?= date('Y-m-d H:i:s', $item->getCtime()) ?></td>
                         <td><?= $item->getBasename() ?></td>
                         <td class="p-0">
                             <button type="submit" name="action" value="delete,<?= $item->getBasename() ?>">delete</button>
@@ -24,15 +26,17 @@
                     </tr>
                 <?php endforeach; ?>
             </tbody>
-            <tfoot>
+        </form>
+        <form method="post">
+            <tbody>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td class="p-0"><input type="text" name="filename"></td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="p-0 w-100"><input type="text" name="filename" required></td>
                     <td class="p-0">
                         <button type="submit" name="action" value="create">create</button>
                     </td>
                 </tr>
-            </tfoot>
-        </table>
-    </article>
-</form>
+            </tbody>
+        </form>
+    </table>
+</article>

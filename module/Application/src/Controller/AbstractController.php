@@ -18,6 +18,11 @@ abstract class AbstractController extends AbstractActionController implements Us
     protected $config;
 
     /**
+     * @var Collection
+     */
+    protected $collection;
+
+    /**
      * @var Container
      */
     protected $session;
@@ -68,7 +73,7 @@ abstract class AbstractController extends AbstractActionController implements Us
 
             switch ($action[0]) {
                 case 'create':
-                    touch($this->makeFilename($this->params()->fromPost('filename')));
+                    touch($this->getPath() . '/' . $this->makeFilename($this->params()->fromPost('filename')));
                     break;
 
                 case 'delete':
@@ -101,37 +106,51 @@ abstract class AbstractController extends AbstractActionController implements Us
     /**
      * @return Collection
      */
-    protected function getCollection(): Collection
+    public function getCollection(): Collection
     {
-        return $this->collection ?? $this->collection = Collection::load($this->getFilename());
+        return $this->collection ?? $this->collection = Collection::load($this->getFile());
     }
 
     /**
      * @return string
      */
-    protected function getFilename(): string
+    public function getExtension(): string
     {
-        $this->session->offsetSet('file', $this->session->offsetExists('file') ? $this->session->offsetGet('file') : null);
-
-        return sprintf(
-            '%s/%s',
-            $this->getPath(),
-            $this->session->offsetGet('file') ?? 'default.' . $this->config->get('extension')
-        );
+        return $this->getConfig()->get('extension', 'json');
     }
 
     /**
      * @return string
      */
-    protected function getPath(): string
+    public function getFile(): string
     {
-        return $this->config->get('path');
+        $session = $this->getSession();
+        if (!$session->offsetExists('file')) $session->offsetSet('file', $this->getFiles()[0]);
+        return $session->offsetGet('file');
+    }
+
+    /**
+     * @return array
+     */
+    public function getFiles(): array
+    {
+        $files = glob(sprintf('%s/*.%s', $this->getPath(), $this->getExtension()));
+        if (!$files) $files[] = 'default.' . $this->getExtension();
+        return $files;
     }
 
     /**
      * @return string
      */
-    protected function getPrefix(): string
+    public function getPath(): string
+    {
+        return $this->getConfig()->get('path');
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrefix(): string
     {
         return explode('\\', get_called_class())[0];
     }
@@ -140,13 +159,12 @@ abstract class AbstractController extends AbstractActionController implements Us
      * @param string $filename
      * @return string
      */
-    protected function makeFilename(string $filename)
+    public function makeFilename(string $filename): string
     {
         return sprintf(
-            '%s/%s.%s',
-            $this->getPath(),
-            str_replace('.' . $this->config->get('extension'), '', $filename),
-            $this->config->get('extension')
+            '%s.%s',
+            str_replace('.' . $this->getExtension(), '', empty($filename) ? 'default' : $filename),
+            $this->getExtension()
         );
     }
 }
