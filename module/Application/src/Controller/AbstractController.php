@@ -2,12 +2,13 @@
 namespace Application\Controller;
 
 use GlobIterator;
+use HB9HCR\Base\Collection;
 use Laminas\Config\Config;
 use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\Session\Container;
 use Laminas\View\Model\ViewModel;
 
-abstract class AbstractFileController extends AbstractActionController
+abstract class AbstractController extends AbstractActionController
 {
     /**
      * @var Config
@@ -33,7 +34,7 @@ abstract class AbstractFileController extends AbstractActionController
     /**
      * @return \Laminas\Http\Response|ViewModel
      */
-    public function indexAction()
+    public function fileAction()
     {
         if ($this->request->isPost()) {
             $action = explode(',', $this->params()->fromPost('action'));
@@ -68,6 +69,28 @@ abstract class AbstractFileController extends AbstractActionController
         $view->setTemplate('application/file/index.phtml');
 
         return $view;
+    }
+
+    /**
+     * @return Collection
+     */
+    protected function getCollection(): Collection
+    {
+        return $this->collection ?? $this->collection = Collection::load($this->getFilename());
+    }
+
+    /**
+     * @return string
+     */
+    protected function getFilename(): string
+    {
+        $this->session->offsetSet('file', $this->session->offsetExists('file') ? $this->session->offsetGet('file') : null);
+        return sprintf(
+            '%s/%s.%s',
+            $this->config->get('path'),
+            $this->session->offsetGet('file') ?? 'default',
+            $this->config->get('extension')
+        );
     }
 
     /**

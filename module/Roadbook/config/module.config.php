@@ -24,7 +24,7 @@ return [
                 'options' => [
                     'route' => '/roadbook/file',
                     'defaults' => [
-                        'controller' => Controller\FileController::class,
+                        'controller' => Controller\Controller::class,
                         'action' => 'index',
                     ],
                 ],
@@ -33,7 +33,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\FileController::class => ControllerFactory::class,
+            Controller\Controller::class => ControllerFactory::class,
             Controller\RoadbookController::class => ControllerFactory::class,
             Controller\WaypointController::class => ControllerFactory::class,
         ],

@@ -1,0 +1,9 @@
+<header class="dt h-2">
+    <h2>Diary</h2>
+</header>
+<footer class="dg c-3">
+    <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/diary/index', 'prev' => $this->prev, 'next' => $this->next]) ?>
+    <a href="/diary/create">new</a>
+    <a href="/diary/grid">manage</a>
+    <a href="/diary/file">select</a>
+</footer>

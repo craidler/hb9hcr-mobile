@@ -1,6 +1,7 @@
 <?php
 namespace Fuel\Controller;
 
+use Application\Controller\AbstractController;
 use HB9HCR\Base\Collection;
 use Laminas\View\Model\ViewModel;
 
@@ -15,8 +16,9 @@ class FuelController extends AbstractController
      */
     public function indexAction()
     {
-        $first = $this->collection->first();
-        $last = $this->collection->last();
+        $collection = $this->getCollection();
+        $first = $collection->first();
+        $last = $collection->last();
 
         $calculation = [
             'volume' => 0,
@@ -24,15 +26,15 @@ class FuelController extends AbstractController
             'consumption' => 0,
         ];
 
-        foreach ($this->collection as $i => $item) if (0 < $i) $calculation['volume'] += $item->volume;
+        foreach ($collection as $i => $item) if (0 < $i) $calculation['volume'] += $item->volume;
         $calculation['consumption'] = $calculation['distance'] ? ($calculation['volume'] / $calculation['distance']) * 100 : 0;
 
-        $collection = Collection::create();
+        $calculated = Collection::create();
 
-        foreach ($this->collection as $item) {
-            $prev = $this->collection->prev($item);
-            $last = $collection->last();
-            $collection->append([
+        foreach ($collection as $item) {
+            $prev = $collection->prev($item);
+            $last = $calculated->last();
+            $calculated->append([
                 'date' => $item->date,
                 'odometer' => $item->odometer,
                 'distance' => $item === $first ? 0 : $item->odometer - $prev->odometer,
@@ -44,7 +46,7 @@ class FuelController extends AbstractController
 
         return new ViewModel(array_merge([
             'calculation' => $calculation,
-        ], $collection->reverse()->page(5, $this->params()->fromRoute('id', 0))));
+        ], $calculated->reverse()->page(5, $this->params()->fromRoute('id', 0))));
     }
 
     /**
@@ -53,8 +55,7 @@ class FuelController extends AbstractController
     public function createAction()
     {
         if ($this->request->isPost()) {
-            $this->collection->append($this->params()->fromPost());
-            $this->collection->persist();
+            $this->getCollection()->append($this->params()->fromPost())->persist();
             return $this->redirect()->toRoute('fuel');
         }
 
@@ -73,13 +74,13 @@ class FuelController extends AbstractController
 
             switch ($params[0]) {
                 case 'delete':
-                    $this->collection->delete($params[1])->persist();
+                    $this->getCollection()->delete($params[1])->persist();
                     break;
             }
 
             return $this->redirect()->refresh();
         }
 
-        return new ViewModel(array_merge([], $this->collection->reverse()->page(10, $this->params()->fromRoute('id'))));
+        return new ViewModel(array_merge([], $this->getCollection()->reverse()->page(10, $this->params()->fromRoute('id'))));
     }
 }

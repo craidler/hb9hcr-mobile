@@ -17,26 +17,12 @@ return [
                     ],
                 ],
             ],
-            'fuel/file' => [
-                'type' => Segment::class,
-                'options' => [
-                    'route' => '/fuel/file',
-                    'defaults' => [
-                        'controller' => Controller\FileController::class,
-                        'action' => 'index',
-                    ],
-                ],
-            ],
         ],
     ],
     'controllers' => [
         'factories' => [
             Controller\FuelController::class => ControllerFactory::class,
-            Controller\FileController::class => ControllerFactory::class,
         ],
-        'aliases' => [
-            'filemanager' => Controller\FileController::class,
-        ]
     ],
     'view_manager' => [
         'template_path_stack' => [

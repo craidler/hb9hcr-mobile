@@ -48,7 +48,7 @@
         </table>
     </article>
     <footer class="dg c-3">
-        <?= $this->partial('pagination.phtml', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/fuel/index', 'prev' => $this->prev, 'next' => $this->next]) ?>
+        <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/fuel/index', 'prev' => $this->prev, 'next' => $this->next]) ?>
         <a href="/fuel/create">new</a>
         <a href="/fuel/grid">manage</a>
         <a href="/fuel/file">select</a>
