@@ -3,6 +3,7 @@ namespace Roadbook\Controller;
 
 use Application\Controller\AbstractController;
 use Application\Feature\UsesMaps;
+use Application\Model\Collection;
 use HB9HCR\Entity\Map;
 use HB9HCR\Entity\Waypoint;
 use HB9HCR\Service\Map\Google as Maps;
@@ -126,5 +127,12 @@ class RoadbookController extends AbstractController implements UsesMaps
             'route' => $this->maps->route($this->collection->prev($waypoint), $waypoint),
             'maps' => $this->getMaps(),
         ], $page));
+    }
+
+    public function testAction()
+    {
+        $list = Collection::load(__DIR__ . '/default.json')->reverse()->slice(0, 2);
+        var_dump($list->last());
+        exit;
     }
 }
