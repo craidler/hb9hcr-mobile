@@ -20,12 +20,12 @@ class FuelController extends AbstractController
 
         $calculation = [
             'volume' => 0,
-            'distance' => $last->odometer - $first->odometer,
+            'distance' => $last && $first ? $last->odometer - $first->odometer : 0,
             'consumption' => 0,
         ];
 
         foreach ($this->collection as $i => $item) if (0 < $i) $calculation['volume'] += $item->volume;
-        $calculation['consumption'] = ($calculation['volume'] / $calculation['distance']) * 100;
+        $calculation['consumption'] = $calculation['distance'] ? ($calculation['volume'] / $calculation['distance']) * 100 : 0;
 
         $collection = Collection::create();
 
