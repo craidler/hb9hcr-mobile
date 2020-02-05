@@ -1,6 +1,8 @@
 <?php
 namespace Application\Controller;
 
+use Application\Feature\UsesConfig;
+use Application\Feature\UsesSession;
 use GlobIterator;
 use HB9HCR\Base\Collection;
 use Laminas\Config\Config;
@@ -8,7 +10,7 @@ use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\Session\Container;
 use Laminas\View\Model\ViewModel;
 
-abstract class AbstractController extends AbstractActionController
+abstract class AbstractController extends AbstractActionController implements UsesConfig, UsesSession
 {
     /**
      * @var Config
@@ -21,14 +23,39 @@ abstract class AbstractController extends AbstractActionController
     protected $session;
 
     /**
-     * FileController constructor.
-     * @param Config $config
-     * @param Container $session
+     * @return Config
      */
-    public function __construct(Config $config, Container $session)
+    public function getConfig(): Config
+    {
+        return $this->config;
+    }
+
+    /**
+     * @param Config $config
+     * @return $this
+     */
+    public function setConfig(Config $config)
     {
         $this->config = $config;
+        return $this;
+    }
+
+    /**
+     * @return Container
+     */
+    public function getSession(): Container
+    {
+        return $this->session;
+    }
+
+    /**
+     * @param Container $session
+     * @return $this
+     */
+    public function setSession(Container $session)
+    {
         $this->session = $session;
+        return $this;
     }
 
     /**
@@ -61,7 +88,7 @@ abstract class AbstractController extends AbstractActionController
 
         $view = new ViewModel([
             'path' => $path,
-            'prefix' => $this->config->get('prefix'),
+            'prefix' => $this->getPrefix(),
             'selected' => $this->session->offsetExists('file') ? $this->session->offsetGet('file') : null,
             'collection' => $collection,
         ]);
@@ -99,6 +126,14 @@ abstract class AbstractController extends AbstractActionController
     protected function getPath(): string
     {
         return $this->config->get('path');
+    }
+
+    /**
+     * @return string
+     */
+    protected function getPrefix(): string
+    {
+        return explode('\\', get_called_class())[0];
     }
 
     /**

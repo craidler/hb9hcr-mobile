@@ -1,7 +1,7 @@
 <?php
 namespace Diary;
 
-use Diary\Factory\ControllerFactory;
+use Application\Factory\ControllerFactory;
 use Laminas\Router\Http\Segment;
 use Diary\Controller;
 
@@ -42,7 +42,6 @@ return [
     ],
     Module::class => [
         'path' => __DIR__ . '/../../../public/data/diary',
-        'prefix' => 'Diary',
         'extension' => 'json',
     ],
 ];

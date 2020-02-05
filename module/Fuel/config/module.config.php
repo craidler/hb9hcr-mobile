@@ -1,8 +1,8 @@
 <?php
 namespace Fuel;
 
+use Application\Factory\ControllerFactory;
 use Laminas\Router\Http\Segment;
-use Fuel\Factory\ControllerFactory;
 
 return [
     'router' => [
@@ -31,7 +31,6 @@ return [
     ],
     Module::class => [
         'path' => __DIR__ . '/../../../public/data/fuel',
-        'prefix' => 'Fuel',
         'extension' => 'json',
     ],
 ];

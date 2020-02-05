@@ -3,9 +3,7 @@ namespace Roadbook\Factory;
 
 use HB9HCR\Service\Map\Google;
 use Interop\Container\ContainerInterface;
-use Laminas\Config\Config;
 use Laminas\ServiceManager\Factory\FactoryInterface;
-use Roadbook\Module;
 
 class MapsFactory implements FactoryInterface
 {
@@ -17,13 +15,7 @@ class MapsFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $config = (new Config($container->get(('config'))))->get(Module::class);
-
-        Google::configure([
-            'cache' => $config->get('data'),
-            'key' => $config->get('key'),
-        ]);
-
+        Google::configure($container->get('config')[$requestedName]);
         return Google::instance();
     }
 }

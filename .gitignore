@@ -3,6 +3,6 @@ vendor
 data/cache/*.php
 public/data/map/*.png
 public/data/route/*.json
-module/Roadbook/config/api.key
+module/Application/config/api.key
 composer.lock
 !.gitignore

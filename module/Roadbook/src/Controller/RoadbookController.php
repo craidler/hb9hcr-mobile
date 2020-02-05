@@ -1,16 +1,42 @@
 <?php
 namespace Roadbook\Controller;
 
+use Application\Controller\AbstractController;
+use Application\Feature\UsesMaps;
 use HB9HCR\Entity\Map;
 use HB9HCR\Entity\Waypoint;
+use HB9HCR\Service\Map\Google as Maps;
 use Laminas\View\Model\ViewModel;
 
 /**
  * Class RoadbookController
  * @package Roadbook\Controller
  */
-class RoadbookController extends AbstractController
+class RoadbookController extends AbstractController implements UsesMaps
 {
+    /**
+     * @var Maps
+     */
+    private $maps;
+
+    /**
+     * @return Maps
+     */
+    public function getMaps(): Maps
+    {
+        return $this->maps;
+    }
+
+    /**
+     * @param Maps $maps
+     * @return $this
+     */
+    public function setMaps(Maps $maps)
+    {
+        $this->maps = $maps;
+        return $this;
+    }
+
     /**
      * @return \Laminas\Http\Response|ViewModel
      */
@@ -98,7 +124,7 @@ class RoadbookController extends AbstractController
         return new ViewModel(array_merge([
             'waypoint' => $waypoint,
             'route' => $this->maps->route($this->collection->prev($waypoint), $waypoint),
-            'maps' => $this->maps,
+            'maps' => $this->getMaps(),
         ], $page));
     }
 }
