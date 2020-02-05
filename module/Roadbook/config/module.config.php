@@ -52,6 +52,7 @@ return [
         ],
     ],
     Module::class => [
+        'key' => file_exists(__DIR__ . '/api.key') ? file_get_contents(__DIR__ . '/api.key') : '',
         'data' => __DIR__ . '/../../../public/data',
         'path' => __DIR__ . '/../../../public/data/roadbook',
         'extension' => 'json',

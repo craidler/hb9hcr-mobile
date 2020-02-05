@@ -17,9 +17,11 @@ class MapsFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
+        $config = (new Config($container->get(('config'))))->get(Module::class);
+
         Google::configure([
-            'cache' => (new Config($container->get(('config'))))->get(Module::class)->get('data'),
-            'key' => 'AIzaSyASv1hxoflfS4zj9G0P9TZ6SRso5mjfqUc',
+            'cache' => $config->get('data'),
+            'key' => $config->get('key'),
         ]);
 
         return Google::instance();
