@@ -45,7 +45,7 @@ abstract class AbstractController extends AbstractActionController
                     break;
 
                 case 'delete':
-                    unlink($this->makeFilename($action[1]));
+                    unlink($this->getPath() . '/' . $action[1]);
                     break;
 
                 case 'select':
@@ -85,12 +85,20 @@ abstract class AbstractController extends AbstractActionController
     protected function getFilename(): string
     {
         $this->session->offsetSet('file', $this->session->offsetExists('file') ? $this->session->offsetGet('file') : null);
+
         return sprintf(
-            '%s/%s.%s',
-            $this->config->get('path'),
-            $this->session->offsetGet('file') ?? 'default',
-            $this->config->get('extension')
+            '%s/%s',
+            $this->getPath(),
+            $this->session->offsetGet('file') ?? 'default.' . $this->config->get('extension')
         );
+    }
+
+    /**
+     * @return string
+     */
+    protected function getPath(): string
+    {
+        return $this->config->get('path');
     }
 
     /**
@@ -101,7 +109,7 @@ abstract class AbstractController extends AbstractActionController
     {
         return sprintf(
             '%s/%s.%s',
-            $this->config->get('path'),
+            $this->getPath(),
             str_replace('.' . $this->config->get('extension'), '', $filename),
             $this->config->get('extension')
         );
