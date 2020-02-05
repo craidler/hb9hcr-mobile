@@ -15,6 +15,6 @@ return [
     'Zend\Validator',
     'Application',
     'Roadbook',
-    'Data',
+    'Diary',
     'Fuel',
 ];

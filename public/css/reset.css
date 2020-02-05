@@ -1,0 +1,13 @@
+* {
+    font: 400 1rem monospace;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 2rem;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

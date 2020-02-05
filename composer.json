@@ -26,7 +26,7 @@
     "psr-4": {
       "Application\\": "module/Application/src",
       "Roadbook\\": "module/Roadbook/src",
-      "Data\\": "module/Data/src",
+      "Diary\\": "module/Diary/src",
       "Fuel\\": "module/Fuel/src"
     }
   }

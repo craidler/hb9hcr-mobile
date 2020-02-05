@@ -1,227 +1,89 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
 body {
-    font: 400 1rem monospace;
     color: #fff;
-    display: grid;
-    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
     background: #333;
-    grid-template-columns: 100px auto;
 }
 
 aside {
     top: 0;
+    width: 100px;
     height: 100vh;
-    position: sticky;
-    background: rgba(68, 68, 68, .5);
+    position: fixed;
+}
+
+aside nav {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+aside nav * {
+    background: #444;
+}
+
+aside nav a {
+    background: #555;
+    margin-bottom: 4px;
 }
 
 main {
-    padding: 0 .25rem;
+    margin: 0 4px 0 calc(104px);
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    height: 2rem;
-    line-height: 2rem;
-    margin-bottom: .25rem;
-}
-
-a {
-    color: inherit;
-    text-decoration: inherit;
-}
-
-nav ul {
-    margin: -.25rem 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-nav li {
-    margin: .25rem 0;
-}
-
-nav a {
-    height: 2rem;
-    display: block;
-    padding: 0 1rem;
-    background: #666;
-    line-height: 2rem;
-    text-transform: uppercase;
-}
-
-table {
-    width: calc(100% + .5rem);
-    margin: -.25rem;
-    border-spacing: .25rem;
-}
-
-td, th {
-    height: 2rem;
-    padding: 0 .5rem;
-    text-align: left;
-    white-space: nowrap;
-}
-
-td button, td input, td select {
-    width: 100%;
-}
-
-tbody tr:nth-child(odd) {
-    background: rgba(68, 68, 68, .5);
-}
-
-button, input, select, textarea {
-    font: inherit;
-    color: #fff;
-    border: 1px solid #666;
-    height: 2rem;
-    padding: .5rem;
-    background: #666;
-    vertical-align: top;
-}
-
-input, select {
-    background: #444;
-}
-
-img {
-    width: 100%;
-    height: auto;
+header * {
+    font-size: 2rem;
 }
 
 footer {
-    width: calc(100vw - 100px - .5rem);
-    bottom: 0;
+    right: 4px;
+    width: calc(100% - 108px);
+    bottom: 4px;
     position: absolute;
 }
 
-footer *, td a {
+header {
+    margin: 0 0 4px 0;
+}
+
+table {
+    margin: -4px;
+    width: calc(100% + 8px);
+    border-spacing: 4px;
+}
+
+td button, td input, td select, img {
+    width: 100%;
     height: 2rem;
-    padding: 0 .5rem;
-    display: block;
-    text-align: center;
-    background: #666;
-    line-height: 2rem;
 }
 
-.o25, small {
-    opacity: .25;
+img {
+    height: auto;
 }
 
-.a {
-    background: #107dac !important;
+button, input, select, textarea, th, td, p, a, aside div {
+    padding: 0 6px;
 }
 
-.dg {
-    margin: 0 0 .25rem 0;
-    display: grid;
-    grid-gap: .25rem;
-}
-
-.dt {
-    width: 100%;
-    height: 100%;
-    display: table;
-}
-
-.dtc {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.c3 {
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.c5 {
-    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-}
-
-.s2 {
-    grid-column: span 2;
-}
-
-.mw {
-    width: 100%;
-}
-
-.mb25:not(:last-child) {
-    margin-bottom: .25rem;
-}
-
-.fl {
-    float: left;
-}
-
-.fr {
-    float: right;
-}
-
-.tl {
-    text-align: left;
-}
-
-.tc {
-    text-align: center;
-}
-
-.tr {
-    text-align: right;
-}
-
-.ttu {
-    text-transform: uppercase;
-}
-
-.m0, .dg p {
-    margin: 0;
-}
-
-.p0 {
-    padding: 0;
-}
-
-.h3 {
-    height: 6.5rem
-}
-
-.f1 {
-    font-size: 1rem;
-    line-height: 1rem;
-    height: 1rem;
-}
-
-.f3 {
-    font-size: 3rem;
-    line-height: 3rem;
-    height: 3rem;
-}
-
-.bg0 {
-    background: transparent !important;
-}
-
-.bg.origin {
+button, input, select, textarea, footer a {
+    border: 1px solid #555;
     background: #444;
 }
 
-.bg.checkpoint {
-    background: #189ad3;
+th, td {
+    text-align: left;
 }
 
-.bg.service, .bg.sighseeing, .bg.break {
-    background: rgba(24, 154, 211, .5);
+button, footer a, td a, .bg {
+    display: block;
+    background: #555;
+    text-align: center;
 }
 
-.bg.camping, .bg.bivouac {
-    background: #3f8f12;
+.bg-5 {
+    background: rgba(85, 85, 85, .5);
 }
 
-::selection {
-    background: #107dac;
+.a, .a td {
+    background: rgba(100, 149, 237, .5);
 }

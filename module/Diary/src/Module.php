@@ -1,5 +1,5 @@
 <?php
-namespace Data;
+namespace Diary;
 
 /**
  * Class Module
