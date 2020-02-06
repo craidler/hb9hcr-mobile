@@ -1,7 +1,5 @@
 <form method="post">
-    <header class="dt h-2">
-        <h2>Roadbook - Manage</h2>
-    </header>
+    <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file ]) ?>
     <article>
         <table>
             <thead>
@@ -13,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($this->collection as $i => $item): ?>
+                <?php foreach ($this->page as $i => $item): ?>
                     <tr>
                         <td><?= sprintf('%02d', $i) ?></td>
                         <td><?= $item->date ?></td>
@@ -28,4 +26,7 @@
             </tbody>
         </table>
     </article>
+    <footer class="dg c-5">
+        <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'url' => '/roadbook/grid', 'col' => 5]) ?>
+    </footer>
 </form>

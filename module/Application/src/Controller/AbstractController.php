@@ -132,7 +132,7 @@ abstract class AbstractController extends AbstractActionController implements Us
 
         return $this->getView([
             'action' => 'grid',
-            'page' => Page::createFromCollection($this->getCollection()->reverse(), 10, $this->params()->fromRoute('id', 0)),
+            'page' => Page::createFromCollection($this->getCollection(), 10, $this->params()->fromRoute('id', 0)),
         ]);
     }
 
