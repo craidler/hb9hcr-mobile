@@ -1,0 +1,34 @@
+<form method="post">
+    <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file ]) ?>
+    <article>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Date</td>
+                    <td class="p-0" colspan="2"><input type="date" name="date" value="<?= date('Y-m-d') ?>"></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td class="p-0" colspan="2"><input type="text" name="location" value=""></td>
+                </tr>
+                <tr>
+                    <td>Position</td>
+                    <td class="p-0" colspan="2"><input type="text" name="position" value=""></td>
+                </tr>
+                <tr>
+                    <td>Headline</td>
+                    <td class="p-0" colspan="2"><input type="text" name="headline" value=""></td>
+                </tr>
+                <tr>
+                    <td class="vt">Text</td>
+                    <td class="p-0 w-100" colspan="2"><textarea name="text" class="h-4"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+    <footer class="dg c-3">
+        <p>&nbsp;</p>
+        <button type="submit" name="action" value="save">save</button>
+        <a href="<?= $this->url('diary') ?>">cancel</a>
+    </footer>
+</form>

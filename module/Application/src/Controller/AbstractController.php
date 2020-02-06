@@ -4,7 +4,8 @@ namespace Application\Controller;
 use Application\Feature\UsesConfig;
 use Application\Feature\UsesSession;
 use GlobIterator;
-use HB9HCR\Base\Collection;
+// use HB9HCR\Base\Collection;
+use Application\Model\Collection;
 use Laminas\Config\Config;
 use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\Session\Container;
@@ -108,7 +109,7 @@ abstract class AbstractController extends AbstractActionController implements Us
      */
     public function getCollection(): Collection
     {
-        return $this->collection ?? $this->collection = Collection::load($this->getFile());
+        return $this->collection ?? $this->collection = Collection::load($this->getPath() . '/' . $this->getFile());
     }
 
     /**
@@ -125,7 +126,7 @@ abstract class AbstractController extends AbstractActionController implements Us
     public function getFile(): string
     {
         $session = $this->getSession();
-        if (!$session->offsetExists('file')) $session->offsetSet('file', $this->getFiles()[0]);
+        if (!$session->offsetExists('file')) $session->offsetSet('file', basename($this->getFiles()[0]));
         return $session->offsetGet('file');
     }
 
@@ -153,6 +154,18 @@ abstract class AbstractController extends AbstractActionController implements Us
     public function getPrefix(): string
     {
         return explode('\\', get_called_class())[0];
+    }
+
+    /**
+     * @param array $data
+     * @return ViewModel
+     */
+    public function getView(array $data = []): ViewModel
+    {
+        return new ViewModel(array_merge([
+            'prefix' => $this->getPrefix(),
+            'file' => $this->getFile(),
+        ], $data));
     }
 
     /**

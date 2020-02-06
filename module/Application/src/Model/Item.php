@@ -32,7 +32,7 @@ class Item extends ArrayObject
 
     /**
      * @param string $name
-     * @param array $arguments
+     * @param array  $arguments
      * @return mixed|null
      */
     public function __call(string $name, array $arguments)
@@ -50,7 +50,7 @@ class Item extends ArrayObject
     }
 
     /**
-     * @param string $name
+     * @param string     $name
      * @param mixed|null $value
      */
     public function __set(string $name, $value)
@@ -63,6 +63,13 @@ class Item extends ArrayObject
      */
     public function exchangeArray($input)
     {
-        parent::exchangeArray(array_merge($this->getArrayCopy(), $input));
+        foreach ($input as $k => $v) {
+            if (!is_numeric($v)) continue;
+            $input[$k] = 0 === fmod($v, 1) ? (int)$v : (double)$v;
+        }
+
+        parent::exchangeArray(array_merge($this->getArrayCopy(), array_filter($input, function ($k) {
+            return !in_array($k, ['action']);
+        }, ARRAY_FILTER_USE_KEY)));
     }
 }

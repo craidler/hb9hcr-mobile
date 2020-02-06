@@ -1,3 +1,6 @@
-<a href="<?= $this->url ?>/<?= $this->prev ?>" class="tl<?= 0 == $this->page ? ' o-25' : '' ?>">&larr;</a>
-<p class="tc"><?= sprintf('%d / %d', $this->page + 1, $this->pages) ?></p>
-<a href="<?= $this->url ?>/<?= $this->next ?>" class="tr<?= $this->page + 1 >= $this->pages ? ' o-25' : '' ?>">&rarr;</a>
+<?php use Application\Model\Page; ?>
+<?php if ($this->page instanceof Page): ?>
+    <a href="<?= $this->url ?>/<?= $this->page->prev ?>" class="tl<?= $this->page->current == $this->page->first ? ' o-25' : '' ?>">&larr;</a>
+    <p class="tc"><?= sprintf('%02d / %02d', $this->page->current + 1, $this->page->pages) ?></p>
+    <a href="<?= $this->url ?>/<?= $this->page->next ?>" class="tr<?= $this->page->current == $this->page->last ? ' o-25' : '' ?>">&rarr;</a>
+<?php endif; ?>

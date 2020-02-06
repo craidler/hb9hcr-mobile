@@ -25,6 +25,10 @@
     height: calc(6rem + 8px);
 }
 
+.h-4 {
+    height: calc(8rem + 12px);
+}
+
 /* width */
 .w-0 {
     width: 1%;
@@ -145,4 +149,16 @@
 /* miscellaneous */
 .vb {
     vertical-align: bottom;
+}
+
+.vt {
+    vertical-align: top;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
 }

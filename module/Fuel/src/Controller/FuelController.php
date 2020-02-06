@@ -17,6 +17,9 @@ class FuelController extends AbstractController
     public function indexAction()
     {
         $collection = $this->getCollection();
+        if (!$collection->count()) return $this->redirect()->toRoute('fuel', ['action' => 'create']);
+
+
         $first = $collection->first();
         $last = $collection->last();
 
@@ -55,13 +58,11 @@ class FuelController extends AbstractController
     public function createAction()
     {
         if ($this->request->isPost()) {
-            $this->getCollection()->append($this->params()->fromPost())->persist();
+            $this->getCollection()->handle($this->params()->fromPost())->persist();
             return $this->redirect()->toRoute('fuel');
         }
 
-        return new ViewModel([
-
-        ]);
+        return $this->getView(['action' => 'create'])->setTemplate('fuel/form');
     }
 
     /**

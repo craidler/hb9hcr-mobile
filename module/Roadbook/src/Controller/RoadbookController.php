@@ -4,6 +4,7 @@ namespace Roadbook\Controller;
 use Application\Controller\AbstractController;
 use Application\Feature\UsesMaps;
 use Application\Model\Collection;
+use Application\Model\Page;
 use HB9HCR\Entity\Map;
 use HB9HCR\Entity\Waypoint;
 use HB9HCR\Service\Map\Google as Maps;
@@ -129,10 +130,21 @@ class RoadbookController extends AbstractController implements UsesMaps
         ], $page));
     }
 
+    /**
+     * @return void
+     */
     public function testAction()
     {
-        $list = Collection::load(__DIR__ . '/default.json')->reverse()->slice(0, 2);
-        var_dump($list->last());
+        $list = Collection::load(__DIR__ . '/default.json');
+        /*
+        $list->append(['id' => 0, 'name' => 'Christof']);
+        $list->append(['id' => 1, 'name' => 'Christof']);
+        $list->append(['id' => 2, 'name' => 'Christof']);
+        $list->persist();
+        exit;
+        */
+        $page = Page::createFromCollection($list, 1, 2);
+        foreach (['records', 'pages', 'first', 'last', 'current', 'next', 'prev'] as $p) var_dump($page->{$p});
         exit;
     }
 }

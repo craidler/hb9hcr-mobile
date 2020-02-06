@@ -12,42 +12,69 @@ class Collection extends ArrayObject
     /**
      * @var string
      */
-    private $class;
+    protected $class;
 
     /**
      * @var string
      */
-    private $filename;
+    protected $filename;
 
     /**
      * @param array|null $data
-     * @return static
+     * @return Collection
      */
-    public static function create(array $data = null): self
+    public static function createFromArray(array $data = null)
     {
         if (!$data) $data = [];
         if (!array_key_exists('class', $data)) $data['class'] = $class ?? Item::class;
         if (!array_key_exists('collection', $data)) $data['collection'] = [];
 
-        $collection = new static;
-        $collection->class = $data['class'];
-        foreach ($data['collection'] as $item) $collection->append($item);
-        return $collection;
+        $instance = new static;
+        $instance->class = $data['class'];
+        foreach ($data['collection'] as $item) $instance->append($item);
+        return $instance;
     }
 
     /**
-     * @param string $filename
+     * @param string      $filename
      * @param string|null $class
-     * @return static
+     * @return Collection
      */
-    public static function load(string $filename, string $class = null): self
+    public static function load(string $filename, string $class = null)
     {
         $data = file_exists($filename) ? json_decode(file_get_contents($filename), JSON_OBJECT_AS_ARRAY) : [];
         if ($class) $data['class'] = $class;
 
-        $collection = static::create($data);
-        $collection->filename = $filename;
-        return $collection;
+        $instance = static::createFromArray($data);
+        $instance->filename = $filename;
+        return $instance;
+    }
+
+    /**
+     * @param array $data
+     * @return $this
+     */
+    public function handle(array $data): self
+    {
+        try {
+            if (!array_key_exists('action', $data)) return $this;
+            $action = explode(',', $data['action']);
+
+            switch ($action[0]) {
+                case 'delete':
+                    isset($action[1]) ? $this->offsetUnset($this->find($action[1], false)) : null;
+                    break;
+
+                case 'save':
+                    isset($action[1]) ? $this->find($action[1])->exchangeArray($data) : $this->append($data);
+                    break;
+            }
+        }
+        catch (Exception $e) {
+            print $e->getMessage();
+        }
+
+        return $this;
     }
 
     /**
@@ -104,20 +131,20 @@ class Collection extends ArrayObject
      */
     public function reverse(): Collection
     {
-        return static::create([
+        return static::createFromArray([
             'class' => $this->class,
             'collection' => array_reverse($this->getArrayCopy()),
         ]);
     }
 
     /**
-     * @param int $offset
+     * @param int      $offset
      * @param int|null $length
      * @return Collection
      */
     public function slice(int $offset, int $length = null): Collection
     {
-        return static::create([
+        return static::createFromArray([
             'class' => $this->class,
             'collection' => array_slice($this->getArrayCopy(), $offset, $length),
         ]);
@@ -137,13 +164,13 @@ class Collection extends ArrayObject
 
     /**
      * @param Item|string|int $value
-     * @param bool $item
+     * @param bool            $item
      * @return Item|int
      * @throws Exception
      */
     public function find($value, bool $item = true)
     {
-        if (0 >= $this->count()) throw new Exception('Can\'t peek empty datastructure');
+        if (0 >= $this->count()) throw new Exception('Can\'t peek empty data structure');
 
         if (is_int($value)) {
             if (!$this->offsetExists($value)) throw new Exception('Can\'t find offset ' . $value);

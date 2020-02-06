@@ -56,7 +56,7 @@ td, th {
     white-space: nowrap;
 }
 
-tr button, tr input, tr select, img {
+tr button, tr input, tr select, tr textarea, img {
     width: 100%;
     height: 2rem;
 }
