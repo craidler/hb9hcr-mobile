@@ -3,11 +3,13 @@ namespace Application\Controller;
 
 use Application\Feature\UsesConfig;
 use Application\Feature\UsesSession;
+use Application\Model\Page;
 use GlobIterator;
 // use HB9HCR\Base\Collection;
 use Application\Model\Collection;
 use Laminas\Config\Config;
 use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\Router\RouteMatch;
 use Laminas\Session\Container;
 use Laminas\View\Model\ViewModel;
 
@@ -89,7 +91,7 @@ abstract class AbstractController extends AbstractActionController implements Us
             return $this->redirect()->toUrl($this->request->getUriString());
         }
 
-        $path = sprintf('%s/*.%s', $this->config->get('path'), $this->config->get('extension'));
+        $path = sprintf('%s/*.%s', $this->getPath(), $this->config->get('extension'));
         $collection = new GlobIterator($path);
 
         $view = $this->getView([
@@ -101,6 +103,37 @@ abstract class AbstractController extends AbstractActionController implements Us
         $view->setTemplate('application/file/index.phtml');
 
         return $view;
+    }
+
+    /**
+     * @return \Laminas\Http\Response|ViewModel
+     */
+    public function createAction()
+    {
+        $route = $this->getRouteMatch()->getMatchedRouteName();
+
+        if ($this->request->isPost()) {
+            $this->getCollection()->handle($this->params()->fromPost())->persist();
+            return $this->redirect()->toRoute($route);
+        }
+
+        return $this->getView()->setTemplate(sprintf('%s/form', $route));
+    }
+
+    /**
+     * @return \Laminas\Http\Response|ViewModel
+     */
+    public function gridAction()
+    {
+        if ($this->request->isPost()) {
+            $this->getCollection()->handle($this->params()->fromPost())->persist();
+            return $this->redirect()->refresh();
+        }
+
+        return $this->getView([
+            'action' => 'grid',
+            'page' => Page::createFromCollection($this->getCollection()->reverse(), 10, $this->params()->fromRoute('id', 0)),
+        ]);
     }
 
     /**
@@ -144,7 +177,7 @@ abstract class AbstractController extends AbstractActionController implements Us
      */
     public function getPath(): string
     {
-        return $this->getConfig()->get('path');
+        return $this->getConfig()->get('path') . '/' . strtolower($this->getPrefix());
     }
 
     /**
@@ -156,12 +189,21 @@ abstract class AbstractController extends AbstractActionController implements Us
     }
 
     /**
+     * @return \Laminas\Router\RouteMatch
+     */
+    public function getRouteMatch(): RouteMatch
+    {
+        return $this->getEvent()->getRouteMatch();
+    }
+
+    /**
      * @param array $data
      * @return ViewModel
      */
     public function getView(array $data = []): ViewModel
     {
         return new ViewModel(array_merge([
+            'action' => str_replace('index', null, $this->params()->fromRoute('action', 'index')),
             'prefix' => $this->getPrefix(),
             'file' => $this->getFile(),
         ], $data));

@@ -123,7 +123,7 @@ class Collection extends ArrayObject
      */
     public function append($value)
     {
-        parent::append($value instanceof $this->class ? $value : call_user_func_array([$this->class, 'create'], [$value]));
+        parent::append($value instanceof $this->class ? $value : call_user_func_array([$this->class, 'createFromArray'], [$value]));
     }
 
     /**
@@ -172,7 +172,7 @@ class Collection extends ArrayObject
     {
         if (0 >= $this->count()) throw new Exception('Can\'t peek empty data structure');
 
-        if (is_int($value)) {
+        if (is_numeric($value)) {
             if (!$this->offsetExists($value)) throw new Exception('Can\'t find offset ' . $value);
             return $item ? $this->offsetGet($value) : $value;
         }

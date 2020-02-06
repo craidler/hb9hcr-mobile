@@ -1,10 +1,9 @@
 <?php
 namespace Roadbook;
 
-use Application\Factory\ControllerFactory;
-use HB9HCR\Service\Map\Google;
-use Roadbook\Factory\MapsFactory;
+use Roadbook\Factory;
 use Laminas\Router\Http\Segment;
+use Roadbook\Service\GoogleMaps;
 
 return [
     'router' => [
@@ -23,7 +22,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\RoadbookController::class => ControllerFactory::class,
+            Controller\RoadbookController::class => Factory\ControllerFactory::class,
         ],
     ],
     'view_manager' => [
@@ -33,14 +32,12 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            Google::class => MapsFactory::class,
-        ],
-        'aliases' => [
-            'MapService' => Google::class,
+            GoogleMaps::class => Factory\ServiceFactory::class,
         ],
     ],
     Module::class => [
-        'path' => __DIR__ . '/../../../public/data/roadbook',
+        'path' => __DIR__ . '/../../../public/data',
         'extension' => 'json',
+        'key' => file_exists(__DIR__ . '/maps.key') ? file_get_contents(__DIR__ . '/maps.key') : '',
     ],
 ];

@@ -41,11 +41,6 @@ return [
             Controller\IndexController::class => InvokableFactory::class,
         ],
     ],
-    'service_manager' => [
-        'factories' => [
-            'Maps' => MapsFactory::class,
-        ],
-    ],
     'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
@@ -61,9 +56,5 @@ return [
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
-    ],
-    'Maps' => [
-        'key' => file_exists(__DIR__ . '/maps.key') ? file_get_contents(__DIR__ . '/maps.key') : '',
-        'path' => __DIR__ . '/../../../public/data',
     ],
 ];

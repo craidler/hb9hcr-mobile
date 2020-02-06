@@ -30,7 +30,7 @@ return [
         ],
     ],
     Module::class => [
-        'path' => __DIR__ . '/../../../public/data/fuel',
+        'path' => __DIR__ . '/../../../public/data',
         'extension' => 'json',
     ],
 ];

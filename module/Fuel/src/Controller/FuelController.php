@@ -14,7 +14,8 @@ use Laminas\View\Model\ViewModel;
 class FuelController extends AbstractController
 {
     /**
-     * @return ViewModel
+     * @return \Laminas\Http\Response|ViewModel
+     * @throws Exception
      */
     public function indexAction()
     {
@@ -66,38 +67,5 @@ class FuelController extends AbstractController
             'calculation' => $calculation,
             'page' => Page::createFromCollection($calculated->reverse(), 5, $this->params()->fromRoute('id', 0))
         ]);
-    }
-
-    /**
-     * @return \Laminas\Http\Response|ViewModel
-     */
-    public function createAction()
-    {
-        if ($this->request->isPost()) {
-            $this->getCollection()->handle($this->params()->fromPost())->persist();
-            return $this->redirect()->toRoute('fuel');
-        }
-
-        return $this->getView(['action' => 'create'])->setTemplate('fuel/form');
-    }
-
-    /**
-     * @return \Laminas\Http\Response|ViewModel
-     */
-    public function gridAction()
-    {
-        if ($this->request->isPost()) {
-            $params = explode(',', $this->params()->fromPost('action'));
-
-            switch ($params[0]) {
-                case 'delete':
-                    $this->getCollection()->delete($params[1])->persist();
-                    break;
-            }
-
-            return $this->redirect()->refresh();
-        }
-
-        return new ViewModel(array_merge([], $this->getCollection()->reverse()->page(10, $this->params()->fromRoute('id'))));
     }
 }

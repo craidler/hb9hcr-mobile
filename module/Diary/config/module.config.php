@@ -41,7 +41,7 @@ return [
         ],
     ],
     Module::class => [
-        'path' => __DIR__ . '/../../../public/data/diary',
+        'path' => __DIR__ . '/../../../public/data',
         'extension' => 'json',
     ],
 ];

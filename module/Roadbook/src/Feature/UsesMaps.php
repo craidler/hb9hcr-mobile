@@ -1,7 +1,7 @@
 <?php
-namespace Application\Feature;
+namespace Roadbook\Feature;
 
-use HB9HCR\Service\Map\Google as Maps;
+use Roadbook\Service\GoogleMaps as Maps;
 
 /**
  * Interface UsesMaps

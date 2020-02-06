@@ -74,7 +74,7 @@ button, input, select, textarea, footer a {
     background: #444;
 }
 
-input:focus {
+input:focus, select:focus {
     outline-color: transparent;
     border-color: rgba(100, 150, 175, .5);
 }

@@ -1,7 +1,5 @@
 <form method="post">
-    <header class="dt h-2">
-        <h2>Fuel</h2>
-    </header>
+    <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file ]) ?>
     <article>
         <table>
             <thead>
@@ -16,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($this->collection as $i => $item): ?>
+                <?php foreach ($this->page as $i => $item): ?>
                     <tr>
                         <td><?= sprintf('%02d', $i) ?></td>
                         <td><?= $item->id ?></td>
@@ -34,6 +32,6 @@
         </table>
     </article>
     <footer class="dg c-3">
-        <?= $this->partial('pagination.phtml', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/fuel/grid', 'prev' => $this->prev, 'next' => $this->next]) ?>
+        <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'url' => '/fuel/grid']) ?>
     </footer>
 </form>

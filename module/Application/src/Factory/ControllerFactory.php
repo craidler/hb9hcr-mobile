@@ -1,13 +1,10 @@
 <?php
 namespace Application\Factory;
 
-use Application\Controller\AbstractController;
 use Application\Feature\UsesConfig;
-use Application\Feature\UsesMaps;
 use Application\Feature\UsesSession;
 use Interop\Container\ContainerInterface;
 use Laminas\Config\Config;
-use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\Session\Container;
 use Laminas\Session\SessionManager;
@@ -37,10 +34,6 @@ class ControllerFactory implements FactoryInterface
 
         if ($controller instanceof UsesSession) {
             $controller->setSession(new Container($namespace, $container->get(SessionManager::class)));
-        }
-
-        if ($controller instanceof UsesMaps) {
-            $controller->setMaps($container->get('Maps'));
         }
 
         return $controller;

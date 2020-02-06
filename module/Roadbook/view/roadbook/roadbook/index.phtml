@@ -1,46 +1,38 @@
 <header class="dt h-2">
-    <h2>Waypoint <?= sprintf('%s - %s', $this->waypoint->region, $this->waypoint->name) ?></h2>
+    <h2>Waypoint <?= sprintf('%s - %s', $this->item->region, $this->item->name) ?></h2>
 </header>
 <article class="dg c-3">
     <div class="dt h-3">
-        <div class="tc bg <?= $this->waypoint->type ?>">
+        <div class="tc bg <?= $this->item->type ?>">
             <p class="f-3"><?= sprintf('%dkm', $this->route->distance->km) ?></p>
-            <p class="o-25 ttu m-0"><?= $this->waypoint->type ?></p>
+            <p class="o-25 ttu m-0"><?= $this->item->type ?></p>
         </div>
     </div>
-    <table>
-        <tbody>
-            <tr>
-                <td>Id:</td>
-                <td><?= $this->waypoint->id ?></td>
-            </tr>
-            <tr>
-                <td>Date:</td>
-                <td><?= $this->waypoint->date ?></td>
-            </tr>
-            <tr>
-                <td>Pos:</td>
-                <td><?= $this->waypoint->position ?></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="dg c-2">
+        <p>Id</p>
+        <p><?= $this->item->id ?></p>
+        <p>Date</p>
+        <p><?= $this->item->date ?></p>
+        <p>Pos</p>
+        <p><?= $this->item->position ?></p>
+    </div>
     <div>
-        <?php $comment = explode("\n", $this->waypoint->comment) ?>
+        <?php $comment = explode("\n", $this->item->comment) ?>
         <?php array_walk($comment, function (&$item) {
             $item = '<p class="mb25">' . $item . '</p>';
         }) ?>
         <?= implode('', $comment) ?>
     </div>
-    <?php foreach ($this->waypoint->maps as $map): ?>
+    <?php foreach ($this->item->maps as $map): ?>
         <figure>
-            <img src="/data/map/<?= $this->maps->image($map)->src ?>">
+            <img src="/data/map/<?= ''//$this->maps->image($map)->src  ?>">
         </figure>
     <?php endforeach; ?>
 </article>
 <footer class="dg c-5">
-    <?= $this->partial('pagination', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/roadbook/index', 'prev' => $this->prev, 'next' => $this->next]) ?>
+    <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'url' => '/roadbook/index', 'col' => 5]) ?>
     <a href="/roadbook/create">new</a>
-    <a href="/roadbook/edit/<?= $this->waypoint->id ?>">edit</a>
+    <a href="/roadbook/edit/<?= $this->item->id ?>">edit</a>
     <a href="/roadbook/grid">manage</a>
     <a href="/roadbook/file" class="s-2">select</a>
 </footer>
