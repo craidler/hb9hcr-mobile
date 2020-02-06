@@ -1,8 +1,10 @@
 <?php
 namespace Fuel\Controller;
 
+use Exception;
 use Application\Controller\AbstractController;
-use HB9HCR\Base\Collection;
+use Application\Model\Collection;
+use Application\Model\Page;
 use Laminas\View\Model\ViewModel;
 
 /**
@@ -32,24 +34,38 @@ class FuelController extends AbstractController
         foreach ($collection as $i => $item) if (0 < $i) $calculation['volume'] += $item->volume;
         $calculation['consumption'] = $calculation['distance'] ? ($calculation['volume'] / $calculation['distance']) * 100 : 0;
 
-        $calculated = Collection::create();
+        $calculated = Collection::createFromArray();
 
         foreach ($collection as $item) {
-            $prev = $collection->prev($item);
-            $last = $calculated->last();
+            try {
+                $prev = $collection->prev($item);
+            }
+            catch (Exception $e) {
+                $prev = null;
+            }
+
+            try {
+                $last = $calculated->last();
+            }
+            catch (Exception $e) {
+                $last = null;
+            }
+
             $calculated->append([
                 'date' => $item->date,
                 'odometer' => $item->odometer,
-                'distance' => $item === $first ? 0 : $item->odometer - $prev->odometer,
+                'distance' => $item === $first ? 0 : $item->odometer - ($prev ? $prev->odometer : 0),
+                'distance_total' => $item === $first ? 0 : $item->odometer - $prev->odometer + ($last ? $last->distance_total : 0),
                 'volume' => $item->volume,
-                'volume_total' => $item === $first ? $item->volume : $item->volume + $last->volume_total,
-                'consumption' => $item === $first ? 0 : ($item->volume / ($item->odometer - $prev->odometer)) * 100,
+                'volume_total' => $item === $first ? $item->volume : $item->volume + ($last ? $last->volume_total : 0),
+                'consumption' => $item === $first ? 0 : ($item->volume / ($item->odometer - ($prev ? $prev->odometer : 0))) * 100,
             ]);
         }
 
-        return new ViewModel(array_merge([
+        return $this->getView([
             'calculation' => $calculation,
-        ], $calculated->reverse()->page(5, $this->params()->fromRoute('id', 0))));
+            'page' => Page::createFromCollection($calculated->reverse(), 5, $this->params()->fromRoute('id', 0))
+        ]);
     }
 
     /**

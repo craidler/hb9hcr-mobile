@@ -1,34 +1,20 @@
 <form method="post">
-    <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file ]) ?>
-    <article>
-        <table>
-            <tbody>
-                <tr>
-                    <td>Date</td>
-                    <td class="p-0" colspan="2"><input type="date" name="date" value="<?= date('Y-m-d') ?>"></td>
-                </tr>
-                <tr>
-                    <td>Location</td>
-                    <td class="p-0" colspan="2"><input type="text" name="location" value=""></td>
-                </tr>
-                <tr>
-                    <td>Position</td>
-                    <td class="p-0" colspan="2"><input type="text" name="position" value=""></td>
-                </tr>
-                <tr>
-                    <td>Headline</td>
-                    <td class="p-0" colspan="2"><input type="text" name="headline" value=""></td>
-                </tr>
-                <tr>
-                    <td class="vt">Text</td>
-                    <td class="p-0 w-100" colspan="2"><textarea name="text" class="h-4"></textarea></td>
-                </tr>
-            </tbody>
-        </table>
+    <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file]) ?>
+    <article class="dg c-3">
+        <label>Date</label>
+        <input type="date" name="date" value="<?= date('Y-m-d') ?>" class="s-2">
+        <label>Location</label>
+        <input type="text" name="location" value="" class="s-2">
+        <label>Position</label>
+        <input type="text" name="position" value="" class="s-2">
+        <label>Headline</label>
+        <input type="text" name="headline" value="" class="s-2">
+        <label class="vt">Text</label>
+        <textarea name="text" class="h-4 s-2"></textarea>
     </article>
     <footer class="dg c-3">
-        <p>&nbsp;</p>
         <button type="submit" name="action" value="save">save</button>
+        <p>&nbsp;</p>
         <a href="<?= $this->url('diary') ?>">cancel</a>
     </footer>
 </form>

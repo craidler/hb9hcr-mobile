@@ -89,10 +89,10 @@ button, footer a, td a, .bg {
     text-align: center;
 }
 
-.bg-5 {
+.bg-5, tr:nth-child(odd) td {
     background: rgba(85, 85, 85, .5);
 }
 
 .a, .a td {
-    background: rgba(100, 150, 175, .5);
+    background: rgba(100, 150, 175, .5) !important;
 }

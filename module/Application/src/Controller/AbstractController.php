@@ -92,9 +92,8 @@ abstract class AbstractController extends AbstractActionController implements Us
         $path = sprintf('%s/*.%s', $this->config->get('path'), $this->config->get('extension'));
         $collection = new GlobIterator($path);
 
-        $view = new ViewModel([
+        $view = $this->getView([
             'path' => $path,
-            'prefix' => $this->getPrefix(),
             'selected' => $this->session->offsetExists('file') ? $this->session->offsetGet('file') : null,
             'collection' => $collection,
         ]);

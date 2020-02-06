@@ -1,6 +1,4 @@
-<header class="dt h-2">
-    <h2><?= sprintf('%s files', $this->prefix) ?></h2>
-</header>
+<?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => 'files', 'file' => $this->file ]) ?>
 <article>
     <table>
         <thead>
