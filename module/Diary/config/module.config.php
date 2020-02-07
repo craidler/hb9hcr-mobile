@@ -18,16 +18,6 @@ return [
                     ],
                 ],
             ],
-            'diary/file' => [
-                'type' => Segment::class,
-                'options' => [
-                    'route' => '/diary/file',
-                    'defaults' => [
-                        'controller' => Controller\DiaryController::class,
-                        'action' => 'file',
-                    ],
-                ],
-            ],
         ],
     ],
     'controllers' => [

@@ -7,6 +7,6 @@
     <p class="tc"><?= sprintf('%02d / %02d', $this->page->current + 1, $this->page->pages) ?></p>
     <a href="<?= $this->url ?>/<?= $this->page->next ?>" class="tr<?= $this->page->current == $this->page->last ? ' o-25' : '' ?>">&rsaquo;</a>
     <?php if (5 == $this->col): ?>
-        <a href="<?= sprintf('%s/%d', $this->url, $this->page->last) ?>" class="tl<?= $this->page->current == $this->page->last ? ' o-25' : '' ?>">&raquo;</a>
+        <a href="<?= sprintf('%s/%d', $this->url, $this->page->last) ?>" class="tr<?= $this->page->current == $this->page->last ? ' o-25' : '' ?>">&raquo;</a>
     <?php endif; ?>
 <?php endif; ?>

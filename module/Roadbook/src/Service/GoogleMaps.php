@@ -35,20 +35,41 @@ class GoogleMaps implements UsesConfig
     }
 
     /**
+     * @return string
+     */
+    public function getKey(): string
+    {
+        return $this->getConfig()->get('api_key');
+    }
+
+    /**
+     * @param string $type
+     * @return string
+     */
+    public function getUrl(string $type = 'api'): string
+    {
+        return $this->getConfig()->get($type . '_url');
+    }
+
+    /**
      * @param Waypoint $origin
      * @param Waypoint $destination
      * @return Route
      */
     public function route(Waypoint $origin, Waypoint $destination): Route
     {
-        $data = [
-            'distance' => [],
-            'duration' => [],
-        ];
+        $filename = sprintf('%s/%s/%s.json', $this->getConfig()->get(('path')), strtolower(basename(__CLASS__)), md5($origin->position . $destination->position));
+
+        if (!file_exists($filename)) {
+            $url = sprintf('%s/directions/json?origin=%s&destination=%s&key=%s', $this->getUrl(), $origin->position, $destination->position, $this->getKey());
+            file_put_contents($filename, file_get_contents($url));
+        }
+
+        $data = json_decode(file_get_contents($filename), JSON_OBJECT_AS_ARRAY);
 
         return Route::createFromArray([
-            'distance' => Distance::createFromArray($data['distance']),
-            'duration' => Duration::createFromArray($data['duration']),
+            'distance' => Distance::createFromArray($data['routes'][0]['legs'][0]['distance']),
+            'duration' => Duration::createFromArray($data['routes'][0]['legs'][0]['duration']),
         ]);
     }
 }

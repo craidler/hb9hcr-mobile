@@ -38,6 +38,7 @@ return [
     Module::class => [
         'path' => __DIR__ . '/../../../public/data',
         'extension' => 'json',
-        'key' => file_exists(__DIR__ . '/maps.key') ? file_get_contents(__DIR__ . '/maps.key') : '',
+        'api_key' => file_exists(__DIR__ . '/api.key') ? file_get_contents(__DIR__ . '/api.key') : '',
+        'api_url' => 'https://maps.googleapis.com/maps/api',
     ],
 ];
