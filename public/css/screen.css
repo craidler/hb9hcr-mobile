@@ -27,6 +27,12 @@ aside nav a {
     margin-bottom: 4px;
 }
 
+aside nav a:last-child {
+    height: calc(4.5rem + 2px);
+    line-height: calc(4.5rem + 2px);
+    margin: 4px 0;
+}
+
 main {
     margin: 0 4px 0 calc(104px);
 }
