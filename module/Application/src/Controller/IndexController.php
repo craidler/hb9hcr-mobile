@@ -23,7 +23,7 @@ class IndexController extends AbstractActionController
      */
     public function shutdownAction()
     {
-        $command = 'sudo shutdown -h -t 10';
+        $command = 'sudo shutdown +0';
         $output = shell_exec($command);
 
         return new ViewModel([
