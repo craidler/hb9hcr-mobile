@@ -1,8 +1,10 @@
 <?php
 namespace Roadbook;
 
+use Laminas\ServiceManager\ServiceManager;
 use Roadbook\Factory;
 use Laminas\Router\Http\Segment;
+use Roadbook\Helper\Maps;
 use Roadbook\Service\GoogleMaps;
 
 return [
@@ -28,6 +30,16 @@ return [
     'view_manager' => [
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'view_helpers' => [
+        'aliases' => [
+            'maps' => Maps::class,
+        ],
+        'factories' => [
+            Maps::class => function (ServiceManager $serviceManager) {
+                return (new Maps())->setService($serviceManager->get(GoogleMaps::class));
+            },
         ],
     ],
     'service_manager' => [

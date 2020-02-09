@@ -1,0 +1,3 @@
+<a href="<?= sprintf('/%s/%d', $this->url, $this->prev) ?>" class="tl<?= $this->current == $this->first ? ' o-25' : '' ?>">&lsaquo;</a>
+<p class="tc"><?= sprintf('%02d / %02d', $this->current + 1, $this->pages) ?></p>
+<a href="<?= sprintf('/%s/%d', $this->url, $this->next) ?>" class="tr<?= $this->current == $this->last ? ' o-25' : '' ?>">&rsaquo;</a>

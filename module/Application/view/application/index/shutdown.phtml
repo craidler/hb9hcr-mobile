@@ -1,0 +1,5 @@
+<?= $this->partial('partial/header', ['prefix' => 'Application', 'action' => 'shutdown', 'file' => $this->file ]) ?>
+<article>
+    <p>Issued command &quot;<?= $this->command ?>&quot;</p>
+    <p><?= $this->output ?></p>
+</article>

@@ -32,6 +32,6 @@
         </table>
     </article>
     <footer class="dg c-3">
-        <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'url' => '/fuel/grid']) ?>
+        <?= $this->paginate($this->page) ?>
     </footer>
 </form>

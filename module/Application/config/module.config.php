@@ -6,9 +6,11 @@
  */
 namespace Application;
 
+use Application\Helper\Paginate;
 use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
+use Laminas\ServiceManager\ServiceManager;
 
 return [
     'router' => [
@@ -54,6 +56,16 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'view_helpers' => [
+        'aliases' => [
+            'paginate' => Paginate::class,
+        ],
+        'factories' => [
+            Paginate::class => function (ServiceManager $serviceManager) {
+                return (new Paginate())->setMatch($serviceManager->get('Application')->getMvcEvent()->getRouteMatch());
+            },
         ],
     ],
 ];

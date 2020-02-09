@@ -1,5 +1,5 @@
 <header class="dt h-2">
-    <h2>Waypoint <?= sprintf('%s - %s', $this->item->region, $this->item->name) ?></h2>
+    <h2>Waypoint <?= sprintf('%s - %s', $this->item->region, $this->item->name) ?><span class="o-25 fr f-1"><?= $this->file ?></span></h2>
 </header>
 <article class="dg c-3">
     <div class="dt h-3">
@@ -23,14 +23,10 @@
         }) ?>
         <?= implode('', $comment) ?>
     </div>
-    <?php foreach ($this->item->maps as $map): ?>
-        <figure>
-            <img src="/data/map/<?= ''//$this->maps->image($map)->src  ?>">
-        </figure>
-    <?php endforeach; ?>
+    <?= $this->maps($this->item->maps)->images() ?>
 </article>
 <footer class="dg c-5">
-    <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'url' => '/roadbook/index', 'col' => 5]) ?>
+    <?= $this->paginate($this->page)->col(5) ?>
     <a href="/roadbook/create">new</a>
     <a href="/roadbook/edit/<?= $this->item->id ?>">edit</a>
     <a href="/roadbook/grid">manage</a>

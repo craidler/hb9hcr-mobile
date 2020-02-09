@@ -3,11 +3,12 @@ namespace Application\Controller;
 
 use Application\Feature\UsesConfig;
 use Application\Feature\UsesSession;
+use Application\Model\Item;
 use Application\Model\Page;
 use GlobIterator;
-// use HB9HCR\Base\Collection;
 use Application\Model\Collection;
 use Laminas\Config\Config;
+use Laminas\Http\Response;
 use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\Router\RouteMatch;
 use Laminas\Session\Container;
@@ -15,6 +16,11 @@ use Laminas\View\Model\ViewModel;
 
 abstract class AbstractController extends AbstractActionController implements UsesConfig, UsesSession
 {
+    /**
+     * @var string
+     */
+    protected $class = Item::class;
+
     /**
      * @var Config
      */
@@ -67,7 +73,7 @@ abstract class AbstractController extends AbstractActionController implements Us
     }
 
     /**
-     * @return \Laminas\Http\Response|ViewModel
+     * @return Response|ViewModel
      */
     public function fileAction()
     {
@@ -106,7 +112,7 @@ abstract class AbstractController extends AbstractActionController implements Us
     }
 
     /**
-     * @return \Laminas\Http\Response|ViewModel
+     * @return Response|ViewModel
      */
     public function createAction()
     {
@@ -121,7 +127,7 @@ abstract class AbstractController extends AbstractActionController implements Us
     }
 
     /**
-     * @return \Laminas\Http\Response|ViewModel
+     * @return Response|ViewModel
      */
     public function gridAction()
     {
@@ -141,7 +147,7 @@ abstract class AbstractController extends AbstractActionController implements Us
      */
     public function getCollection(): Collection
     {
-        return $this->collection ?? $this->collection = Collection::load($this->getPath() . '/' . $this->getFile());
+        return $this->collection ?? $this->collection = Collection::load($this->getPath() . '/' . $this->getFile(), $this->class);
     }
 
     /**
@@ -189,7 +195,7 @@ abstract class AbstractController extends AbstractActionController implements Us
     }
 
     /**
-     * @return \Laminas\Router\RouteMatch
+     * @return RouteMatch
      */
     public function getRouteMatch(): RouteMatch
     {

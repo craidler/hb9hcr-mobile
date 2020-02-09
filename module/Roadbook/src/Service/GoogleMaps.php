@@ -5,6 +5,7 @@ use Application\Feature\UsesConfig;
 use Laminas\Config\Config;
 use Roadbook\Model\Distance;
 use Roadbook\Model\Duration;
+use Roadbook\Model\Map;
 use Roadbook\Model\Route;
 use Roadbook\Model\Waypoint;
 
@@ -49,6 +50,15 @@ class GoogleMaps implements UsesConfig
     public function getUrl(string $type = 'api'): string
     {
         return $this->getConfig()->get($type . '_url');
+    }
+
+    /**
+     * @param Map $map
+     * @return string
+     */
+    public function image(Map $map): string
+    {
+        return '';
     }
 
     /**

@@ -2,7 +2,7 @@
 <article>
 </article>
 <footer class="dg c-3">
-    <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'pages' => $this->pages, 'url' => '/diary/index', 'prev' => $this->prev, 'next' => $this->next]) ?>
+    <?= $this->paginate($this->page) ?>
     <a href="/diary/create">new</a>
     <a href="/diary/grid">manage</a>
     <a href="/diary/file">select</a>

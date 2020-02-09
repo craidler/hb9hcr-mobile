@@ -4,8 +4,7 @@ namespace Roadbook\Controller;
 use Application\Controller\AbstractController;
 use Application\Model\Collection;
 use Application\Model\Page;
-use HB9HCR\Entity\Map;
-use HB9HCR\Entity\Waypoint;
+use Roadbook\Model\Waypoint;
 use Roadbook\Service\GoogleMaps as Maps;
 use Laminas\View\Model\ViewModel;
 use Roadbook\Feature\UsesMaps;
@@ -20,6 +19,11 @@ class RoadbookController extends AbstractController implements UsesMaps
      * @var Maps
      */
     private $maps;
+
+    /**
+     * @var string
+     */
+    protected $class = Waypoint::class;
 
     /**
      * @return Maps
