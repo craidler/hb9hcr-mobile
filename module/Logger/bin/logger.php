@@ -10,5 +10,4 @@ $errstr = null;
 $stream = fopen('/dev/ttyACM0', 'r');
 while (true) {
     var_dump(fgets($stream));
-    sleep(1);
 }
