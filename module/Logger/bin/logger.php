@@ -7,7 +7,8 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 
 $errno = null;
 $errstr = null;
-$stream = stream_socket_client('tcp://localhost:2947',$errno ,$errstr , 10);
-stream_set_blocking($stream, 1);
-fwrite($stream, '?WATCH={"enable":true,"json":true}');
-while (true) var_dump(fgets($stream));
+$stream = fopen('/dev/ttyACM0', 'r');
+while (true) {
+    var_dump(fgets($stream));
+    sleep(1);
+}
