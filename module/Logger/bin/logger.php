@@ -8,7 +8,13 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 $errno = null;
 $errstr = null;
 $stream = fopen('/dev/ttyACM0', 'r');
+stream_set_blocking($stream, true);
 while (true) {
-    $line = trim(fgets($stream));
-    if (strlen($line) && preg_match('#(GLL|VTG)#', $line)) var_dump($line);
+    $data = explode(',', trim(fgets($stream)));
+    if (!isset($data[0])) continue;
+    switch ($data[0]) {
+        case '$GNVTG':
+            var_dump($data);
+            break;
+    }
 }
