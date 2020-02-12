@@ -1,16 +1,15 @@
 <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file]) ?>
-<?php if ($this->interval) $this->headMeta()->appendHttpEquiv('refresh', $this->interval . ', URL=' . $this->url()); ?>
 <article data-url="/logger/ajax" data-interval="<?= $this->interval ?>">
     <div class="dg c-6 tc">
         <div class="dt s-2">
             <div class="bg h-3">
-                <p><span class="f-3" data-name="spd"><?= sprintf('%d', $this->speed) ?></span> <small>km/h</small></p>
+                <p><span class="f-3" data-name="spd"><?= sprintf('%d', $this->speed_m) ?></span> <small>km/h</small></p>
                 <p class="o-25">speed</p>
             </div>
         </div>
         <div class="dt s-2">
             <div class="bg h-3">
-                <p><span class="f-3" data-name="alt"><?= sprintf('%d', $this->altitude) ?></span> <small>m</small></p>
+                <p><span class="f-3" data-name="alt"><?= sprintf('%d', $this->alt) ?></span> <small>m</small></p>
                 <p class="o-25">altitude</p>
             </div>
         </div>
@@ -20,28 +19,26 @@
                 <p class="o-25">hdop</p>
             </div>
         </div>
-        <div class="dt s-2">
+        <div class="dt s-3">
             <div class="bg h-3">
                 <p><span class="f-3" data-name="lat"><?= sprintf('%s', $this->lat) ?></span> <small><?= sprintf('%s', $this->lat_u) ?></small></p>
                 <p class="o-25">latitude</p>
             </div>
         </div>
-        <div class="dt s-2">
+        <div class="dt s-3">
             <div class="bg h-3">
                 <p><span class="f-3" data-name="lat"><?= sprintf('%s', $this->lon) ?></span> <small><?= sprintf('%s', $this->lon_u) ?></small></p>
                 <p class="o-25">longitude</p>
             </div>
         </div>
-        <div class="dt <?= $this->gpsd ? 'a' : 'bg' ?>">
-            <div class="h-3">
-                <p class="f-3">GPSD</p>
-                <p class="o-25"> <?= $this->gpsd ? 'on' : 'off' ?></p>
+        <div class="dt s-3 <?= $this->gpsd ? 'a' : 'bg' ?>">
+            <div>
+                <p>GPSD</p>
             </div>
         </div>
-        <div class="dt <?= $this->feed ? 'a' : 'bg' ?>">
-            <div class="h-3">
-                <p class="f-3">FEED</p>
-                <p class="o-25"> <?= $this->feed ? 'on' : 'off' ?></p>
+        <div class="dt s-3 <?= $this->feed ? 'a' : 'bg' ?>">
+            <div>
+                <p>FEED</p>
             </div>
         </div>
         <div class="dt <?= 60 == $this->interval ? 'a' : 'bg' ?>">
@@ -62,30 +59,6 @@
         <div class="dt <?= 0 == $this->interval ? 'a' : 'bg' ?>">
             <a href="/logger/interval/0">off</a>
         </div>
-        <table class="s-6">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Position</th>
-                    <th>Altitude</th>
-                    <th>Speed</th>
-                    <th>Sats</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($this->page as $item): ?>
-                    <tr>
-                        <td><?= $item->date ?></td>
-                        <td><?= $item->time ?></td>
-                        <td><?= $item->position ?></td>
-                        <td class="tr"><?= $item->alt ?></td>
-                        <td class="tr"><?= $item->speed ?></td>
-                        <td class="tr"><?= $item->sats ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
     </div>
 </article>
 <footer class="dg c-5">
@@ -93,3 +66,10 @@
     <p class="s-3">&nbsp;</p>
     <a class="s-2" href="/logger/file">select</a>
 </footer>
+<script>
+    jQuery(document).ready(function ($) {
+        $('[data-ajax]').each(function() {
+            // todo: to stuff here to refresh
+        });
+    });
+</script>

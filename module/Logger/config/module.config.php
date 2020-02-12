@@ -28,6 +28,9 @@ return [
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
+        'strategies' => [
+            'ViewJsonStrategy',
+        ],
     ],
     Module::class => [
         'path' => __DIR__ . '/../../../public/data',

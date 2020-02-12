@@ -32,7 +32,7 @@ while (true) {
                 );
 
                 file_put_contents('/home/pi/hb9hcr-mobile/public/data/logger/gga.dat', sprintf(
-                    '%d:%f:%s:%f:%s:%.01f:%d',
+                    'sat:%d;lat:%f;lat_u:%s;lon:%f;lon_u:%s;hdop:%.01f;alt:%d',
                     $entry->sat,
                     $entry->lat,
                     $entry->lat_u,
@@ -53,7 +53,7 @@ while (true) {
                 );
 
                 file_put_contents('/home/pi/hb9hcr-mobile/public/data/logger/vtg.dat', sprintf(
-                    '%.02f:%.02f:%.02f:%.02f',
+                    'course_t:%.02f;course_m:%.02f;speed_n:%.02f;speed_m:%.02f',
                     $entry->course_t,
                     $entry->course_m,
                     $entry->speed_n,
