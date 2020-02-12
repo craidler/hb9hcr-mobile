@@ -14,6 +14,8 @@ class Gga extends Item
      */
     public static function createFromArray(array $data = null): Item
     {
+        var_dump($data);
+
         return parent::createFromArray(array_combine([
             'type',
             'utc',
