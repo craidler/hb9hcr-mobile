@@ -1,6 +1,8 @@
 <?php
 namespace Logger;
 
+require_once __DIR__ . '/../../../vendor/autoload.php';
+
 # todo: this script could use some love
 
 use DateTime;
