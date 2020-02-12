@@ -53,7 +53,11 @@ while (true) {
                 );
 
                 file_put_contents('/home/pi/hb9hcr-mobile/public/data/logger/vtg.dat', sprintf(
-                    '%.02f:%.02f:%.02f'
+                    '%.02f:%.02f:%.02f:%.02f',
+                    $entry->course_t,
+                    $entry->course_m,
+                    $entry->speed_n,
+                    $entry->speed_m
                 ));
             }
         }
