@@ -9,5 +9,6 @@ $errno = null;
 $errstr = null;
 $stream = fopen('/dev/ttyACM0', 'r');
 while (true) {
-    var_dump(fgets($stream));
+    $line = trim(fgets($stream));
+    if (strlen($line) && preg_match('#(GLL|VTS)#', $line)) var_dump($line);
 }
