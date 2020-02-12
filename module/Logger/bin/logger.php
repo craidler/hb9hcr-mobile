@@ -20,7 +20,7 @@ while (true) {
 
         if (preg_match('#\$.{2}(GGA)#', $data, $match)) {
             $entry = Entry::createFromNMEA($data);
-            var_dump($entry->altitude);
+            printf('GGA Sats: %d Altitude: %d GEOS: %.02f HDOP: %.02f', $entry->sats, $entry->alt, $entry->geos, $entry->hdop) . PHP_EOL;
         }
     }
     catch (Exception $e) {
