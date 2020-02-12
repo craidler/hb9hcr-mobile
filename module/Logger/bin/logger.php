@@ -10,5 +10,5 @@ $errstr = null;
 $stream = fopen('/dev/ttyACM0', 'r');
 while (true) {
     $line = trim(fgets($stream));
-    if (strlen($line) && preg_match('#(GLL|VTS)#', $line)) var_dump($line);
+    if (strlen($line) && preg_match('#(GLL|VTG)#', $line)) var_dump($line);
 }
