@@ -1,6 +1,7 @@
 <?php
 namespace Logger\Model;
 
+use Exception;
 use Application\Model\Item;
 
 /**
@@ -18,6 +19,19 @@ use Application\Model\Item;
  */
 class Entry extends Item
 {
+    /**
+     * @param string $sentence
+     * @return Item
+     * @throws Exception
+     */
+    public static function createFromNMEA(string $sentence): Item
+    {
+        $words = explode(',', $sentence);
+        if (!count($words)) throw new Exception('failed to parse sentence ' . $sentence);
+        $class = __NAMESPACE__ . '\\Nmea\\' . ucfirst(strtolower($words[0]));
+        return call_user_func_array([$class, 'createFromArray'], [$words]);
+    }
+
     /**
      * @return string
      */
