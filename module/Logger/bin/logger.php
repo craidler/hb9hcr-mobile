@@ -23,7 +23,9 @@ $sat = 0;
 
 while (true) {
     $i = $i >= 60 ? 0 : $i + 1;
-    $sky = $ch->getNext('SKY', false, false);
+    $sky = $ch->getNext('GLL', true, true);
+    var_dump($sky);
+    continue;
 
     if ($sky) {
         $sky = json_decode($sky, JSON_OBJECT_AS_ARRAY);
