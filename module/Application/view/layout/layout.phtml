@@ -3,17 +3,9 @@
 <head>
     <meta charset="utf-8">
     <?= $this->headTitle('HB9HCR Mobile')->setSeparator(' - ')->setAutoEscape(false) ?>
-
-    <?= $this->headMeta()
-        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
-        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
-    ?>
-
+    <?= $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0')->appendHttpEquiv('X-UA-Compatible', 'IE=edge') ?>
     <!-- Scripts -->
-    <?= $this->inlineScript()
-    //->prependFile($this->basePath('js/bootstrap.min.js'))
-    //->prependFile($this->basePath('js/jquery-3.3.1.min.js'))
-    ?>
+    <?= $this->inlineScript() ?>
     <link rel="stylesheet" href="<?= $this->basePath('css/reset.css') ?>">
     <link rel="stylesheet" href="<?= $this->basePath('css/screen.css') ?>">
     <link rel="stylesheet" href="<?= $this->basePath('css/utility.css') ?>">
@@ -22,6 +14,7 @@
 <aside>
     <nav>
         <a href="/roadbook" class="lh-2 tl ttu active">roadbook</a>
+        <a href="/logger" class="lh-2 tl ttu active">logger</a>
         <a href="/diary" class="lh-2 tl ttu">diary</a>
         <a href="/fuel" class="lh-2 tl ttu">fuel</a>
         <div class="fg">&nbsp;</div>
@@ -31,6 +24,5 @@
 <main>
     <?= $this->content ?>
 </main>
-<?= $this->inlineScript() ?>
 </body>
 </html>

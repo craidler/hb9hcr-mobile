@@ -76,10 +76,11 @@ class GoogleMaps implements UsesConfig
         }
 
         $data = json_decode(file_get_contents($filename), JSON_OBJECT_AS_ARRAY);
+        $route = is_array($data['routes']) && array_key_exists(0, $data['routes']) ? $route = $data['routes'][0]['legs'][0] : ['distance' => ['value' => 0], 'duration' => ['value' => 0]];
 
         return Route::createFromArray([
-            'distance' => Distance::createFromArray($data['routes'][0]['legs'][0]['distance']),
-            'duration' => Duration::createFromArray($data['routes'][0]['legs'][0]['duration']),
+            'distance' => Distance::createFromArray($route['distance']),
+            'duration' => Duration::createFromArray($route['duration']),
         ]);
     }
 }

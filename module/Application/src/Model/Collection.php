@@ -42,7 +42,26 @@ class Collection extends ArrayObject
      */
     public static function load(string $filename, string $class = null)
     {
-        $data = file_exists($filename) ? json_decode(file_get_contents($filename), JSON_OBJECT_AS_ARRAY) : [];
+        $data = [];
+
+        if (file_exists($filename)) {
+            $chunks = explode('.', $filename);
+            switch (array_pop($chunks)) {
+                case 'dat':
+                    $data = file($filename);
+                    $keys = explode(':', trim(array_shift($data)));
+                    array_walk($data, function (&$item) use ($keys) { $item = array_combine($keys, explode(':', trim($item))); });
+                    $data['collection'] = $data;
+                    break;
+
+                case 'json':
+                    $data = json_decode(file_get_contents($filename), JSON_OBJECT_AS_ARRAY);
+                    break;
+
+                default:
+            }
+        }
+
         if ($class) $data['class'] = $class;
 
         $instance = static::createFromArray($data);
@@ -124,6 +143,7 @@ class Collection extends ArrayObject
     public function append($value)
     {
         parent::append($value instanceof $this->class ? $value : call_user_func_array([$this->class, 'createFromArray'], [$value]));
+        return $this;
     }
 
     /**

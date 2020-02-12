@@ -27,12 +27,12 @@ class Paginate extends AbstractHelper
     private $match;
 
     /**
-     * @param Page $page
+     * @param Page|null $page
      * @return $this
      */
-    public function __invoke(Page $page): self
+    public function __invoke(Page $page = null): self
     {
-        $this->page = $page;
+        if ($page) $this->page = $page;
         return $this;
     }
 
@@ -61,7 +61,7 @@ class Paginate extends AbstractHelper
      */
     public function __toString(): string
     {
-        return $this->getView()->render(sprintf('partial/paginate.%dc.phtml', $this->col), [
+        return $this->page ? $this->getView()->render(sprintf('partial/paginate.%dc.phtml', $this->col), [
             'current' => $this->page->current,
             'pages' => $this->page->pages,
             'first' => $this->page->first,
@@ -69,6 +69,6 @@ class Paginate extends AbstractHelper
             'next' => $this->page->next,
             'prev' => $this->page->prev,
             'url' => sprintf('%s/%s', $this->match->getMatchedRouteName(), $this->match->getParam('action')),
-        ]);
+        ]) : '';
     }
 }

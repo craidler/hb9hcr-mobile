@@ -44,7 +44,7 @@ class Maps extends AbstractHelper
     /**
      * @return string
      */
-    public function image(): string
+    public function images(): string
     {
         return $this->getView()->render('partial/maps.phtml', [
             'maps' => $this->maps,
