@@ -31,9 +31,13 @@ class LoggerController extends AbstractController
 
         return $this->getView([
             'interval' => $this->getSession()->offsetGet('interval') ?? 0,
-            'hdop' => $gga[2],
-            'speed' => $vtg[3],
-            'altitude' => $gga[3],
+            'lat' => $gga[1],
+            'lat_u' => $gga[2],
+            'lon' => $gga[3],
+            'lon_u' => $gga[4],
+            'hdop' => $gga[5],
+            'spd' => $vtg[3],
+            'alt' => $gga[3],
             //'item' => $collection->first(),
             // 'page' => Page::createFromCollection($collection, 5, $this->params()->fromRoute('id', 0)),
             'gpsd' => system('ps -ef | grep -v grep | grep -c gpsd'),

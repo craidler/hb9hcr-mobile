@@ -1,53 +1,65 @@
 <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file]) ?>
 <?php if ($this->interval) $this->headMeta()->appendHttpEquiv('refresh', $this->interval . ', URL=' . $this->url()); ?>
-<article>
+<article data-url="/logger/ajax" data-interval="<?= $this->interval ?>">
     <div class="dg c-6 tc">
         <div class="dt s-2">
             <div class="bg h-3">
-                <p class="f-3"><?= sprintf('%.02f', $this->speed) ?> <small>km/h</small></p>
+                <p><span class="f-3" data-name="spd"><?= sprintf('%d', $this->speed) ?></span> <small>km/h</small></p>
                 <p class="o-25">speed</p>
             </div>
         </div>
         <div class="dt s-2">
             <div class="bg h-3">
-                <p class="f-3"><?= sprintf('%d', $this->altitude) ?> <small>m</small></p>
+                <p><span class="f-3" data-name="alt"><?= sprintf('%d', $this->altitude) ?></span> <small>m</small></p>
                 <p class="o-25">altitude</p>
             </div>
         </div>
         <div class="dt s-2">
             <div class="bg h-3">
-                <p class="f-3"><?= sprintf('%.01f', $this->hdop) ?> <small>m</small></p>
+                <p><span class="f-3" data-name="hdop"><?= sprintf('%.01f', $this->hdop) ?></span> <small>m</small></p>
                 <p class="o-25">hdop</p>
             </div>
         </div>
-        <div class="dt s-3 <?= $this->gpsd ? 'a' : 'bg' ?>">
+        <div class="dt s-2">
+            <div class="bg h-3">
+                <p><span class="f-3" data-name="lat"><?= sprintf('%s', $this->lat) ?></span> <small><?= sprintf('%s', $this->lat_u) ?></small></p>
+                <p class="o-25">latitude</p>
+            </div>
+        </div>
+        <div class="dt s-2">
+            <div class="bg h-3">
+                <p><span class="f-3" data-name="lat"><?= sprintf('%s', $this->lon) ?></span> <small><?= sprintf('%s', $this->lon_u) ?></small></p>
+                <p class="o-25">longitude</p>
+            </div>
+        </div>
+        <div class="dt <?= $this->gpsd ? 'a' : 'bg' ?>">
             <div class="h-3">
                 <p class="f-3">GPSD</p>
                 <p class="o-25"> <?= $this->gpsd ? 'on' : 'off' ?></p>
             </div>
         </div>
-        <div class="dt s-3 <?= $this->feed ? 'a' : 'bg' ?>">
+        <div class="dt <?= $this->feed ? 'a' : 'bg' ?>">
             <div class="h-3">
                 <p class="f-3">FEED</p>
                 <p class="o-25"> <?= $this->feed ? 'on' : 'off' ?></p>
             </div>
         </div>
-        <div class="dt h-2 <?= 60 == $this->interval ? 'a' : 'bg' ?>">
+        <div class="dt <?= 60 == $this->interval ? 'a' : 'bg' ?>">
             <a href="/logger/interval/60">60s</a>
         </div>
-        <div class="dt h-2 <?= 30 == $this->interval ? 'a' : 'bg' ?>">
+        <div class="dt <?= 30 == $this->interval ? 'a' : 'bg' ?>">
             <a href="/logger/interval/30">30s</a>
         </div>
-        <div class="dt h-2 <?= 15 == $this->interval ? 'a' : 'bg' ?>">
+        <div class="dt <?= 15 == $this->interval ? 'a' : 'bg' ?>">
             <a href="/logger/interval/15">15s</a>
         </div>
-        <div class="dt h-2 <?= 10 == $this->interval ? 'a' : 'bg' ?>">
+        <div class="dt <?= 10 == $this->interval ? 'a' : 'bg' ?>">
             <a href="/logger/interval/10">10s</a>
         </div>
-        <div class="dt h-2 <?= 5 == $this->interval ? 'a' : 'bg' ?>">
+        <div class="dt <?= 5 == $this->interval ? 'a' : 'bg' ?>">
             <a href="/logger/interval/5">5s</a>
         </div>
-        <div class="dt h-2 <?= 0 == $this->interval ? 'a' : 'bg' ?>">
+        <div class="dt <?= 0 == $this->interval ? 'a' : 'bg' ?>">
             <a href="/logger/interval/0">off</a>
         </div>
         <table class="s-6">

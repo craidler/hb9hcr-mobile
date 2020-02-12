@@ -32,12 +32,12 @@ while (true) {
                 );
 
                 file_put_contents('/home/pi/hb9hcr-mobile/public/data/logger/gga.dat', sprintf(
-                    '%d:%s%f,%s%f:%.01f:%d',
+                    '%d:%f:%s:%f:%s:%.01f:%d',
                     $entry->sat,
-                    $entry->lat_u,
                     $entry->lat,
-                    $entry->lon_u,
+                    $entry->lat_u,
                     $entry->lon,
+                    $entry->lon_u,
                     $entry->hdop,
                     $entry->alt
                 ));
