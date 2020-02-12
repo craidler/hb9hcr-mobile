@@ -31,7 +31,7 @@ class LoggerController extends AbstractController
 
         return $this->getView([
             'interval' => $this->getSession()->offsetGet('interval') ?? 0,
-            'position' => $gga[1],
+            'hdop' => $gga[2],
             'speed' => $vtg[3],
             'altitude' => $gga[3],
             //'item' => $collection->first(),
