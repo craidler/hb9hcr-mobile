@@ -6,6 +6,7 @@ use Exception;
 use Application\Controller\AbstractController;
 use Laminas\Http\Response;
 use Laminas\View\Model\ViewModel;
+use Logger\Model\Entry;
 
 /**
  * Class LoggerController
@@ -14,14 +15,24 @@ use Laminas\View\Model\ViewModel;
 class LoggerController extends AbstractController
 {
     /**
+     * @inheritdoc
+     */
+    protected $class = Entry::class;
+
+    /**
      * @return Response|ViewModel
      * @throws Exception
      */
     public function indexAction()
     {
+        $collection = $this->getCollection()->reverse();
+
         return $this->getView([
-            'interval' => 60,
-            'page' => Page::createFromCollection($this->getCollection()->reverse(), 5, $this->params()->fromRoute('id', 0)),
+            'interval' => $this->getSession()->offsetGet('interval') ?? 0,
+            'item' => $collection->first(),
+            'page' => Page::createFromCollection($collection, 5, $this->params()->fromRoute('id', 0)),
+            'gpsd' => system('ps -ef | grep -c gpsd'),
+            'feed' => system('ps -ef | grep -c logger.py'),
         ]);
     }
 
@@ -35,13 +46,9 @@ class LoggerController extends AbstractController
         ])->persist();
     }
 
-    public function startAction()
+    public function intervalAction()
     {
-        shell_exec('../../bin/logger.sh start');
-    }
-
-    public function stopAction()
-    {
-        shell_exec('../../bin/logger.sh stop');
+        $this->getSession()->offsetSet('interval', $this->params()->fromRoute('id', 0));
+        return $this->redirect()->toRoute('logger');
     }
 }

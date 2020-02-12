@@ -95,6 +95,10 @@
     grid-column: 5 span;
 }
 
+.s-6 {
+    grid-column: 6 span;
+}
+
 /* flex */
 .fg {
     flex-grow: 1;
@@ -124,6 +128,7 @@
 
 .f-3 {
     font-size: 3rem;
+    line-height: initial;
 }
 
 .tl {

@@ -1,22 +1,56 @@
-<?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file ]) ?>
-<?php $this->headMeta()->appendHttpEquiv('refresh', $this->interval . ', URL=' . $this->url()); ?>
+<?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file]) ?>
+<?php if ($this->interval) $this->headMeta()->appendHttpEquiv('refresh', $this->interval . ', URL=' . $this->url()); ?>
 <article>
-    <div class="dg c-3 tc">
-        <div class="dt h-2 bg">
-            <div>120s</div>
+    <div class="dg c-6 tc">
+        <div class="dt s-2">
+            <div class="bg h-3">
+                <p class="f-3"><?= sprintf('%d', $this->item->speed) ?> <small>km/h</small></p>
+                <p class="o-25">speed</p>
+            </div>
         </div>
-        <div class="dt h-2 bg o-5">
-            <div>60s</div>
+        <div class="dt s-2">
+            <div class="bg h-3">
+                <p class="f-3"><?= sprintf('%d', $this->item->alt) ?> <small>m</small></p>
+                <p class="o-25">altitude</p>
+            </div>
         </div>
-        <div class="dt h-2 bg o-5">
-            <div>30s</div>
+        <div class="dt <?= $this->gpsd ? 'a' : 'bg' ?>">
+            <div class="h-3">
+                <p class="f-3">GPSD</p>
+                <p class="o-25"> <?= $this->gpsd ? 'on' : 'off' ?></p>
+            </div>
         </div>
-        <table class="s-3">
+        <div class="dt  <?= $this->feed ? 'a' : 'bg' ?>">
+            <div class="h-3">
+                <p class="f-3">FEED</p>
+                <p class="o-25"> <?= $this->feed ? 'on' : 'off' ?></p>
+            </div>
+        </div>
+        <div class="dt h-2 <?= 60 == $this->interval ? 'a' : 'bg' ?>">
+            <a href="/logger/interval/60">60s</a>
+        </div>
+        <div class="dt h-2 <?= 30 == $this->interval ? 'a' : 'bg' ?>">
+            <a href="/logger/interval/30">30s</a>
+        </div>
+        <div class="dt h-2 <?= 15 == $this->interval ? 'a' : 'bg' ?>">
+            <a href="/logger/interval/15">15s</a>
+        </div>
+        <div class="dt h-2 <?= 10 == $this->interval ? 'a' : 'bg' ?>">
+            <a href="/logger/interval/10">10s</a>
+        </div>
+        <div class="dt h-2 <?= 5 == $this->interval ? 'a' : 'bg' ?>">
+            <a href="/logger/interval/5">5s</a>
+        </div>
+        <div class="dt h-2 <?= 0 == $this->interval ? 'a' : 'bg' ?>">
+            <a href="/logger/interval/0">off</a>
+        </div>
+        <table class="s-6">
             <thead>
                 <tr>
                     <th>Date</th>
                     <th>Time</th>
                     <th>Position</th>
+                    <th>Altitude</th>
                     <th>Speed</th>
                     <th>Sats</th>
                 </tr>
@@ -24,20 +58,20 @@
             <tbody>
                 <?php foreach ($this->page as $item): ?>
                     <tr>
-                        <td><?= $item->utc ?></td>
+                        <td><?= $item->date ?></td>
                         <td><?= $item->time ?></td>
                         <td><?= $item->position ?></td>
-                        <td><?= $item->speed ?></td>
-                        <td><?= $item->sats ?></td>
+                        <td class="tr"><?= $item->alt ?></td>
+                        <td class="tr"><?= $item->speed ?></td>
+                        <td class="tr"><?= $item->sats ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 </article>
-<footer class="dg c-3">
-    <?= $this->paginate($this->page) ?>
-    <p>&nbsp;</p>
-    <a href="/logger/grid">manage</a>
-    <a href="/logger/file">select</a>
+<footer class="dg c-5">
+    <?= $this->paginate($this->page)->col(5) ?>
+    <p class="s-3">&nbsp;</p>
+    <a class="s-2" href="/logger/file">select</a>
 </footer>

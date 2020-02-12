@@ -16,6 +16,5 @@ return [
     'Application',
     'Roadbook',
     'Logger',
-    'Diary',
     'Fuel',
 ];

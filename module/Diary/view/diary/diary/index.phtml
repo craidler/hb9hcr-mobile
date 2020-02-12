@@ -1,9 +1,0 @@
-<?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file ]) ?>
-<article>
-</article>
-<footer class="dg c-3">
-    <?= $this->paginate($this->page) ?>
-    <a href="/diary/create">new</a>
-    <a href="/diary/grid">manage</a>
-    <a href="/diary/file">select</a>
-</footer>
