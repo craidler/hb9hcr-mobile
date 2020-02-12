@@ -33,7 +33,7 @@ class LoggerController extends AbstractController
             'interval' => $this->getSession()->offsetGet('interval') ?? 0,
             'position' => $gga[1],
             'speed' => $vtg[3],
-            'altitude' => $vtg[3],
+            'altitude' => $gga[3],
             //'item' => $collection->first(),
             // 'page' => Page::createFromCollection($collection, 5, $this->params()->fromRoute('id', 0)),
             'gpsd' => system('ps -ef | grep -v grep | grep -c gpsd'),
