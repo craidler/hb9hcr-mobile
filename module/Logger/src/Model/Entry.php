@@ -28,6 +28,7 @@ class Entry extends Item
     {
         $words = explode(',', $sentence);
         if (!count($words)) throw new Exception('failed to parse sentence ' . $sentence);
+        $words[0] = substr($words[0], 2);
         $class = __NAMESPACE__ . '\\Nmea\\' . ucfirst(strtolower($words[0]));
         return call_user_func_array([$class, 'createFromArray'], [$words]);
     }
