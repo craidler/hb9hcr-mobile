@@ -19,6 +19,7 @@ while (true) {
         $match = null;
 
         if (preg_match('#\$.{2}(GGA|VTG)#', $data, $match)) {
+            $data[0] = $match[1];
             $entry = Entry::createFromNMEA($data);
             var_dump($entry->altitude);
         }
