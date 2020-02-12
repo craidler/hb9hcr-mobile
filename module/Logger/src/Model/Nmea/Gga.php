@@ -14,8 +14,6 @@ class Gga extends Item
      */
     public static function createFromArray(array $data = null): Item
     {
-        var_dump($data);
-
         return parent::createFromArray(array_combine([
             'type',
             'utc',
@@ -27,7 +25,9 @@ class Gga extends Item
             'sats',
             'hdop',
             'alt',
+            'alt_u',
             'geos',
+            'geos_u',
             'dgps',
             'checksum',
         ], $data));
