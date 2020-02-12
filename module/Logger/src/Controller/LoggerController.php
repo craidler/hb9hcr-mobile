@@ -25,14 +25,19 @@ class LoggerController extends AbstractController
      */
     public function indexAction()
     {
-        $collection = $this->getCollection()->reverse();
+        // $collection = $this->getCollection()->reverse();
+        $gga = explode(':', file_get_contents('/home/pi/hb9hcr-mobile/public/data/logger/gga.dat'));
+        $vtg = explode(':', file_get_contents('/home/pi/hb9hcr-mobile/public/data/logger/vtg.dat'));
 
         return $this->getView([
             'interval' => $this->getSession()->offsetGet('interval') ?? 0,
-            'item' => $collection->first(),
-            'page' => Page::createFromCollection($collection, 5, $this->params()->fromRoute('id', 0)),
-            'gpsd' => system('ps -ef | grep -c gpsd'),
-            'feed' => system('ps -ef | grep -c logger.py'),
+            'position' => $gga[1],
+            'speed' => $vtg[3],
+            'altitude' => $vtg[3],
+            //'item' => $collection->first(),
+            // 'page' => Page::createFromCollection($collection, 5, $this->params()->fromRoute('id', 0)),
+            'gpsd' => system('ps -ef | grep -v grep | grep -c gpsd'),
+            'feed' => system('ps -ef | grep -v grep | grep -c logger.php'),
         ]);
     }
 

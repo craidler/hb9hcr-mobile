@@ -30,6 +30,17 @@ while (true) {
                     $entry->geos,
                     $entry->hdop
                 );
+
+                file_put_contents('/home/pi/hb9hcr-mobile/public/data/logger/gga.dat', sprintf(
+                    '%d:%s%f,%s%f:%.02f:%d',
+                    $entry->sat,
+                    $entry->lat_u,
+                    $entry->lat,
+                    $entry->lon_u,
+                    $entry->lon,
+                    $entry->hdop,
+                    $entry->alt
+                ));
             }
 
             if ($entry instanceof Vtg) {
@@ -40,6 +51,10 @@ while (true) {
                     $entry->speed_n,
                     $entry->speed_m
                 );
+
+                file_put_contents('/home/pi/hb9hcr-mobile/public/data/logger/vtg.dat', sprintf(
+                    '%.02f:%.02f:%.02f'
+                ));
             }
         }
     }

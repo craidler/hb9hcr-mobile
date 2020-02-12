@@ -4,23 +4,29 @@
     <div class="dg c-6 tc">
         <div class="dt s-2">
             <div class="bg h-3">
-                <p class="f-3"><?= sprintf('%d', $this->item->speed) ?> <small>km/h</small></p>
+                <p class="f-3"><?= sprintf('%d', $this->speed) ?> <small>km/h</small></p>
                 <p class="o-25">speed</p>
             </div>
         </div>
         <div class="dt s-2">
             <div class="bg h-3">
-                <p class="f-3"><?= sprintf('%d', $this->item->alt) ?> <small>m</small></p>
+                <p class="f-3"><?= sprintf('%d', $this->altitude) ?> <small>m</small></p>
                 <p class="o-25">altitude</p>
             </div>
         </div>
-        <div class="dt <?= $this->gpsd ? 'a' : 'bg' ?>">
+        <div class="dt s-2">
+            <div class="bg h-3">
+                <p class="f-3"><?= sprintf('%d', $this->position) ?></p>
+                <p class="o-25">position</p>
+            </div>
+        </div>
+        <div class="dt s-3 <?= $this->gpsd ? 'a' : 'bg' ?>">
             <div class="h-3">
                 <p class="f-3">GPSD</p>
                 <p class="o-25"> <?= $this->gpsd ? 'on' : 'off' ?></p>
             </div>
         </div>
-        <div class="dt  <?= $this->feed ? 'a' : 'bg' ?>">
+        <div class="dt s-3 <?= $this->feed ? 'a' : 'bg' ?>">
             <div class="h-3">
                 <p class="f-3">FEED</p>
                 <p class="o-25"> <?= $this->feed ? 'on' : 'off' ?></p>
