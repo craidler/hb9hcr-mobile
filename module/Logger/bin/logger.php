@@ -16,9 +16,8 @@ stream_set_blocking($stream, true);
 while (true) {
     try {
         $data = trim(fgets($stream));
-        $match = null;
 
-        if (preg_match('#^\$GN(GGA)#', $data, $match)) {
+        if (preg_match('#^\$GN(GGA)#', $data)) {
             $entry = Entry::createFromNMEA($data);
             printf('GGA Sats: %d Altitude: %d GEOS: %.02f HDOP: %.02f' . PHP_EOL, $entry->sats, $entry->alt, $entry->geos, $entry->hdop);
         }
