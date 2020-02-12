@@ -22,7 +22,7 @@ class Gga extends Item
             'lon',
             'lon_i',
             'qual',
-            'sats',
+            'sat',
             'hdop',
             'alt',
             'alt_u',

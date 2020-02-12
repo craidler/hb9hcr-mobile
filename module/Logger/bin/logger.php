@@ -3,6 +3,8 @@ namespace Logger;
 
 use Exception;
 use Logger\Model\Entry;
+use Logger\Model\Nmea\Gga;
+use Logger\Model\Nmea\Vtg;
 
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
@@ -17,9 +19,28 @@ while (true) {
     try {
         $data = trim(fgets($stream));
 
-        if (preg_match('#^\$GN(GGA)#', $data)) {
+        if (preg_match('#^\$GN(GGA|VTG)#', $data)) {
             $entry = Entry::createFromNMEA($data);
-            printf('GGA Sats: %d Altitude: %d GEOS: %.02f HDOP: %.02f' . PHP_EOL, $entry->sats, $entry->alt, $entry->geos, $entry->hdop);
+
+            if ($entry instanceof Gga) {
+                printf(
+                    'GGA SATS: %d ALT: %d GEOS: %.02f HDOP: %.02f' . PHP_EOL,
+                    $entry->sat,
+                    $entry->alt,
+                    $entry->geos,
+                    $entry->hdop
+                );
+            }
+
+            if ($entry instanceof Vtg) {
+                printf(
+                    'VTG Course True: %.02f Course Mag: %.02f SPD Nautic: %.02f SPD Metric: %.02f' . PHP_EOL,
+                    $entry->course_t,
+                    $entry->course_m,
+                    $entry->speed_n,
+                    $entry->speed_m
+                );
+            }
         }
     }
     catch (Exception $e) {
