@@ -6,6 +6,7 @@ use Application\Controller\FileController;
 use Laminas\Http\Response;
 use Laminas\View\Model\JsonModel;
 use Laminas\View\Model\ViewModel;
+use Logger\Model\Entry;
 
 /**
  * Class LoggerController
@@ -15,19 +16,24 @@ class LoggerController extends FileController
 {
     public function ajaxAction()
     {
-        sleep(rand(0, 1));
+        $config = $this->config->get('nmea');
+        $stream = fopen($config->get('device'), 'r');
+        $needles = $config->get('nmea')->toArray();
+        $pattern = sprintf('#^\$.{2}(%s)\,#', implode('|', $needles));
+        $data = [];
+        $i = 0;
 
-        return new JsonModel([
-            'course_m' => rand(0, 359),
-            'course_t' => rand(0, 359),
-            'alt' => rand(0, 445),
-            'hdop' => rand(0, 2),
-            'speed_m' => rand(0, 100),
-            'lat' => rand(0, 90),
-            'lat_u' => 'N',
-            'lon' => rand(0, 90),
-            'lon_u' => 'E',
-        ]);
+        do {
+            $line = trim(fgets($stream));
+            if (!preg_match($pattern, $line, $match)) continue;
+            $chunks = explode(',', $line);
+            $chunks[0] = $match[1];
+            $data = array_merge($data, Entry::createFromArray($chunks)->getArrayCopy());
+            $i++;
+        }
+        while ($i < count($needles));
+
+        return new JsonModel($data);
     }
 
     /**
