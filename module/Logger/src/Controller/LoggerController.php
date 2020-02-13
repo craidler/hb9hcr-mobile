@@ -34,6 +34,7 @@ class LoggerController extends FileController
         }
         while ($i < count($needles));
         foreach (['lat', 'lon'] as $k) $data[$k] = sprintf('%.07f', Coordinates::gpsToDec($data[$k], $data[$k . '_i']));
+        foreach (['alt', 'speed_m'] as $k) $data[$k] = sprintf('%d', $data[$k]);
         return new JsonModel($data);
     }
 
