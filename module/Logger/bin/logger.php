@@ -11,6 +11,8 @@ $output = fopen(sprintf($config->get('nmea')->get('log'), $config->get('file')->
 $needles = $config->get('nmea')->get('types')->toArray();
 $pattern = sprintf('#^\$.{2}(%s)\,#', implode('|', $needles));
 $data = [];
+var_dump($pattern);
+exit;
 
 do {
     $line = trim(fgets($stream));
