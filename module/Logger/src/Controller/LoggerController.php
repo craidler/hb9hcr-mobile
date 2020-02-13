@@ -36,6 +36,7 @@ class LoggerController extends FileController
         foreach (['lat', 'lon'] as $k) $data[$k] = sprintf('%.07f', Coordinates::gpsToDec($data[$k], $data[$k . '_i']));
         foreach (['alt', 'speed_m'] as $k) $data[$k] = sprintf('%d', $data[$k]);
         foreach (['hdop'] as $k) $data[$k] = sprintf('%.01f', $data[$k]);
+        foreach (['course_t', 'course_m'] as $k) $data[$k] = strlen($data[$k]) ? sprintf('%d', $data[$k]) : '---';
         return new JsonModel($data);
     }
 
