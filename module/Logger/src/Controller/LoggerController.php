@@ -18,7 +18,7 @@ class LoggerController extends FileController
     {
         $config = $this->config->get('nmea');
         $stream = fopen($config->get('device'), 'r');
-        $needles = $config->get('nmea')->toArray();
+        $needles = $config->get('types')->toArray();
         $pattern = sprintf('#^\$.{2}(%s)\,#', implode('|', $needles));
         $data = [];
         $i = 0;
