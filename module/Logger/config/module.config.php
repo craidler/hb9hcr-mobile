@@ -28,6 +28,9 @@ return [
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
+        'strategies' => [
+            'ViewJsonStrategy',
+        ]
     ],
     Module::class => [
         'file' => [
@@ -38,7 +41,7 @@ return [
             'interval' => 1,
             'device' => __DIR__ . '/../bin/test.dat', //'/dev/ttyACM0',
             'types' => ['GGA', 'VTG'],
-            'log' => '%s/%s.%s.dat',
+            'log' => '%s/%s.dat',
         ],
         'check' => [
             'gpsd' => 'ps -ef | grep -v grep | grep -c gpsd',

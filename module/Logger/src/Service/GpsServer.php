@@ -78,6 +78,7 @@ class GpsServer implements MessageComponentInterface
     {
         $stream = fopen($this->config->get('nmea')->get('device'), 'r');
         stream_set_blocking($stream, true);
+        return;
         while (true) {
             try {
                 $this->handle(trim(fgets($stream)));
@@ -104,9 +105,14 @@ class GpsServer implements MessageComponentInterface
         if (!preg_match($pattern, $words[0], $match)) return;
 
         // Remove vendor specific prefix from type and push NMEA sentence to clients
-        $words[0] = $match[1];
-        $entry = Entry::createFromArray($words);
-        foreach ($this->clients as $client) $client->send(json_encode($entry->getArrayCopy()));
+        try {
+            $words[0] = $match[1];
+            $entry = Entry::createFromArray($words);
+            foreach ($this->clients as $client) $client->send(json_encode($entry->getArrayCopy()));
+        }
+        catch (Exception $e) {
+            print $e->getMessage() . PHP_EOL;
+        }
 
         // Log NMEA sentence if needed
         // todo: check this, must only write a record once per interval

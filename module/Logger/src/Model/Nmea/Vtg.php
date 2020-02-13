@@ -18,7 +18,7 @@ class Vtg extends Item
      */
     public static function createFromArray(array $data = null): Item
     {
-        return parent::createFromArray(array_combine([
+        $data = array_combine([
             'log',
             'type',
             'course_t',
@@ -30,6 +30,8 @@ class Vtg extends Item
             'speed_m',
             'speed_mu',
             'checksum',
-        ], $data));
+        ], $data);
+
+        return parent::createFromArray(is_array($data) ? $data : []);
     }
 }

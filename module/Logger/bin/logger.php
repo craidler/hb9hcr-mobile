@@ -1,68 +1,24 @@
 <?php
 namespace Logger;
 
-use Exception;
-use Logger\Model\Entry;
-use Logger\Model\Nmea\Gga;
-use Logger\Model\Nmea\Vtg;
+use Laminas\Config\Config;
 
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
-# todo: this script could use some love
+$config = (new Config(include __DIR__ . '/../config/module.config.php'))->get(Module::class);
+$stream = fopen($config->get('nmea')->get('device', 'dev/ttyACM0'), 'r');
+$output = fopen(sprintf($config->get('nmea')->get('log'), $config->get('file')->get('path'), date('Ymd')),'a');
+$needles = $config->get('types');
+$pattern = sprintf('#^\$.{2}(%s)\,#', implode('|', $needles));
+$data = [];
 
-$errno = null;
-$errstr = null;
-$stream = fopen('/dev/ttyACM0', 'r');
-stream_set_blocking($stream, true);
-
-while (true) {
-    try {
-        $data = trim(fgets($stream));
-
-        if (preg_match('#^\$GN(GGA|VTG)#', $data)) {
-            $entry = Entry::createFromNMEA($data);
-
-            if ($entry instanceof Gga) {
-                printf(
-                    'GGA SATS: %d ALT: %d GEOS: %.02f HDOP: %.02f' . PHP_EOL,
-                    $entry->sat,
-                    $entry->alt,
-                    $entry->geos,
-                    $entry->hdop
-                );
-
-                file_put_contents('/home/pi/hb9hcr-mobile/public/data/logger/gga.dat', sprintf(
-                    'sat:%d;lat:%f;lat_u:%s;lon:%f;lon_u:%s;hdop:%.01f;alt:%d',
-                    $entry->sat,
-                    $entry->lat,
-                    $entry->lat_u,
-                    $entry->lon,
-                    $entry->lon_u,
-                    $entry->hdop,
-                    $entry->alt
-                ));
-            }
-
-            if ($entry instanceof Vtg) {
-                printf(
-                    'VTG Course True: %.02f Course Mag: %.02f SPD Nautic: %.02f SPD Metric: %.02f' . PHP_EOL,
-                    $entry->course_t,
-                    $entry->course_m,
-                    $entry->speed_n,
-                    $entry->speed_m
-                );
-
-                file_put_contents('/home/pi/hb9hcr-mobile/public/data/logger/vtg.dat', sprintf(
-                    'course_t:%.02f;course_m:%.02f;speed_n:%.02f;speed_m:%.02f',
-                    $entry->course_t,
-                    $entry->course_m,
-                    $entry->speed_n,
-                    $entry->speed_m
-                ));
-            }
-        }
-    }
-    catch (Exception $e) {
-        print $e->getMessage() . PHP_EOL;
-    }
+do {
+    $line = trim(fgets($stream));
+    if (!preg_match($pattern, $line)) continue;
+    $data[] = $line;
 }
+while (count($data) < count($needles));
+
+fwrite($output, sprintf('%d:%s', time(), implode(':', $data)));
+fclose($output);
+fclose($stream);

@@ -15,7 +15,7 @@ class Entry extends Item
     public static function createFromArray(array $data = null): Item
     {
         array_unshift($data, time());
-        $class = __NAMESPACE__ . '\\Nmea\\' . ucfirst(strtolower($data[0]));
+        $class = __NAMESPACE__ . '\\Nmea\\' . ucfirst(strtolower($data[1]));
         return call_user_func_array([$class, 'createFromArray'], [$data]);
     }
 }
