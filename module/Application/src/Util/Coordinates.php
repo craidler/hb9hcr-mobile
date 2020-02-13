@@ -29,6 +29,6 @@ abstract class Coordinates
      */
     public static function gpsToDec(float $gps, string $hdg): float
     {
-        return (substr($gps, 0, 3) + (substr($gps, 4) / 60)) * (false !== strpos('NW', strtoupper($hdg)) ? 1 : -1);
+        return round(substr($gps, 0, 3) . '.' . (substr($gps, 4) / 60), 4) * (false !== strpos('NW', strtoupper($hdg)) ? 1 : -1);
     }
 }
