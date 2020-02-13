@@ -33,7 +33,7 @@ class LoggerController extends FileController
             $i++;
         }
         while ($i < count($needles));
-        foreach (['lat', 'lon'] as $k) $data[$k] = Coordinates::gpsToDec($data[$k], $data[$k . '_u']);
+        foreach (['lat', 'lon'] as $k) $data[$k] = Coordinates::gpsToDec($data[$k], $data[$k . '_i']);
         return new JsonModel($data);
     }
 
