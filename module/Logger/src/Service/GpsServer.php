@@ -3,6 +3,7 @@ namespace Logger\Service;
 
 use Exception, SplObjectStorage;
 use Laminas\Config\Config;
+use Logger\Model\Entry;
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 
@@ -104,13 +105,15 @@ class GpsServer implements MessageComponentInterface
 
         // Remove vendor specific prefix from type and push NMEA sentence to clients
         $words[0] = $match[1];
-        foreach ($this->clients as $client) $client->send(implode(',', $words));
+        $entry = Entry::createFromArray($words);
+        foreach ($this->clients as $client) $client->send(json_encode($entry->getArrayCopy()));
 
         // Log NMEA sentence if needed
+        // todo: check this, must only write a record once per interval
         if (0 != date('i') % $config->get('interval', 1)) return;
         $filename = sprintf($config->get('log'), $this->config->get('file')->get('path'), $words[0], date('Ymd'));
         $handle = fopen($filename, 'a');
-        fwrite($handle, sprintf('%s,%s' . PHP_EOL, date('YmdHis'), implode(',', $words)));
+        fwrite($handle, implode(',', array_values($entry->getArrayCopy())));
         fclose($handle);
     }
 }

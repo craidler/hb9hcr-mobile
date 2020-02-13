@@ -19,6 +19,7 @@ class Vtg extends Item
     public static function createFromArray(array $data = null): Item
     {
         return parent::createFromArray(array_combine([
+            'log',
             'type',
             'course_t',
             'course_tu',
