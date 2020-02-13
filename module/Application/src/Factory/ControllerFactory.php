@@ -1,8 +1,6 @@
 <?php
 namespace Application\Factory;
 
-use Application\Feature\UsesConfig;
-use Application\Feature\UsesSession;
 use Interop\Container\ContainerInterface;
 use Laminas\Config\Config;
 use Laminas\ServiceManager\Factory\FactoryInterface;

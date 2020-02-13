@@ -6,7 +6,9 @@
  */
 namespace Application;
 
+use Application\Factory\PluginFactory;
 use Application\Helper\Paginate;
+use Application\Plugin\Messenger;
 use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -40,6 +42,15 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+        ],
+    ],
+    'controller_plugins' => [
+        'factories' => [
+            Messenger::class => PluginFactory::class,
+        ],
+        'aliases' => [
+            'messenger' => Messenger::class,
+            'message' => Messenger::class,
         ],
     ],
     'view_manager' => [

@@ -1,6 +1,8 @@
 <?php
 namespace Application\Controller;
 
+use Application\Model\Page;
+use Application\Plugin\Messenger;
 use Exception;
 use Application\Model\Collection;
 use Application\Model\Item;
@@ -13,6 +15,8 @@ use Laminas\View\Model\ViewModel;
 
 /**
  * Class FileController
+ *
+ * @method Messenger message()
  */
 abstract class FileController extends AbstractActionController
 {
@@ -75,6 +79,32 @@ abstract class FileController extends AbstractActionController
         }
 
         return $this->getView()->setTemplate('application/file/index');
+    }
+
+    /**
+     * @return Response|ViewModel
+     */
+    public function gridAction()
+    {
+        if ($this->isPost()) {
+            try {
+                switch ($this->getFormAction()) {
+                    case 'delete':
+                        $this->getCollection()->delete($this->getFormId())->persist();
+                        $this->message()->success(sprintf('%s:%d has been deleted', $this->getClass(), $this->getFormId()));
+                        break;
+                }
+            }
+            catch (Exception $e) {
+                $this->message()->error($e->getMessage());
+            }
+
+            return $this->redirect()->refresh();
+        }
+
+        return $this->getView([
+            'page' => Page::createFromCollection($this->getCollection(), 10, $this->params()->fromRoute('id', 0)),
+        ])->setTemplate(sprintf('%1$s/%1$s/grid', $this->getNamespace()));
     }
 
     /**

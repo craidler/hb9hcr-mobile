@@ -23,7 +23,7 @@
     </article>
     <footer class="dg c-3">
         <button type="submit" name="action" value="save<?= $this->item ? ',' . $this->item->id : '' ?>">save</button>
-        <a href="<?= $this->url('fuel') ?>">cancel</a>
-        <a href="/roadbook/file" class="tc">select</a>
+        <a href="<?= $this->url(null, ['action' => 'index'], [], true) ?>">cancel</a>
+        <a href="<?= $this->url(null, ['action' => 'file'], [], true) ?>">select</a>
     </footer>
 </form>

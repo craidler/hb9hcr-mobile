@@ -147,6 +147,17 @@ class Collection extends ArrayObject
     }
 
     /**
+     * @param Item|string|int $value
+     * @return $this
+     * @throws Exception
+     */
+    public function delete($value)
+    {
+        $this->offsetUnset($this->find($value, false));
+        return $this;
+    }
+
+    /**
      * @return Collection
      */
     public function reverse(): Collection
