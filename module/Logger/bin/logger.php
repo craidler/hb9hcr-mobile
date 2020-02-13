@@ -8,7 +8,7 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 $config = (new Config(include __DIR__ . '/../config/module.config.php'))->get(Module::class);
 $stream = fopen($config->get('nmea')->get('device', 'dev/ttyACM0'), 'r');
 $output = fopen(sprintf($config->get('nmea')->get('log'), $config->get('file')->get('path'), date('Ymd')),'a');
-$needles = $config->get('nmea')->get('types');
+$needles = $config->get('nmea')->get('types')->toArray();
 $pattern = sprintf('#^\$.{2}(%s)\,#', implode('|', $needles));
 $data = [];
 
