@@ -25,10 +25,13 @@ abstract class Coordinates
     /**
      * @param float $gps
      * @param string $hdg
+     * @param int $decimals
      * @return float
      */
-    public static function gpsToDec(float $gps, string $hdg): float
+    public static function gpsToDec(float $gps, string $hdg, int $decimals = 6): float
     {
-        return round(substr($gps, 0, 3) . '.' . (substr($gps, 4) / 60), 4) * (false !== strpos('NW', strtoupper($hdg)) ? 1 : -1);
+        $deg = (int)substr($gps, 0, 3);
+        $dec = (substr($gps, 4) / 60) * .01;
+        return number_format(($deg + $dec) * (false !== strpos('NW', strtoupper($hdg)) ? 1 : -1), $decimals);
     }
 }
