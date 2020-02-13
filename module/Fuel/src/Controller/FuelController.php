@@ -1,6 +1,8 @@
 <?php
 namespace Fuel\Controller;
 
+use Application\Model\Collection;
+use Application\Model\Page;
 use Exception;
 use Application\Controller\FileController;
 use Laminas\Http\Response;
@@ -18,10 +20,8 @@ class FuelController extends FileController
      */
     public function indexAction()
     {
-        /*
         $collection = $this->getCollection();
         if (!$collection->count()) return $this->redirect()->toRoute('fuel', ['action' => 'create']);
-
 
         $first = $collection->first();
         $last = $collection->last();
@@ -34,7 +34,6 @@ class FuelController extends FileController
 
         foreach ($collection as $i => $item) if (0 < $i) $calculation['volume'] += $item->volume;
         $calculation['consumption'] = $calculation['distance'] ? ($calculation['volume'] / $calculation['distance']) * 100 : 0;
-
         $calculated = Collection::createFromArray();
 
         foreach ($collection as $item) {
@@ -67,8 +66,5 @@ class FuelController extends FileController
             'calculation' => $calculation,
             'page' => Page::createFromCollection($calculated->reverse(), 5, $this->params()->fromRoute('id', 0))
         ]);
-        */
-
-        return $this->getView();
     }
 }

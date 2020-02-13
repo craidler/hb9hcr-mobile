@@ -1,5 +1,5 @@
 <form method="post">
-    <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file ]) ?>
+    <?= $this->partial('partial/header', ['title' => $this->namespace . ' create', 'file' => $this->file ]) ?>
     <article class="dg c-3">
         <label>Date</label>
         <input type="date" name="date" value="<?= date('Y-m-d') ?>" required>

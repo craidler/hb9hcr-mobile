@@ -1,6 +1,9 @@
 <?php
 namespace Application\Controller;
 
+use Exception;
+use Application\Model\Collection;
+use Application\Model\Item;
 use FilesystemIterator, GlobIterator;
 use Laminas\Config\Config;
 use Laminas\Http\Response;
@@ -14,14 +17,36 @@ use Laminas\View\Model\ViewModel;
 abstract class FileController extends AbstractActionController
 {
     /**
+     * @var string
+     */
+    protected $class = Item::class;
+
+    /**
      * @var Config
      */
     protected $config;
 
     /**
+     * @var Collection
+     */
+    protected $collection;
+
+    /**
      * @var Container
      */
     protected $session;
+
+    /**
+     * @return Response|ViewModel
+     */
+    public function createAction()
+    {
+        if ($this->isPost()) {
+            return $this->redirect()->refresh();
+        }
+
+        return $this->getView()->setTemplate(sprintf('%1$s/%1$s/form', $this->getNamespace()));
+    }
 
     /**
      * @return Response|ViewModel
@@ -42,15 +67,13 @@ abstract class FileController extends AbstractActionController
 
                 case 'select':
                     $this->session->offsetSet('file', $this->getFilename($this->getFormId()));
-                    break;
+                    return $this->redirect()->toRoute(null, ['action' => 'index'], [], true);
             }
 
             return $this->redirect()->refresh();
         }
 
-        $view = $this->getView();
-        $view->setTemplate('application/file/index');
-        return $view;
+        return $this->getView()->setTemplate('application/file/index');
     }
 
     /**
@@ -71,6 +94,23 @@ abstract class FileController extends AbstractActionController
     {
         $this->session = $session;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClass(): string
+    {
+        return $this->class;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getCollection(): Collection
+    {
+        if (!$this->collection) $this->collection = Collection::load($this->getFile(), $this->getClass());
+        return $this->collection;
     }
 
     /**
@@ -131,8 +171,20 @@ abstract class FileController extends AbstractActionController
      */
     public function getView(array $data = []): ViewModel
     {
+        $collection = $this->getCollection();
+
+        try {
+            $item = $collection->find($this->params()->fromRoute('id'));
+        }
+        catch (Exception $e) {
+            $item = null;
+        }
+
         return new ViewModel(array_merge([
+            'collection' => $collection,
+            'namespace' => $this->getNamespace(),
             'files' => $this->getFiles(),
+            'item' => $item,
             'file' => $this->getFile(),
         ], $data));
     }
@@ -169,6 +221,14 @@ abstract class FileController extends AbstractActionController
     protected function getFormParam(): string
     {
         return explode(',', $this->params()->fromPost('action'))[2];
+    }
+
+    /**
+     * @return string
+     */
+    protected function getNamespace(): string
+    {
+        return explode('\\', get_called_class())[0];
     }
 
     /**

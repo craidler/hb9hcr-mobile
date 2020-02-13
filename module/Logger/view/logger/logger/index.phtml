@@ -1,6 +1,16 @@
-<?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file]) ?>
+<?= $this->partial('partial/header', ['title' => 'Logger', 'file' => $this->file]) ?>
 <article data-url="/logger/ajax" data-interval="<?= $this->interval ?>">
     <div class="dg c-6 tc">
+        <div class="dt s-3 <?= $this->gpsd ? 'a' : 'bg' ?>">
+            <div>
+                <p>GPSD</p>
+            </div>
+        </div>
+        <div class="dt s-3 <?= $this->gpsl ? 'a' : 'bg' ?>">
+            <div>
+                <p>GPSL</p>
+            </div>
+        </div>
         <div class="dt s-2">
             <div class="bg h-3">
                 <p><span class="f-3" data-name="spd"><?= sprintf('%d', $this->speed_m) ?></span> <small>km/h</small></p>
@@ -31,40 +41,11 @@
                 <p class="o-25">longitude</p>
             </div>
         </div>
-        <div class="dt s-3 <?= $this->gpsd ? 'a' : 'bg' ?>">
-            <div>
-                <p>GPSD</p>
-            </div>
-        </div>
-        <div class="dt s-3 <?= $this->feed ? 'a' : 'bg' ?>">
-            <div>
-                <p>FEED</p>
-            </div>
-        </div>
-        <div class="dt <?= 60 == $this->interval ? 'a' : 'bg' ?>">
-            <a href="/logger/interval/60">60s</a>
-        </div>
-        <div class="dt <?= 30 == $this->interval ? 'a' : 'bg' ?>">
-            <a href="/logger/interval/30">30s</a>
-        </div>
-        <div class="dt <?= 15 == $this->interval ? 'a' : 'bg' ?>">
-            <a href="/logger/interval/15">15s</a>
-        </div>
-        <div class="dt <?= 10 == $this->interval ? 'a' : 'bg' ?>">
-            <a href="/logger/interval/10">10s</a>
-        </div>
-        <div class="dt <?= 5 == $this->interval ? 'a' : 'bg' ?>">
-            <a href="/logger/interval/5">5s</a>
-        </div>
-        <div class="dt <?= 0 == $this->interval ? 'a' : 'bg' ?>">
-            <a href="/logger/interval/0">off</a>
-        </div>
     </div>
 </article>
-<footer class="dg c-5">
-    <?= $this->paginate($this->page)->col(5) ?>
-    <p class="s-3">&nbsp;</p>
-    <a class="s-2" href="/logger/file">select</a>
+<footer class="dg c-2">
+    <a href="/logger/grid">view</a>
+    <a href="/logger/file">select</a>
 </footer>
 <script>
     jQuery(document).ready(function ($) {

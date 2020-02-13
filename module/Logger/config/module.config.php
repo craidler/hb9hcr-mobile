@@ -28,20 +28,17 @@ return [
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
-        'strategies' => [
-            'ViewJsonStrategy',
-        ],
     ],
     Module::class => [
         'file' => [
-            'path' => __DIR__ . '/../../../public/data',
+            'path' => __DIR__ . '/../../../public/data/logger',
             'ext' => 'dat',
         ],
         'nmea' => [
             'interval' => 1,
             'device' => '/dev/ttyACM0',
             'types' => ['GGA', 'VTG'],
-            'log' => '%s/nmea/log.%s.%s.dat',
+            'log' => '%s/%s.%s.dat',
         ],
         'check' => [
             'gpsd' => 'ps -ef | grep -v grep | grep -c gpsd',
