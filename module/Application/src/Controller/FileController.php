@@ -214,6 +214,7 @@ abstract class FileController extends AbstractActionController
         return new ViewModel(array_merge([
             'collection' => $collection,
             'namespace' => $this->getNamespace(),
+            'title' => sprintf('%s %s', $this->getNamespace(), $this->params()->fromRoute('action')),
             'files' => $this->getFiles(),
             'item' => $item,
             'file' => $this->getFile(),

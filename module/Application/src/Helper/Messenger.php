@@ -17,7 +17,7 @@ class Messenger extends AbstractHelper
     /**
      * @return $this
      */
-    public function __invoke()
+    public function __invoke(): self
     {
         return $this;
     }
@@ -27,9 +27,25 @@ class Messenger extends AbstractHelper
      */
     public function __toString(): string
     {
-        $html = $this->getView()->render('partial/messenger.phtml', $this->session->getArrayCopy());
+        return $this->getView()->render('partial/messenger.phtml', $this->session->getArrayCopy());
+    }
+
+    /**
+     * @param string $type
+     * @return bool
+     */
+    public function has(string $type): bool
+    {
+        return $this->session->offsetExists($type);
+    }
+
+    /**
+     * @return $this
+     */
+    public function clear(): self
+    {
         $this->session->exchangeArray([]);
-        return $html;
+        return $this;
     }
 
     /**

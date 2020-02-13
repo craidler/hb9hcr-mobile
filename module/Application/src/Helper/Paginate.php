@@ -61,7 +61,7 @@ class Paginate extends AbstractHelper
      */
     public function __toString(): string
     {
-        return $this->page ? $this->getView()->render('partial/paginate.5c.phtml', [
+        return $this->page ? $this->getView()->render('partial/paginate.phtml', [
             'current' => $this->page->current,
             'pages' => $this->page->pages,
             'first' => $this->page->first,

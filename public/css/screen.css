@@ -102,3 +102,11 @@ button, footer a, td a, .bg {
 .a, .a td {
     background: rgba(100, 150, 175, .5) !important;
 }
+
+aside .fg {
+    transition: background-color .5s;
+}
+
+.success {
+    background-color: rgb(34, 139, 34) !important;
+}

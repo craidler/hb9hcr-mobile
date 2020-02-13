@@ -6,6 +6,8 @@
     <?= $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0')->appendHttpEquiv('X-UA-Compatible', 'IE=edge') ?>
     <!-- Scripts -->
     <?= $this->inlineScript() ?>
+    <script src="<?= $this->basePath('js/jquery-3.4.1.min.js') ?>"></script>
+    <script src="<?= $this->basePath('js/hb9hcr.js') ?>"></script>
     <link rel="stylesheet" href="<?= $this->basePath('css/reset.css') ?>">
     <link rel="stylesheet" href="<?= $this->basePath('css/screen.css') ?>">
     <link rel="stylesheet" href="<?= $this->basePath('css/utility.css') ?>">
@@ -16,11 +18,12 @@
         <a href="/roadbook" class="lh-2 tl ttu active">roadbook</a>
         <a href="/logger" class="lh-2 tl ttu active">logger</a>
         <a href="/fuel" class="lh-2 tl ttu">fuel</a>
-        <div class="fg">&nbsp;</div>
+        <div class="fg <?= $this->messenger()->has('success') ? 'success' : '' ?>">&nbsp;</div>
         <a href="/application/shutdown" class="lh-2 tl ttu">shutdown</a>
     </nav>
 </aside>
 <main>
+    <?php $this->messenger()->clear() ?>
     <?= $this->content ?>
 </main>
 </body>

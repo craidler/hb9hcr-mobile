@@ -13,6 +13,8 @@ use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 use Laminas\ServiceManager\ServiceManager;
+use Laminas\Session\Container;
+use Laminas\Session\SessionManager;
 
 return [
     'router' => [
@@ -49,8 +51,8 @@ return [
             Messenger::class => PluginFactory::class,
         ],
         'aliases' => [
-            'messenger' => Messenger::class,
-            'message' => Messenger::class,
+            'messenger' => Plugin\Messenger::class,
+            'message' => Plugin\Messenger::class,
         ],
     ],
     'view_manager' => [
@@ -71,11 +73,15 @@ return [
     ],
     'view_helpers' => [
         'aliases' => [
-            'paginate' => Paginate::class,
+            'paginate' => Helper\Paginate::class,
+            'messenger' => Helper\Messenger::class,
         ],
         'factories' => [
-            Paginate::class => function (ServiceManager $serviceManager) {
-                return (new Paginate())->setMatch($serviceManager->get('Application')->getMvcEvent()->getRouteMatch());
+            Helper\Paginate::class => function (ServiceManager $serviceManager) {
+                return (new Helper\Paginate())->setMatch($serviceManager->get('Application')->getMvcEvent()->getRouteMatch());
+            },
+            Helper\Messenger::class => function (ServiceManager $serviceManager) {
+                return (new Helper\Messenger())->setSession(new Container(Plugin\Messenger::class, $serviceManager->get(SessionManager::class)));
             },
         ],
     ],
