@@ -50,6 +50,7 @@ class GpsServer implements MessageComponentInterface
      */
     public function onOpen(ConnectionInterface $conn)
     {
+        printf('%d connected', $conn->resourceId);
         $this->clients->attach($conn);
     }
 
@@ -106,8 +107,8 @@ class GpsServer implements MessageComponentInterface
         foreach ($this->clients as $client) $client->send(implode(',', $words));
 
         // Log NMEA sentence if needed
-        if (0 != date('i') % $config->get('interval', 10)) return;
-        $filename = sprintf($config->get('log'), $words[0], date('Ymd'));
+        if (0 != date('i') % $config->get('interval', 1)) return;
+        $filename = sprintf($config->get('log'), $this->config->get('file')->get('path'), $words[0], date('Ymd'));
         $handle = fopen($filename, 'a');
         fwrite($handle, sprintf('%s,%s' . PHP_EOL, date('YmdHis'), implode(',', $words)));
         fclose($handle);

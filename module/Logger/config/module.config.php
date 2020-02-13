@@ -36,7 +36,7 @@ return [
         ],
         'nmea' => [
             'interval' => 1,
-            'device' => '/dev/ttyACM0',
+            'device' => __DIR__ . '/../bin/test.dat', //'/dev/ttyACM0',
             'types' => ['GGA', 'VTG'],
             'log' => '%s/%s.%s.dat',
         ],
