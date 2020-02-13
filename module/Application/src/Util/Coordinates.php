@@ -7,6 +7,9 @@ namespace Application\Util;
  */
 abstract class Coordinates
 {
+    const LATITUDE = 0;
+    const LONGITUDE = 1;
+
     public static function dmsToDec(string $dms): float
     {
         return 0.0;
@@ -30,9 +33,12 @@ abstract class Coordinates
      */
     public static function gpsToDec(string $gps, string $hdg, int $decimals = 6): float
     {
-        $gps = str_pad($gps, 11, '0', STR_PAD_LEFT);
-        $deg = (int)substr($gps, 0, 3);
-        $dec = substr($gps, 4) / 60;
-        return number_format(($deg + $dec) * (false !== strpos('NW', strtoupper($hdg)) ? 1 : -1), $decimals);
+        $axis = false !== stripos('NS', $hdg) ? self::LATITUDE : self::LONGITUDE;
+        $fact = false !== stripos('NW', $hdg) ? 1 : -1;
+        $pnt = stripos($gps, '.');
+
+        $deg = (int)substr($gps, 0, $pnt - 2);
+        $dec = substr($gps, $pnt - 2) / 60;
+        return ($deg + $dec) * $fact;
     }
 }
