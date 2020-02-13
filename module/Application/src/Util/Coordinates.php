@@ -33,7 +33,7 @@ abstract class Coordinates
      */
     public static function gpsToDec(string $gps, string $hdg, int $decimals = 6): float
     {
-        $fact = false !== stripos('NW', $hdg) ? 1 : -1;
+        $fact = false !== stripos('NE', $hdg) ? 1 : -1;
         $pnt = stripos($gps, '.');
         $deg = (int)substr($gps, 0, $pnt - 2);
         $dec = substr($gps, $pnt - 2) / 60;
