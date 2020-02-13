@@ -31,21 +31,34 @@
         </div>
         <div class="dt s-3">
             <div class="bg h-3">
-                <p><span class="f-3" data-name="lat"><?= sprintf('%s', $this->lat) ?></span> <small><?= sprintf('%s', $this->lat_u) ?></small></p>
+                <p><span class="f-3" data-name="lat"><?= sprintf('%f', $this->lat) ?></span> <small><?= sprintf('%s', $this->lat_u) ?></small></p>
                 <p class="o-25">latitude</p>
             </div>
         </div>
         <div class="dt s-3">
             <div class="bg h-3">
-                <p><span class="f-3" data-name="lat"><?= sprintf('%s', $this->lon) ?></span> <small><?= sprintf('%s', $this->lon_u) ?></small></p>
+                <p><span class="f-3" data-name="lat"><?= sprintf('%f', $this->lon) ?></span> <small><?= sprintf('%s', $this->lon_u) ?></small></p>
                 <p class="o-25">longitude</p>
+            </div>
+        </div>
+        <div class="dt s-3">
+            <div class="bg h-3">
+                <p><span class="f-3" data-name="course_t"><?= sprintf('%d', $this->course_t) ?></span> <small>&deg;</small></p>
+                <p class="o-25">course true</p>
+            </div>
+        </div>
+        <div class="dt s-3">
+            <div class="bg h-3">
+                <p><span class="f-3" data-name="lat"><?= sprintf('%d', $this->course_m) ?></span> <small>&deg;</small></p>
+                <p class="o-25">course magnetic</p>
             </div>
         </div>
     </div>
 </article>
-<footer class="dg c-2">
-    <a href="/logger/grid">view</a>
-    <a href="/logger/file">select</a>
+<footer class="dg c-5">
+    <p class="s-2">&nbsp;</p>
+    <a href="/logger/grid">grid</a>
+    <a href="/logger/file" class="s-2">select</a>
 </footer>
 <script>
     jQuery(document).ready(function ($) {

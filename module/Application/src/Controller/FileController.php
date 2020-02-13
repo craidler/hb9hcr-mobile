@@ -47,7 +47,7 @@ abstract class FileController extends AbstractActionController
     {
         if ($this->isPost()) {
             $this->getCollection()->append($this->getFormData())->persist();
-            return $this->redirect()->refresh();
+            return $this->redirect()->toRoute(null, ['action' => 'index'], [], true);
         }
 
         return $this->getView()->setTemplate(sprintf('%1$s/%1$s/form', $this->getNamespace()));
