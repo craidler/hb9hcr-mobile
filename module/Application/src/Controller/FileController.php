@@ -42,6 +42,7 @@ abstract class FileController extends AbstractActionController
     public function createAction()
     {
         if ($this->isPost()) {
+            $this->getCollection()->append($this->getFormData())->persist();
             return $this->redirect()->refresh();
         }
 
