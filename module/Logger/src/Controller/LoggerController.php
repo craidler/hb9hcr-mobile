@@ -1,6 +1,7 @@
 <?php
 namespace Logger\Controller;
 
+use Application\Util\Coordinates;
 use Exception;
 use Application\Controller\FileController;
 use Laminas\Http\Response;
@@ -32,7 +33,7 @@ class LoggerController extends FileController
             $i++;
         }
         while ($i < count($needles));
-
+        foreach (['lat', 'lon'] as $k) $data[$k] = Coordinates::gpsToDec($data[$k], $data[$k . '_u']);
         return new JsonModel($data);
     }
 
