@@ -2,23 +2,23 @@
 namespace Fuel\Controller;
 
 use Exception;
-use Application\Controller\AbstractController;
-use Application\Model\Collection;
-use Application\Model\Page;
+use Application\Controller\FileController;
+use Laminas\Http\Response;
 use Laminas\View\Model\ViewModel;
 
 /**
  * Class FuelController
  * @package Fuel
  */
-class FuelController extends AbstractController
+class FuelController extends FileController
 {
     /**
-     * @return \Laminas\Http\Response|ViewModel
+     * @return Response|ViewModel
      * @throws Exception
      */
     public function indexAction()
     {
+        /*
         $collection = $this->getCollection();
         if (!$collection->count()) return $this->redirect()->toRoute('fuel', ['action' => 'create']);
 
@@ -67,5 +67,8 @@ class FuelController extends AbstractController
             'calculation' => $calculation,
             'page' => Page::createFromCollection($calculated->reverse(), 5, $this->params()->fromRoute('id', 0))
         ]);
+        */
+
+        return $this->getView();
     }
 }

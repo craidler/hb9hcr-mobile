@@ -1,4 +1,4 @@
-<?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => 'files', 'file' => $this->file ]) ?>
+<?= $this->partial('partial/header', ['title' => 'Fuel files', 'file' => basename($this->file) ]) ?>
 <article>
     <table>
         <thead>
@@ -11,17 +11,17 @@
         </thead>
         <form method="post">
             <tbody>
-                <?php foreach ($this->collection as $i => $item): ?>
-                    <tr class="<?= $this->selected == $item->getBasename() ? 'a' : '' ?>">
+                <?php foreach ($this->files as $i => $file): ?>
+                    <tr class="<?= basename($this->file) == $file->getFilename() ? 'a' : '' ?>">
                         <td><?= sprintf('%02d', $i) ?></td>
-                        <td><?= date('Y-m-d H:i:s', $item->getCtime()) ?></td>
-                        <td><?= $item->getBasename() ?></td>
-                        <td class="tr"><?= sprintf('%d kB', ceil($item->getSize() / 1024)) ?></td>
+                        <td><?= date('Y-m-d H:i:s', $file->getCtime()) ?></td>
+                        <td><?= $file->getBasename() ?></td>
+                        <td class="tr"><?= sprintf('%d kB', ceil($file->getSize() / 1024)) ?></td>
                         <td class="p-0">
-                            <button type="submit" name="action" value="delete,<?= $item->getBasename() ?>">delete</button>
+                            <button type="submit" name="action" value="delete,<?= $file->getBasename() ?>">delete</button>
                         </td>
                         <td class="p-0">
-                            <button type="submit" name="action" value="select,<?= $item->getBasename() ?>">select</button>
+                            <button type="submit" name="action" value="select,<?= $file->getBasename() ?>">select</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

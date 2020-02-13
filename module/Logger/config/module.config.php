@@ -33,14 +33,15 @@ return [
         ],
     ],
     Module::class => [
-        'path' => __DIR__ . '/../../../public/data',
-        'extension' => 'dat',
-
+        'file' => [
+            'path' => __DIR__ . '/../../../public/data',
+            'ext' => 'dat',
+        ],
         'nmea' => [
-            'log' => '%s/nmea/log.%s.%s.dat',
-            'types' => ['GGA', 'VTG'],
-            'device' => '/dev/ttyACM0',
             'interval' => 1,
+            'device' => '/dev/ttyACM0',
+            'types' => ['GGA', 'VTG'],
+            'log' => '%s/nmea/log.%s.%s.dat',
         ],
         'check' => [
             'gpsd' => 'ps -ef | grep -v grep | grep -c gpsd',

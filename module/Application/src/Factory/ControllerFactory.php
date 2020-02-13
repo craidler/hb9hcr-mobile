@@ -28,13 +28,8 @@ class ControllerFactory implements FactoryInterface
         $namespace = explode('\\', $requestedName)[0];
         $classname = $namespace . '\\Module';
 
-        if ($controller instanceof UsesConfig) {
-            $controller->setConfig($config->get($classname));
-        }
-
-        if ($controller instanceof UsesSession) {
-            $controller->setSession(new Container($namespace, $container->get(SessionManager::class)));
-        }
+        if (method_exists($controller, 'setConfig')) $controller->setConfig($config->get($classname));
+        if (method_exists($controller, 'setSession')) $controller->setSession(new Container($namespace, $container->get(SessionManager::class)));
 
         return $controller;
     }
