@@ -44,9 +44,6 @@ class LoggerController extends FileController
      */
     public function indexAction()
     {
-        return $this->getView([
-            'gpsd' => system($this->config->get('check')->get('gpsd')),
-            'gpsl' => system($this->config->get('check')->get('gpsl')),
-        ]);
+        return $this->getView();
     }
 }
