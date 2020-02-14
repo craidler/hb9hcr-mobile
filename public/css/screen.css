@@ -34,7 +34,7 @@ aside nav a:last-child {
 }
 
 main {
-    margin: 0 4px 0 calc(104px);
+    margin: 0 0 0 104px;
 }
 
 header * {
@@ -104,7 +104,6 @@ button, footer a, td a, .bg {
 }
 
 aside .fg {
-    transition: background-color .5s;
 }
 
 .success {
