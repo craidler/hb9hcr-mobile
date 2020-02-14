@@ -35,13 +35,13 @@ class Nmea
     {
         $data = [];
         $types = $this->config->get('types')->toArray();
-        var_dump($types);
         $stream = fopen($this->config->get('device'), 'r');
         $pattern = sprintf('#^.{2}(%s),(.+)#', implode('|', $types));
         $sentences = [];
 
         do {
             $sentence = trim(fgets($stream));
+            var_dump($sentence, $pattern);
             if (!preg_match($pattern, $sentence, $matches)) continue;
             $sentences[$matches[1]] = $matches[2];
         }
