@@ -46,7 +46,7 @@ class Nmea
             $sentences[$matches[1]] = $matches[2];
             var_dump($sentences);
         }
-        while (0 < count(array_diff(array_keys($sentences), $types)));
+        while (0 < count(array_diff($types, array_keys($sentences))));
 
         fclose($stream);
 
