@@ -44,6 +44,7 @@ class Log extends Item
     {
         $data = [];
         foreach (static::$fields as $k) $data[$k] = $item->{$k};
+        $data['utc'] = time();
         return static::createFromArray($data);
     }
 }

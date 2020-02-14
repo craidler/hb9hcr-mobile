@@ -47,6 +47,7 @@ class Nmea
         while (0 < count(array_diff($types, array_keys($sentences))));
 
         fclose($stream);
+        ksort($sentences);
 
         foreach ($sentences as $type => $sentence) {
             $class = 'Logger\\Model\\Nmea\\' . ucfirst(strtolower($type));
