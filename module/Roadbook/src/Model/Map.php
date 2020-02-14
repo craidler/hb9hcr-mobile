@@ -9,7 +9,7 @@ namespace Roadbook\Model;
  */
 class Map extends Position
 {
-    const TYPE_ROAD = 'road';
+    const TYPE_ROAD = 'roadmap';
     const TYPE_SATELLITE = 'satellite';
     const TYPE_TERRAIN = 'terrain';
     const TYPE_HYBRID = 'hybrid';

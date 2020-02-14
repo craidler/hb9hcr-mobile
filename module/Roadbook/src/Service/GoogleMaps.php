@@ -1,7 +1,6 @@
 <?php
 namespace Roadbook\Service;
 
-use Application\Feature\UsesConfig;
 use Laminas\Config\Config;
 use Roadbook\Model\Distance;
 use Roadbook\Model\Duration;
@@ -12,20 +11,12 @@ use Roadbook\Model\Waypoint;
 /**
  * Class GoogleMaps
  */
-class GoogleMaps implements UsesConfig
+class GoogleMaps
 {
     /**
      * @var Config
      */
     protected $config;
-
-    /**
-     * @inheritdoc
-     */
-    public function getConfig(): Config
-    {
-        return $this->config;
-    }
 
     /**
      * @inheritdoc
@@ -40,16 +31,42 @@ class GoogleMaps implements UsesConfig
      */
     public function getKey(): string
     {
-        return $this->getConfig()->get('api_key');
+        return $this->config->get('key');
     }
 
     /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->config->get('url');
+    }
+
+    /**
+     * @param float  $latitude
+     * @param float  $longitude
+     * @param int    $zoom
      * @param string $type
      * @return string
      */
-    public function getUrl(string $type = 'api'): string
+    public function getImage(float $latitude, float $longitude, int $zoom, string $type): string
     {
-        return $this->getConfig()->get($type . '_url');
+        $hash = md5(sprintf('%f.%f.%d.%s', $latitude, $longitude, $zoom, $type));
+        $filename = sprintf('%s/map/%s.png', $this->config->get('data'), $hash);
+
+        if (!file_exists($filename)) {
+            file_put_contents($filename, file_get_contents(sprintf(
+                '%s/staticmap?center=%f,%f&zoom=%d&size=600x600&maptype=%s&key=%s',
+                $this->config->get('url'),
+                $latitude,
+                $longitude,
+                $zoom,
+                $type,
+                $this->config->get('key')
+            )));
+        }
+
+        return file_get_contents($filename);
     }
 
     /**
@@ -68,7 +85,7 @@ class GoogleMaps implements UsesConfig
      */
     public function route(Waypoint $origin, Waypoint $destination): Route
     {
-        $filename = sprintf('%s/%s/%s.json', $this->getConfig()->get(('path')), strtolower(basename(__CLASS__)), md5($origin->position . $destination->position));
+        $filename = sprintf('%s/%s/%s.json', $this->config->get(('path')), strtolower(basename(__CLASS__)), md5($origin->position . $destination->position));
 
         if (!file_exists($filename)) {
             $url = sprintf('%s/directions/json?origin=%s&destination=%s&key=%s', $this->getUrl(), $origin->position, $destination->position, $this->getKey());

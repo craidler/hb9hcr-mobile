@@ -1,7 +1,9 @@
 <?php
 namespace Roadbook;
 
+use Laminas\Config\Config;
 use Laminas\ServiceManager\ServiceManager;
+use Roadbook\Controller\MapController;
 use Roadbook\Factory;
 use Laminas\Router\Http\Segment;
 use Roadbook\Helper\Maps;
@@ -20,11 +22,25 @@ return [
                     ],
                 ],
             ],
+            'map-image' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/map/image/:base64',
+                    'defaults' => [
+                        'controller' => Controller\MapController::class,
+                        'action' => 'image',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
         'factories' => [
-            Controller\RoadbookController::class => Factory\ControllerFactory::class,
+            Controller\MapController::class => function (ServiceManager $serviceManager) {
+                $controller = new MapController;
+                $controller->setMaps($serviceManager->get(GoogleMaps::class));
+                return $controller;
+            },
         ],
     ],
     'view_manager' => [
@@ -44,15 +60,22 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            GoogleMaps::class => Factory\ServiceFactory::class,
+            GoogleMaps::class => function (ServiceManager $serviceManager) {
+                $service = new GoogleMaps();
+                $service->setConfig((new Config($serviceManager->get('config')))->get(GoogleMaps::class));
+                return $service;
+            },
         ],
     ],
     Module::class => [
         'file' => [
-            'path' => __DIR__ . '/../../../public/data/roadbook',
+            'path' => __DIR__ . '/../data/roadbook',
             'ext' => 'json',
         ],
-        'api_key' => file_exists(__DIR__ . '/api.key') ? file_get_contents(__DIR__ . '/api.key') : '',
-        'api_url' => 'https://maps.googleapis.com/maps/api',
+    ],
+    GoogleMaps::class => [
+        'data' => __DIR__ . '/../data',
+        'key' => file_exists(__DIR__ . '/api.key') ? file_get_contents(__DIR__ . '/api.key') : '',
+        'url' => 'https://maps.googleapis.com/maps/api',
     ],
 ];
