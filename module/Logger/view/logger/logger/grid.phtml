@@ -2,7 +2,12 @@
     <table>
         <thead>
             <tr>
-
+                <td>UTC</td>
+                <td>Latitude</td>
+                <td>Longitude</td>
+                <td>Speed</td>
+                <td>Altitude</td>
+                <td>Sat</td>
             </tr>
         </thead>
         <tbody>
@@ -12,6 +17,8 @@
                 <td><?= sprintf('%.05f %s', $item->lat, $item->lat_i) ?></td>
                 <td><?= sprintf('%.05f %s', $item->lon, $item->lon_i) ?></td>
                 <td><?= sprintf('%d km/h', $item->speed_m) ?></td>
+                <td><?= sprintf('%d', $item->alt) ?></td>
+                <td><?= sprintf('%d', $item->sat) ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
