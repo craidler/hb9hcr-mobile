@@ -4,7 +4,6 @@ namespace Roadbook;
 use Application\Factory\ControllerFactory;
 use Laminas\Config\Config;
 use Laminas\ServiceManager\ServiceManager;
-use Roadbook\Controller\MapController;
 use Laminas\Router\Http\Segment;
 use Roadbook\Helper\Maps;
 use Roadbook\Service\GoogleMaps;
@@ -32,17 +31,34 @@ return [
                     ],
                 ],
             ],
+            'map-route' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/map/route/:base64',
+                    'defaults' => [
+                        'controller' => Controller\MapController::class,
+                        'action' => 'route',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
         'factories' => [
             Controller\RoadbookController::class => ControllerFactory::class,
-            Controller\MapController::class => function (ServiceManager $serviceManager) {
-                $controller = new MapController;
-                $controller->setMaps($serviceManager->get(GoogleMaps::class));
-                return $controller;
-            },
+            Controller\MapController::class => ControllerFactory::class,
         ],
+    ],
+    'controller_plugins' => [
+        'factories' => [
+            Plugin\Maps::class => function (ServiceManager $serviceManager) {
+                return (new Plugin\Maps)->setService($serviceManager->get(GoogleMaps::class));
+            }
+        ],
+        'aliases' => [
+            'maps' => Plugin\Maps::class,
+            'map' => Plugin\Maps::class,
+        ]
     ],
     'view_manager' => [
         'template_path_stack' => [
@@ -62,9 +78,7 @@ return [
     'service_manager' => [
         'factories' => [
             GoogleMaps::class => function (ServiceManager $serviceManager) {
-                $service = new GoogleMaps();
-                $service->setConfig((new Config($serviceManager->get('config')))->get(GoogleMaps::class));
-                return $service;
+                return (new GoogleMaps())->setConfig((new Config($serviceManager->get('config')))->get(GoogleMaps::class));
             },
         ],
     ],

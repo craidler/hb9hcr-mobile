@@ -8,6 +8,7 @@ namespace Roadbook\Model;
  * @property string $region
  * @property string $name
  * @property string $type
+ * @property bool $check
  */
 class Waypoint extends Position
 {

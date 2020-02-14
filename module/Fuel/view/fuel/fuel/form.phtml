@@ -21,9 +21,10 @@
         </select>
         <p>&nbsp;</p>
     </article>
-    <footer class="dg c-3">
+    <footer class="dg c-5">
         <button type="submit" name="action" value="save<?= $this->item ? ',' . $this->item->id : '' ?>">save</button>
         <a href="<?= $this->url(null, ['action' => 'index'], [], true) ?>">cancel</a>
-        <a href="<?= $this->url(null, ['action' => 'file'], [], true) ?>">select</a>
+        <a href="<?= $this->url(null, ['action' => 'grid'], [], true) ?>">grid</a>
+        <a href="<?= $this->url(null, ['action' => 'file'], [], true) ?>" class="s-2">select</a>
     </footer>
 </form>

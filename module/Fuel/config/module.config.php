@@ -31,7 +31,7 @@ return [
     ],
     Module::class => [
         'file' => [
-            'path' => __DIR__ . '/../../../public/data/fuel',
+            'path' => __DIR__ . '/../data',
             'ext' => 'json',
         ],
     ],

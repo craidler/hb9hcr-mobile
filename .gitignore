@@ -1,10 +1,7 @@
 .idea
 vendor
 data/cache/*.php
-public/data/map/*.png
 public/data/logger/*.dat
-public/data/googlemaps/*.json
-public/data/googlemaps/*.png
 module/Roadbook/config/api.key
 composer.lock
 !.gitignore

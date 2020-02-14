@@ -19,11 +19,13 @@ class GoogleMaps
     protected $config;
 
     /**
-     * @inheritdoc
+     * @param Config $config
+     * @return $this
      */
-    public function setConfig(Config $config)
+    public function setConfig(Config $config): self
     {
         $this->config = $config;
+        return $this;
     }
 
     /**
@@ -70,12 +72,23 @@ class GoogleMaps
     }
 
     /**
-     * @param Map $map
-     * @return string
+     * @param string $origin
+     * @param string $destination
+     * @return int
      */
-    public function image(Map $map): string
+    public function getDistance(string $origin, string $destination): int
     {
-        return '';
+        return json_decode($this->getRoute($origin, $destination), JSON_OBJECT_AS_ARRAY)['routes'][0]['legs'][0]['distance']['value'];
+    }
+
+    /**
+     * @param string $origin
+     * @param string $destination
+     * @return int
+     */
+    public function getDuration(string $origin, string $destination): int
+    {
+        return json_decode($this->getRoute($origin, $destination), JSON_OBJECT_AS_ARRAY)['routes'][0]['legs'][0]['duration']['value'];
     }
 
     /**
