@@ -44,6 +44,7 @@ class Nmea
             var_dump($sentence, $pattern);
             if (!preg_match($pattern, $sentence, $matches)) continue;
             $sentences[$matches[1]] = $matches[2];
+            var_dump($sentences);
         }
         while (0 < count(array_diff(array_keys($sentences), $types)));
 
