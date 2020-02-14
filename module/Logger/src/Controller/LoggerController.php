@@ -7,7 +7,7 @@ use Application\Controller\FileController;
 use Laminas\Http\Response;
 use Laminas\View\Model\JsonModel;
 use Laminas\View\Model\ViewModel;
-use Logger\Model\Entry;
+use Logger\Model\Nmea\Log;
 use Logger\Service\Nmea;
 
 /**
@@ -16,6 +16,11 @@ use Logger\Service\Nmea;
  */
 class LoggerController extends FileController
 {
+    /**
+     * @inheritdoc
+     */
+    protected $class = Log::class;
+
     /**
      * @return JsonModel
      */

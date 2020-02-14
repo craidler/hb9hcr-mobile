@@ -48,10 +48,8 @@ class Collection extends ArrayObject
             $chunks = explode('.', $filename);
             switch (array_pop($chunks)) {
                 case 'dat':
-                    $data = file($filename);
-                    $keys = explode(':', trim(array_shift($data)));
-                    array_walk($data, function (&$item) use ($keys) { $item = array_combine($keys, explode(':', trim($item))); });
-                    $data['collection'] = $data;
+                    $data = ['collection' => file($filename)];
+                    array_walk($data['collection'], function(&$item) { $item = explode(',', $item); });
                     break;
 
                 case 'json':

@@ -37,14 +37,22 @@ class Log extends Item
     ];
 
     /**
-     * @param Item $item
-     * @return Log
+     * @inheritdoc
      */
-    public static function createFromItem(Item $item): Log
+    public static function createFromArray(array $data = null)
+    {
+        return parent::createFromArray(array_combine(array_keys(static::$fields), $data));
+    }
+
+    /**
+     * @param Item $item
+     * @return Item
+     */
+    public static function createFromItem(Item $item)
     {
         $data = [];
         foreach (static::$fields as $k) $data[$k] = $item->{$k};
         $data['utc'] = gmdate('YmdHis');
-        return static::createFromArray($data);
+        return parent::createFromArray($data);
     }
 }
