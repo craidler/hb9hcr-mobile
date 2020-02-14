@@ -38,7 +38,7 @@ return [
             'ext' => 'dat',
         ],
         'nmea' => [
-            'interval' => 60,
+            'interval' => 15,
             'device' => '/dev/ttyACM0',
             'types' => ['GGA', 'VTG'],
         ],
