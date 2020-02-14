@@ -8,6 +8,7 @@ use Laminas\Http\Response;
 use Laminas\View\Model\JsonModel;
 use Laminas\View\Model\ViewModel;
 use Logger\Model\Entry;
+use Logger\Service\Nmea;
 
 /**
  * Class LoggerController
@@ -15,31 +16,19 @@ use Logger\Model\Entry;
  */
 class LoggerController extends FileController
 {
+    /**
+     * @return JsonModel
+     */
     public function ajaxAction()
     {
-        $config = $this->config->get('nmea');
-        $stream = fopen($config->get('device'), 'r');
-        $needles = $config->get('types')->toArray();
-        $pattern = sprintf('#^\$.{2}(%s)\,#', implode('|', $needles));
-        $data = [];
-        $i = 0;
-
-        if (!is_resource($stream)) return new JsonModel();
-
-        do {
-            $line = trim(fgets($stream));
-            if (!preg_match($pattern, $line, $match)) continue;
-            $chunks = explode(',', $line);
-            $chunks[0] = $match[1];
-            $data = array_merge($data, Entry::createFromArray($chunks)->getArrayCopy());
-            $i++;
-        }
-        while ($i < count($needles));
+        $service = new Nmea($this->config->get('nmea'));
+        $data = $service->collect()->getArrayCopy();
 
         foreach (['lat', 'lon'] as $k) $data[$k] = sprintf('%.07f', Coordinates::gpsToDec($data[$k], $data[$k . '_i']));
         foreach (['alt', 'speed_m'] as $k) $data[$k] = sprintf('%d', $data[$k]);
         foreach (['hdop'] as $k) $data[$k] = sprintf('%.01f', $data[$k]);
         foreach (['course_t', 'course_m'] as $k) $data[$k] = strlen($data[$k]) ? sprintf('%d', $data[$k]) : '---';
+        foreach ($this->config->get('check')->toArray() as $k => $cmd) $data[$k] = system($cmd);
 
         return new JsonModel($data);
     }

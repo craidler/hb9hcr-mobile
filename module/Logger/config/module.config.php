@@ -38,10 +38,9 @@ return [
             'ext' => 'dat',
         ],
         'nmea' => [
-            'interval' => 1,
+            'interval' => 60,
             'device' => '/dev/ttyACM0',
             'types' => ['GGA', 'VTG'],
-            'log' => '%s/%s.dat',
         ],
         'check' => [
             'gpsd' => 'ps -ef | grep -v grep | grep -c gpsd',

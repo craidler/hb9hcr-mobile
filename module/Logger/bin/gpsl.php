@@ -15,6 +15,6 @@ do {
     $output = fopen(sprintf('%s/%s.dat', $config->get('file')->get('path'), gmdate('Ymd')), 'a');
     fwrite($output, sprintf('%s' . PHP_EOL, implode(',', $item->getArrayCopy())));
     fclose($output);
-    sleep(60);
+    sleep($config->get('nmea')->get('interval'));
 }
 while (true);
