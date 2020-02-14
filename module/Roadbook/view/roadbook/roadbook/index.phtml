@@ -1,7 +1,7 @@
 <?= $this->partial('partial/header', ['title' => $this->title, 'file' => $this->file]) ?>
 <form method="post">
     <article class="dg c-3">
-        <div class="dt tc r-2">
+        <div class="dt tc">
             <div class="h-4 bg">
                 <p class="f-3"><?= ceil($this->distance * .001) ?> <small>km</small></p>
                 <p class="ttu"><?= $this->item->type ?></p>
@@ -9,6 +9,14 @@
         </div>
         <table>
             <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td><?= $this->item->id ?></td>
+                </tr>
+                <tr>
+                    <td>Region</td>
+                    <td><?= $this->item->region ?></td>
+                </tr>
                 <tr>
                     <td>Latitude</td>
                     <td><?= $this->item->latitude ?></td>
@@ -19,14 +27,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="r-2 bg"><?= $this->item->comment ?></div>
-        <?php if ($this->item->check): ?>
-            <div class="dt">
-                <div class="h-2 w-100 bg a ttu">done</div>
-            </div>
-        <?php else: ?>
-            <button class="h-2 w-100 ttu" name="action" value="check">check</button>
-        <?php endif; ?>
+        <div class="bg"><?= $this->item->comment ?></div>
         <?= $this->partial('partial/maps', ['maps' => $this->item->maps]) ?>
     </article>
 </form>

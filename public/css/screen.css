@@ -30,7 +30,7 @@ aside nav a {
 aside nav a:last-child {
     height: calc(4.5rem + 2px);
     line-height: calc(4.5rem + 2px);
-    margin: 4px 0;
+    margin: 4px 0 0 0;
 }
 
 main {
@@ -42,9 +42,9 @@ header * {
 }
 
 footer {
-    right: 4px;
-    width: calc(100% - 108px);
-    bottom: 4px;
+    right: 0;
+    width: calc(100% - 104px);
+    bottom: 0;
     position: absolute;
 }
 

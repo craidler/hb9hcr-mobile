@@ -53,7 +53,7 @@ class RoadbookController extends FileController
         }
 
         return $this->getView([
-            'title' => sprintf('Waypoint: %s - %s', $item->region, $item->name),
+            'title' => sprintf('Waypoint: %s', $item->name),
             'page' => Page::createFromCollection($collection, 1, $this->params()->fromRoute('id', 0)),
             'item' => $item,
             'distance' => $this->maps()->getDistance($prev->position, $item->position),
