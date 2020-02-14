@@ -6,12 +6,13 @@ echo $this->partial('partial/header', ['title' => $this->title, 'file' => $this-
     <table>
         <thead>
             <tr>
-                <th>UTC</th>
+                <th class="w-0">UTC</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
                 <th>Speed</th>
-                <th>Altitude</th>
+                <th>Alt</th>
                 <th>Sat</th>
+                <th>HDOP</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@ echo $this->partial('partial/header', ['title' => $this->title, 'file' => $this-
                 <td><?= sprintf('%d km/h', $item->speed_m) ?></td>
                 <td><?= sprintf('%d', $item->alt) ?></td>
                 <td><?= sprintf('%d', $item->sat) ?></td>
+                <td><?= sprintf('%.01', $item->hdop) ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
