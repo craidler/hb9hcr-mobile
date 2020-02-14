@@ -1,5 +1,5 @@
 <form method="post">
-    <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file ]) ?>
+    <?= $this->partial('partial/header', ['title' => $this->title, 'file' => $this->file ]) ?>
     <article>
         <table>
             <thead>
@@ -8,6 +8,7 @@
                     <th>Date</th>
                     <th>Region</th>
                     <th>Name</th>
+                    <th>Position</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +18,7 @@
                         <td><?= $item->date ?></td>
                         <td><?= $item->region ?></td>
                         <td><?= $item->name ?></td>
+                        <td class="w-100"><?= $item->position ?></td>
                         <td class="p-0"><a href="/roadbook/index/<?= $item->id ?>" class="b">view</a></td>
                         <td class="p-0"><button type="submit" name="action" value="delete,<?= $item->id ?>">delete</button></td>
                         <td class="p-0"><button type="submit" name="action" value="move,<?= $item->id ?>,0">&uarr;</button></td>
@@ -27,6 +29,6 @@
         </table>
     </article>
     <footer class="dg c-5">
-        <?= $this->partial('partial/pagination.phtml', ['page' => $this->page, 'url' => '/roadbook/grid', 'col' => 5]) ?>
+        <?= $this->paginate($this->page) ?>
     </footer>
 </form>

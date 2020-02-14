@@ -7,8 +7,8 @@ use Laminas\Session\Container;
 /**
  * Class Messenger
  *
- * @method Messenger error(string $message)
- * @method Messenger success(string $message)
+ * @method Messenger error(string $message = null)
+ * @method Messenger success(string $message = null)
  */
 class Messenger extends AbstractPlugin
 {
@@ -42,7 +42,8 @@ class Messenger extends AbstractPlugin
      */
     public function __call(string $name, array $params): self
     {
-        $this->session->offsetSet($name, array_shift($params));
+        $value = array_shift($params) ?? '';
+        $this->session->offsetSet($name, $value);
         return $this;
     }
 }

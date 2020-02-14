@@ -56,7 +56,7 @@ class GoogleMaps
 
         if (!file_exists($filename)) {
             file_put_contents($filename, file_get_contents(sprintf(
-                '%s/staticmap?center=%f,%f&zoom=%d&size=600x600&maptype=%s&key=%s',
+                '%1$s/staticmap?center=%2$f,%3$f&markers=%2$f,%3$f&zoom=%4$d&size=600x600&maptype=%5$s&key=%6$s',
                 $this->config->get('url'),
                 $latitude,
                 $longitude,

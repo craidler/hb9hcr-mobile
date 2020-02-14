@@ -1,6 +1,6 @@
-<?php use Roadbook\Model\Map; ?>
+<?php use Roadbook\Model; ?>
 <form method="post">
-    <?= $this->partial('partial/header', ['prefix' => $this->prefix, 'action' => $this->action, 'file' => $this->file]) ?>
+    <?= $this->partial('partial/header', ['title' => $this->title, 'file' => $this->file]) ?>
     <article class="dg c-3">
         <label>Date</label>
         <input type="date" name="date" value="<?= $this->item ? $this->item->date : null ?>" class="s-2">
@@ -12,14 +12,14 @@
         <input type="text" name="position" value="<?= $this->item ? $this->item->position : null ?>" class="s-2">
         <label>Type</label>
         <select name="type" class="s-2">
-            <?php foreach ($this->types as $type): ?>
+            <?php foreach (Model\Waypoint::TYPES as $type): ?>
                 <option value="<?= $type ?>" <?= $this->item && $this->item->type == $type ? ' selected' : '' ?>><?= ucfirst($type) ?></option>
             <?php endforeach; ?>
         </select>
-        <?php foreach ([[Map::TYPE_ROAD, 10], [Map::TYPE_ROAD, 14], [Map::TYPE_SATELLITE, 18]] as $i => $default): ?>
+        <?php foreach ([[Model\Map::TYPE_ROAD, 10], [Model\Map::TYPE_ROAD, 14], [Model\Map::TYPE_SATELLITE, 18]] as $i => $default): ?>
             <label>Map <?= $i ?></label>
             <select name="maps[<?= $i ?>][type]">
-                <?php foreach (Map::TYPES as $type): ?>
+                <?php foreach (Model\Map::TYPES as $type): ?>
                     <option value="<?= $type ?>" <?= ($this->item && $this->item->maps[$i]->type == $type) || $type == $default[0] ? ' selected' : '' ?>><?= ucfirst($type) ?></option>
                 <?php endforeach; ?>
             </select>
@@ -32,9 +32,10 @@
         <label>Comment</label>
         <input type="text" name="comment" value="<?= $this->item ? $this->item->comment : null ?>" class="s-2">
     </article>
-    <footer class="dg c-3">
+    <footer class="dg c-5">
         <button type="submit" name="action" value="save">save</button>
-        <a href="/roadbook" class="tc">cancel</a>
-        <a href="/roadbook/file" class="tc">select</a>
+        <a href="/roadbook">cancel</a>
+        <a href="/roadbook/grid">grid</a>
+        <a href="/roadbook/file" class="s-2">select</a>
     </footer>
 </form>

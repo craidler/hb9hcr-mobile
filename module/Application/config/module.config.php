@@ -48,7 +48,11 @@ return [
     ],
     'controller_plugins' => [
         'factories' => [
-            Messenger::class => PluginFactory::class,
+            Messenger::class => function (ServiceManager $serviceManager) {
+                $plugin = new Plugin\Messenger;
+                $plugin->setSession(new Container(Plugin\Messenger::class, $serviceManager->get(SessionManager::class)));
+                return $plugin;
+            },
         ],
         'aliases' => [
             'messenger' => Plugin\Messenger::class,

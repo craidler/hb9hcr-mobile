@@ -1,10 +1,10 @@
 <?php
 namespace Roadbook;
 
+use Application\Factory\ControllerFactory;
 use Laminas\Config\Config;
 use Laminas\ServiceManager\ServiceManager;
 use Roadbook\Controller\MapController;
-use Roadbook\Factory;
 use Laminas\Router\Http\Segment;
 use Roadbook\Helper\Maps;
 use Roadbook\Service\GoogleMaps;
@@ -36,6 +36,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
+            Controller\RoadbookController::class => ControllerFactory::class,
             Controller\MapController::class => function (ServiceManager $serviceManager) {
                 $controller = new MapController;
                 $controller->setMaps($serviceManager->get(GoogleMaps::class));

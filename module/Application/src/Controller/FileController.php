@@ -47,7 +47,19 @@ abstract class FileController extends AbstractActionController
     {
         if ($this->isPost()) {
             $this->getCollection()->append($this->getFormData())->persist();
+            $this->message()->success();
             return $this->redirect()->toRoute(null, ['action' => 'index'], [], true);
+        }
+
+        return $this->getView()->setTemplate(sprintf('%1$s/%1$s/form', $this->getNamespace()));
+    }
+
+    public function editAction()
+    {
+        if ($this->isPost()) {
+            // $this->getCollection()->update($this->getFormData())->persist();
+            $this->message()->success();
+            return $this->redirect()->refresh();
         }
 
         return $this->getView()->setTemplate(sprintf('%1$s/%1$s/form', $this->getNamespace()));
@@ -62,12 +74,14 @@ abstract class FileController extends AbstractActionController
             switch ($this->getFormAction()) {
                 case 'create':
                     touch($this->getFilename($this->getFormData()['filename']));
+                    $this->message()->success();
                     break;
 
                 case 'delete':
                     $filename = $this->getFilename($this->getFormId());
                     if ($filename == $this->getFile()) $this->session->offsetUnset('file');
                     unlink($filename);
+                    $this->message()->success();
                     break;
 
                 case 'select':
@@ -86,12 +100,14 @@ abstract class FileController extends AbstractActionController
      */
     public function gridAction()
     {
+        if (!$this->getCollection()->count()) return $this->redirect()->toRoute(null, ['action' => 'create'], [], true);
+
         if ($this->isPost()) {
             try {
                 switch ($this->getFormAction()) {
                     case 'delete':
                         $this->getCollection()->delete($this->getFormId())->persist();
-                        $this->message()->success(sprintf('%s:%d has been deleted', $this->getClass(), $this->getFormId()));
+                        $this->message()->success();
                         break;
                 }
             }
@@ -142,6 +158,21 @@ abstract class FileController extends AbstractActionController
     {
         if (!$this->collection) $this->collection = Collection::load($this->getFile(), $this->getClass());
         return $this->collection;
+    }
+
+    /**
+     * @return Item
+     */
+    public function getItem(): Item
+    {
+        try {
+            $item = $this->getCollection()->find($this->params()->fromRoute('id', 0));
+        }
+        catch (Exception $e) {
+            $item = call_user_func_array([$this->getClass(), 'createFromArray'], [[]]);
+        }
+
+        return $item;
     }
 
     /**
@@ -202,21 +233,12 @@ abstract class FileController extends AbstractActionController
      */
     public function getView(array $data = []): ViewModel
     {
-        $collection = $this->getCollection();
-
-        try {
-            $item = $collection->find($this->params()->fromRoute('id'));
-        }
-        catch (Exception $e) {
-            $item = null;
-        }
-
         return new ViewModel(array_merge([
-            'collection' => $collection,
+            'collection' => $this->getCollection(),
             'namespace' => $this->getNamespace(),
             'title' => sprintf('%s %s', $this->getNamespace(), $this->params()->fromRoute('action')),
             'files' => $this->getFiles(),
-            'item' => $item,
+            'item' => $this->getItem(),
             'file' => $this->getFile(),
         ], $data));
     }

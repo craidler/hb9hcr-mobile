@@ -1,34 +1,8 @@
-<header class="dt h-2">
-    <h2>Waypoint <?= sprintf('%s - %s', $this->item->region, $this->item->name) ?><span class="o-25 fr f-1"><?= $this->file ?></span></h2>
-</header>
-<article class="dg c-3">
-    <div class="dt h-3">
-        <div class="tc bg <?= $this->item->type ?>">
-            <p class="f-3"><?= sprintf('%dkm', $this->route->distance->km) ?></p>
-            <p class="o-25 ttu m-0"><?= $this->item->type ?></p>
-        </div>
-    </div>
-    <div class="dg c-2">
-        <p>Id</p>
-        <p><?= $this->item->id ?></p>
-        <p>Date</p>
-        <p><?= $this->item->date ?></p>
-        <p>Pos</p>
-        <p><?= $this->item->position ?></p>
-    </div>
-    <div>
-        <?php $comment = explode("\n", $this->item->comment) ?>
-        <?php array_walk($comment, function (&$item) {
-            $item = '<p class="mb25">' . $item . '</p>';
-        }) ?>
-        <?= implode('', $comment) ?>
-    </div>
-    <?= $this->maps($this->item->maps)->images() ?>
-</article>
+<?= $this->partial('partial/header', ['title' => $this->title, 'file' => $this->file]) ?>
 <footer class="dg c-5">
-    <?= $this->paginate($this->page)->col(5) ?>
-    <a href="/roadbook/create">new</a>
+    <?= $this->paginate($this->page) ?>
+    <a href="/roadbook/create">create</a>
     <a href="/roadbook/edit/<?= $this->item->id ?>">edit</a>
-    <a href="/roadbook/grid">manage</a>
+    <a href="/roadbook/grid">grid</a>
     <a href="/roadbook/file" class="s-2">select</a>
 </footer>

@@ -11,13 +11,31 @@ namespace Roadbook\Model;
  */
 class Waypoint extends Position
 {
+    const TYPE_BIVOUAC = 'bivouac';
     const TYPE_CAMPING = 'camping';
     const TYPE_CHECKPOINT = 'checkpoint';
+    const TYPE_SUPPLY = 'supply';
+    const TYPE_ORIGIN = 'origin';
+    const TYPE_DESTINATION = 'destination';
 
     const TYPES = [
-        self::TYPE_CAMPING,
+        self::TYPE_SUPPLY,
         self::TYPE_CHECKPOINT,
+        self::TYPE_CAMPING,
+        self::TYPE_BIVOUAC,
+        self::TYPE_ORIGIN,
+        self::TYPE_DESTINATION,
     ];
+
+    /**
+     * @inheritdoc
+     */
+    public static function createFromArray(array $data = null)
+    {
+        $data['position'] = str_replace([' ', '!4d'], ['', ','], $data['position']);
+
+        return parent::createFromArray($data);
+    }
 
     /**
      * @param int $i
@@ -27,7 +45,7 @@ class Waypoint extends Position
     {
         return $this->maps()->offsetGet($i);
     }
-    
+
     /**
      * @return Map[ArrayObject]
      */

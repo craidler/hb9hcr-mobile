@@ -14,7 +14,7 @@ class Item extends ArrayObject
      * @param array|null $data
      * @return static
      */
-    public static function createFromArray(array $data = null): self
+    public static function createFromArray(array $data = null)
     {
         $item = new static;
         $item->exchangeArray($data);
