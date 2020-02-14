@@ -41,6 +41,7 @@ class Log extends Item
      */
     public static function createFromArray(array $data = null)
     {
+        var_dump($data);
         return parent::createFromArray(array_combine(array_keys(static::$fields), $data));
     }
 
