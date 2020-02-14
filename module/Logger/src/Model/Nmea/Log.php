@@ -44,7 +44,7 @@ class Log extends Item
     {
         $data = [];
         foreach (static::$fields as $k) $data[$k] = $item->{$k};
-        $data['utc'] = time();
+        $data['utc'] = gmdate('YmdHis');
         return static::createFromArray($data);
     }
 }
