@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
         }, 500);
     });
 
-    let gpsl = $('.gpsl');
+    let gpsl = $('[data-widget=gpsl]');
 
     let poll = function () {
         setTimeout(function () {
