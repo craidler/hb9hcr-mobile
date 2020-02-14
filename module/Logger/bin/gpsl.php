@@ -2,23 +2,16 @@
 namespace Logger;
 
 use Laminas\Config\Config;
+use Logger\Service\Nmea;
 
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
-$config = (new Config(include __DIR__ . '/../config/module.config.php'))->get(Module::class);
-$stream = fopen($config->get('nmea')->get('device'), 'r');
-$output = fopen(sprintf($config->get('nmea')->get('log'), $config->get('file')->get('path'), date('Ymd')),'a');
-$needles = $config->get('nmea')->get('types')->toArray();
-$pattern = sprintf('#^\$.{2}(%s)\,#', implode('|', $needles));
-$data = [];
+$config = (new Config(include __DIR__ . '/../config/module.config.php'))->get(Module::class)->get('nmea');
+$service = new Nmea($config);
 
 do {
-    $line = trim(fgets($stream));
-    if (!preg_match($pattern, $line)) continue;
-    $data[] = $line;
+    $item = $service->collect();
+    var_dump($item->speed_m, $item->lat, $item->lat_i);
+    sleep(60);
 }
-while (count($data) < count($needles));
-
-fwrite($output, sprintf('%d:%s', time(), implode(':', $data)));
-fclose($output);
-fclose($stream);
+while (true);
