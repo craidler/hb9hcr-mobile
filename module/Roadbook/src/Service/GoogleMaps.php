@@ -51,7 +51,7 @@ class GoogleMaps
      */
     public function getImage(float $latitude, float $longitude, int $zoom, string $type): string
     {
-        $hash = md5(sprintf('%f.%f.%d.%s', $latitude, $longitude, $zoom, $type));
+        $hash = md5(sprintf('%f:%f:%d:%s', $latitude, $longitude, $zoom, $type));
         $filename = sprintf('%s/map/%s.png', $this->config->get('data'), $hash);
 
         if (!file_exists($filename)) {
@@ -79,25 +79,25 @@ class GoogleMaps
     }
 
     /**
-     * @param Waypoint $origin
-     * @param Waypoint $destination
-     * @return Route
+     * @param string $origin
+     * @param string $destination
+     * @return string
      */
-    public function route(Waypoint $origin, Waypoint $destination): Route
+    public function getRoute(string $origin, string $destination): string
     {
-        $filename = sprintf('%s/%s/%s.json', $this->config->get(('path')), strtolower(basename(__CLASS__)), md5($origin->position . $destination->position));
+        $hash = md5(sprintf('%s:%s', $origin, $destination));
+        $filename = sprintf('%s/route/%s.json', $this->config->get('data'), $hash);
 
         if (!file_exists($filename)) {
-            $url = sprintf('%s/directions/json?origin=%s&destination=%s&key=%s', $this->getUrl(), $origin->position, $destination->position, $this->getKey());
-            file_put_contents($filename, file_get_contents($url));
+            file_put_contents($filename, file_get_contents(sprintf(
+                '%s/directions/json?origin=%s&destination=%s&key=%s',
+                $this->config->get('url'),
+                $origin,
+                $destination,
+                $this->config->get('key')
+            )));
         }
 
-        $data = json_decode(file_get_contents($filename), JSON_OBJECT_AS_ARRAY);
-        $route = is_array($data['routes']) && array_key_exists(0, $data['routes']) ? $route = $data['routes'][0]['legs'][0] : ['distance' => ['value' => 0], 'duration' => ['value' => 0]];
-
-        return Route::createFromArray([
-            'distance' => Distance::createFromArray($route['distance']),
-            'duration' => Duration::createFromArray($route['duration']),
-        ]);
+        return file_get_contents($filename);
     }
 }
