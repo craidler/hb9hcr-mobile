@@ -28,7 +28,7 @@ class LoggerController extends FileController
         foreach (['alt', 'speed_m'] as $k) $data[$k] = sprintf('%d', $data[$k]);
         foreach (['hdop'] as $k) $data[$k] = sprintf('%.01f', $data[$k]);
         foreach (['course_t', 'course_m'] as $k) $data[$k] = strlen($data[$k]) ? sprintf('%d', $data[$k]) : '---';
-        foreach ($this->config->get('check')->toArray() as $k => $cmd) $data[$k] = system($cmd);
+        //foreach ($this->config->get('check')->toArray() as $k => $cmd) $data[$k] = system($cmd);
 
         return new JsonModel($data);
     }
