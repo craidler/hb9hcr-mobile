@@ -49,6 +49,8 @@ class Collection extends ArrayObject
             switch (array_pop($chunks)) {
                 case 'dat':
                     $data = ['collection' => file($filename)];
+                    var_dump($data);
+                    exit;
                     array_walk($data['collection'], function(&$item) { $item = explode(',', $item); });
                     break;
 
