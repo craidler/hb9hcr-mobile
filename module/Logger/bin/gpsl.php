@@ -12,6 +12,6 @@ $service = new Nmea($config);
 do {
     $item = $service->collect();
     var_dump($item->speed_m, $item->lat, $item->lat_i);
-    sleep(60);
+    sleep(10);
 }
 while (true);

@@ -35,6 +35,7 @@ class Nmea
     {
         $data = [];
         $types = $this->config->get('types')->toArray();
+        var_dump($types);
         $stream = fopen($this->config->get('device'), 'r');
         $pattern = sprintf('#^.{2}(%s),(.+)#', implode('|', $types));
         $sentences = [];
