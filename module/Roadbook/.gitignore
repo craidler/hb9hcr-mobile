@@ -1,0 +1,4 @@
+config/api.key
+data/map/*.png
+data/route/*.json
+data/roadbook/*.json
