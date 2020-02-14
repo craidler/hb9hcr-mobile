@@ -2,6 +2,8 @@
 namespace Logger\Model\Nmea;
 
 use Application\Model\Item;
+use DateTime;
+use Laminas\Validator\Date;
 
 /**
  * Class Log
@@ -56,5 +58,13 @@ class Log extends Item
         foreach (static::$fields as $k) $data[$k] = $item->{$k};
         $data['utc'] = gmdate('YmdHis');
         return parent::createFromArray($data);
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function datetime(): DateTime
+    {
+        return DateTime::createFromFormat('YmdHis', $this->utc);
     }
 }
