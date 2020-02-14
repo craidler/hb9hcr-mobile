@@ -156,7 +156,10 @@ abstract class FileController extends AbstractActionController
      */
     public function getCollection(): Collection
     {
-        if (!$this->collection) $this->collection = Collection::load($this->getFile(), $this->getClass());
+        if (!$this->collection) {
+            $collection = Collection::load($this->getFile(), $this->getClass());
+            $this->collection = $this->config->get('file')->get('reverse', false) ? $collection->reverse() : $collection;
+        }
         return $this->collection;
     }
 

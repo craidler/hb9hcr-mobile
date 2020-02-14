@@ -34,6 +34,7 @@ return [
     ],
     Module::class => [
         'file' => [
+            'reverse' => true,
             'path' => __DIR__ . '/../data',
             'ext' => 'dat',
         ],
