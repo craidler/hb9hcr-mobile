@@ -19,7 +19,6 @@ class Vtg extends Item
     public static function createFromArray(array $data = null): Item
     {
         $data = array_combine([
-            'type',
             'course_t',
             'course_tu',
             'course_m',
