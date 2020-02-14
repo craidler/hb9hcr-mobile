@@ -64,7 +64,7 @@ class Item extends ArrayObject
     public function exchangeArray($input)
     {
         foreach ($input as $k => $v) {
-            if (!is_numeric($v)) continue;
+            if (!is_numeric($v) || 'id' == $k) continue;
             $input[$k] = 0 === fmod($v, 1) ? (int)$v : (double)$v;
         }
 

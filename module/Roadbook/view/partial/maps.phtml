@@ -1,5 +1,5 @@
 <?php foreach ($this->maps as $map): ?>
 <figure>
-    <img src="/data/map/<?= $this->service->image($map)->src  ?>">
+    <img src="/map/image/<?= base64_encode(implode(':', [$map->position, $map->zoom, $map->type])) ?>">
 </figure>
 <?php endforeach; ?>

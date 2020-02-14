@@ -62,7 +62,7 @@ abstract class FileController extends AbstractActionController
             return $this->redirect()->refresh();
         }
 
-        return $this->getView()->setTemplate(sprintf('%1$s/%1$s/form', $this->getNamespace()));
+        return $this->getView(['item' => $this->getItem()])->setTemplate(sprintf('%1$s/%1$s/form', $this->getNamespace()));
     }
 
     /**
@@ -166,7 +166,7 @@ abstract class FileController extends AbstractActionController
     public function getItem(): Item
     {
         try {
-            $item = $this->getCollection()->find($this->params()->fromRoute('id', 0));
+            $item = $this->getCollection()->find((int)$this->params()->fromRoute('id', 0));
         }
         catch (Exception $e) {
             $item = call_user_func_array([$this->getClass(), 'createFromArray'], [[]]);
@@ -238,7 +238,6 @@ abstract class FileController extends AbstractActionController
             'namespace' => $this->getNamespace(),
             'title' => sprintf('%s %s', $this->getNamespace(), $this->params()->fromRoute('action')),
             'files' => $this->getFiles(),
-            'item' => $this->getItem(),
             'file' => $this->getFile(),
         ], $data));
     }

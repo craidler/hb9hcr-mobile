@@ -32,7 +32,8 @@ class MapController extends AbstractActionController
      */
     public function imageAction()
     {
-        list($latitude, $longitude, $zoom, $type) = explode(':', base64_decode($this->params()->fromRoute('base64')));
+        list($position, $zoom, $type) = explode(':', base64_decode($this->params()->fromRoute('base64')));
+        list($latitude, $longitude) = explode(',', $position);
 
         $content = $this->maps->getImage($latitude, $longitude, $zoom, $type);
         $response = $this->getResponse();

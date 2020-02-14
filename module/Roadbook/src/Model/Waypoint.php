@@ -33,7 +33,6 @@ class Waypoint extends Position
     public static function createFromArray(array $data = null)
     {
         $data['position'] = str_replace([' ', '!4d'], ['', ','], $data['position']);
-
         return parent::createFromArray($data);
     }
 

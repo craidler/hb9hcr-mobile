@@ -1,4 +1,15 @@
 <?= $this->partial('partial/header', ['title' => $this->title, 'file' => $this->file]) ?>
+<article class="dg c-3">
+    <div class="dt tc">
+        <div class="h-4 bg">
+            <p class="f-3"><?= $this->distance ?> <small>km</small></p>
+            <p class="ttu"><?= $this->item->type ?></p>
+        </div>
+    </div>
+    <div></div>
+    <div><?= $this->item->comment ?></div>
+    <?= $this->partial('partial/maps', ['maps' => $this->item->maps]) ?>
+</article>
 <footer class="dg c-5">
     <?= $this->paginate($this->page) ?>
     <a href="/roadbook/create">create</a>
