@@ -9,10 +9,14 @@
             <?php foreach ($this->page as $item): ?>
             <tr>
                 <td><?= $item->utc ?></td>
-                <td><?= $item->lat ?></td>
-                <td><?= $item->lon ?></td>
+                <td><?= sprintf('%.05f %s', $item->lat, $item->lat_i) ?></td>
+                <td><?= sprintf('%.05f %s', $item->lon, $item->lon_i) ?></td>
+                <td><?= sprintf('%d km/h', $item->speed_m) ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </article>
+<footer class="dg c-5">
+    <?= $this->paginate($this->page) ?>
+</footer>
