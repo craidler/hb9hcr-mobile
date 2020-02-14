@@ -12,9 +12,9 @@ $service = new Nmea($config->get('nmea'));
 
 do {
     $item = Log::createFromItem($service->collect());
-    $output = fopen(sprintf('%s/%s.dat', $config->get('file')->get('path'), date('Ymd')), 'a');
+    $output = fopen(sprintf('%s/%s.dat', $config->get('file')->get('path'), gmdate('Ymd')), 'a');
     fwrite($output, sprintf('%s' . PHP_EOL, implode(',', $item->getArrayCopy())));
     fclose($output);
-    sleep(5);
+    sleep(60);
 }
 while (true);
