@@ -30,8 +30,8 @@
     </article>
     <footer class="dg c-5">
         <?= $this->paginate($this->page) ?>
-        <p class="s-3">&nbsp;</p>
-        <a href="<?= $this->url(null, ['action' => 'index'], [], true) ?>"></a>
-        <a href="<?= $this->url(null, ['action' => 'file'], [], true) ?>" class="s-2"></a>
+        <p class="s-2">&nbsp;</p>
+        <a href="<?= $this->url(null, ['action' => 'index'], [], true) ?>">index</a>
+        <a href="<?= $this->url(null, ['action' => 'file'], [], true) ?>" class="s-2">select</a>
     </footer>
 </form>
