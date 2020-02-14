@@ -11,7 +11,7 @@ $service = new Nmea($config->get('nmea'));
 
 do {
     $item = $service->collect();
-    $output = fopen($config->get('file')->get('path'), 'a');
+    $output = fopen(sprintf('%s/%s.dat', $config->get('file')->get('path'), date('Ymd')), 'a');
     fwrite($output, sprintf('%s' . PHP_EOL, implode(',', $item->getArrayCopy())));
     fclose($output);
     sleep(5);
