@@ -52,7 +52,7 @@ class Nmea
 
         foreach ($sentences as $type => $sentence) {
             $class = 'Logger\\Model\\Nmea\\' . ucfirst(strtolower($type));
-            $instance = call_user_func_array([$class, 'createFromArray'], explode(',', $sentence));
+            $instance = call_user_func_array([$class, 'createFromArray'], [explode(',', $sentence)]);
             if ($instance instanceof Item) $data = array_merge($data, $instance->getArrayCopy());
         }
 
