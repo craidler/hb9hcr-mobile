@@ -20,6 +20,11 @@ jQuery(document).ready(function ($) {
 
     let update = function (data) {
         $.each(data, function (k, v) {
+            if ('gpsd' === k || 'gpsl' === k) {
+                let i = $('[data-name=' + k + ']');
+                0 < v ? i.addClass('a') : i.removeClass('a');
+                return;
+            }
             $('[data-name=' + k + ']', gpsl).html(v);
         });
     };
