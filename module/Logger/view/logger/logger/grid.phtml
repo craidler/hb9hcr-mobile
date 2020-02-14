@@ -9,10 +9,11 @@ echo $this->partial('partial/header', ['title' => $this->title, 'file' => $this-
                 <th class="w-0">UTC</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
+                <th>HDOP</th>
                 <th>Speed</th>
                 <th>Alt</th>
                 <th>Sat</th>
-                <th>HDOP</th>
+                <th>DGPS</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +22,11 @@ echo $this->partial('partial/header', ['title' => $this->title, 'file' => $this-
                 <td><?= $item->datetime->format('Y-m-d H:i:s') ?></td>
                 <td><?= sprintf('%.07f', Coordinates::gpsToDec($item->lat, $item->lat_i)) ?></td>
                 <td><?= sprintf('%.07f', Coordinates::gpsToDec($item->lon, $item->lon_i)) ?></td>
+                <td><?= sprintf('%.01f', $item->hdop) ?></td>
                 <td><?= sprintf('%d km/h', $item->speed_m) ?></td>
                 <td><?= sprintf('%d', $item->alt) ?></td>
                 <td><?= sprintf('%d', $item->sat) ?></td>
-                <td><?= sprintf('%.01', $item->hdop) ?></td>
+                <td><?= sprintf('%d', $item->dgps) ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
