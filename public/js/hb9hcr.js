@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
     let update = function (data) {
         $.each(data, function (k, v) {
             if ('gpsd' === k || 'gpsl' === k) {
-                let i = $('[data-name=' + k + ']');
+                let i = $('[data-name=' + k + ']', gpsl);
                 '1' === v ? i.addClass('a') : i.removeClass('a');
                 return;
             }
