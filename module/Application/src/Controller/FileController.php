@@ -281,7 +281,7 @@ abstract class FileController extends AbstractActionController
      */
     protected function getNamespace(): string
     {
-        return explode('\\', get_called_class())[0];
+        return strtolower(explode('\\', get_called_class())[0]);
     }
 
     /**
