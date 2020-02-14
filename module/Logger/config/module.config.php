@@ -34,7 +34,7 @@ return [
     ],
     Module::class => [
         'file' => [
-            'path' => __DIR__ . '/../../../public/data/logger',
+            'path' => __DIR__ . '/../data',
             'ext' => 'dat',
         ],
         'nmea' => [

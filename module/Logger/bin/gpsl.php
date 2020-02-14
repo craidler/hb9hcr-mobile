@@ -6,12 +6,14 @@ use Logger\Service\Nmea;
 
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
-$config = (new Config(include __DIR__ . '/../config/module.config.php'))->get(Module::class)->get('nmea');
-$service = new Nmea($config);
+$config = (new Config(include __DIR__ . '/../config/module.config.php'))->get(Module::class);
+$service = new Nmea($config->get('nmea'));
 
 do {
     $item = $service->collect();
-    var_dump($item->getArrayCopy());
+    $output = fopen($config->get('file')->get('path'), 'a');
+    fwrite($output, sprintf('%s' . PHP_EOL, implode(',', $item->getArrayCopy())));
+    fclose($output);
     sleep(5);
 }
 while (true);
