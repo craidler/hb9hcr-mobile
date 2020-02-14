@@ -25,7 +25,6 @@ class Collection extends ArrayObject
      */
     public static function createFromArray(array $data = null)
     {
-        var_dump($data); exit;
         if (!$data) $data = [];
         if (!array_key_exists('class', $data)) $data['class'] = $class ?? Item::class;
         if (!array_key_exists('collection', $data)) $data['collection'] = [];
