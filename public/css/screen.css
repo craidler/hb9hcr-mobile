@@ -107,5 +107,21 @@ aside .fg {
 }
 
 .success {
-    background-color: rgb(34, 139, 34) !important;
+    background-color: rgb(79, 135, 47) !important;
+}
+
+.bg.origin {
+
+}
+
+.bg.checkpoint {
+    background: rgb(100, 150, 175);
+}
+
+.bg.supply, .bg.sightseeing {
+       background: rgba(100, 150, 175, .5);
+}
+
+.bg.camping, .bg.bivouac {
+    background: rgb(79, 135, 47);
 }

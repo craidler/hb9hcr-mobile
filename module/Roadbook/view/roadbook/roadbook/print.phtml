@@ -2,7 +2,7 @@
 <?php foreach ($this->collection as $item): ?>
     <article class="dg c-3">
         <div class="dt tc">
-            <div class="h-4 bg">
+            <div class="h-4 bg <?= $item->type ?>">
                 <p class="f-3"><?= ceil($distance * .001) ?> <small>km</small></p>
                 <p class="ttu"><?= $item->type ?></p>
             </div>
@@ -10,8 +10,8 @@
         <table>
             <tbody>
                 <tr>
-                    <td>Id</td>
-                    <td><?= $item->id ?></td>
+                    <td>Date</td>
+                    <td><?= $item->date ?></td>
                 </tr>
                 <tr>
                     <td>Region</td>
