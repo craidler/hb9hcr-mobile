@@ -49,7 +49,9 @@ class Collection extends ArrayObject
             switch (array_pop($chunks)) {
                 case 'dat':
                     $data = ['collection' => file($filename)];
-                    array_walk($data['collection'], function(&$item) { $item = explode(',', $item); });
+                    array_walk($data['collection'], function (&$item) {
+                        $item = explode(',', $item);
+                    });
                     break;
 
                 case 'json':
@@ -201,7 +203,7 @@ class Collection extends ArrayObject
     {
         if (0 >= $this->count()) throw new Exception('Can\'t peek empty data structure');
 
-        if (is_numeric($value)) {
+        if (is_int($value)) {
             if (!$this->offsetExists($value)) throw new Exception('Can\'t find offset ' . $value);
             return $item ? $this->offsetGet($value) : $value;
         }
@@ -215,5 +217,18 @@ class Collection extends ArrayObject
         }
 
         throw new Exception('Can\'t find item by value ' . var_export($value, true));
+    }
+
+    /**
+     * @param Item|string|int $value
+     * @param array           $data
+     * @return $this
+     * @throws Exception
+     */
+    public function update($value, array $data): self
+    {
+        $item = $this->find($value);
+        $item->exchangeArray($data);
+        return $this;
     }
 }

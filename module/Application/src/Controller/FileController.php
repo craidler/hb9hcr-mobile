@@ -57,7 +57,7 @@ abstract class FileController extends AbstractActionController
     public function editAction()
     {
         if ($this->isPost()) {
-            // $this->getCollection()->update($this->getFormData())->persist();
+            $this->getCollection()->update($this->params()->fromRoute('id'), $this->getFormData())->persist();
             $this->message()->success();
             return $this->redirect()->refresh();
         }
@@ -169,7 +169,7 @@ abstract class FileController extends AbstractActionController
     public function getItem(): Item
     {
         try {
-            $item = $this->getCollection()->find((int)$this->params()->fromRoute('id', 0));
+            $item = $this->getCollection()->find($this->params()->fromRoute('id', 0));
         }
         catch (Exception $e) {
             $item = call_user_func_array([$this->getClass(), 'createFromArray'], [[]]);

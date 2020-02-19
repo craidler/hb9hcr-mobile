@@ -12,4 +12,16 @@
     footer {
         display: none !important;
     }
+
+    main {
+        margin: 0;
+    }
+
+    article {
+        page-break-after: always;
+    }
+
+    .bg {
+        color: #fff;
+    }
 }

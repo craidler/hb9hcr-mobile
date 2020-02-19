@@ -26,14 +26,21 @@ class LoggerController extends FileController
      */
     public function ajaxAction()
     {
-        $service = new Nmea($this->config->get('nmea'));
-        $data = $service->collect()->getArrayCopy();
+        $data = [];
 
-        foreach (['lat', 'lon'] as $k) $data[$k] = sprintf('%.07f', Coordinates::gpsToDec($data[$k], $data[$k . '_i']));
-        foreach (['alt', 'speed_m'] as $k) $data[$k] = sprintf('%d', $data[$k]);
-        foreach (['hdop'] as $k) $data[$k] = sprintf('%.01f', $data[$k]);
-        foreach (['course_t', 'course_m'] as $k) $data[$k] = strlen($data[$k]) ? sprintf('%d', $data[$k]) : '---';
-        foreach ($this->config->get('check')->toArray() as $k => $cmd) $data[$k] = exec($cmd);
+        try {
+            $service = new Nmea($this->config->get('nmea'));
+            $data = $service->collect()->getArrayCopy();
+
+            foreach (['lat', 'lon'] as $k) $data[$k] = sprintf('%.07f', Coordinates::gpsToDec($data[$k], $data[$k . '_i']));
+            foreach (['alt', 'speed_m'] as $k) $data[$k] = sprintf('%d', $data[$k]);
+            foreach (['hdop'] as $k) $data[$k] = sprintf('%.01f', $data[$k]);
+            foreach (['course_t', 'course_m'] as $k) $data[$k] = strlen($data[$k]) ? sprintf('%d', $data[$k]) : '---';
+            foreach ($this->config->get('check')->toArray() as $k => $cmd) $data[$k] = exec($cmd);
+        }
+        catch (Exception $e) {
+
+        }
 
         return new JsonModel($data);
     }

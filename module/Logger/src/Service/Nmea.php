@@ -1,6 +1,7 @@
 <?php
 namespace Logger\Service;
 
+use Exception;
 use Application\Model\Item;
 use Laminas\Config\Config;
 
@@ -30,6 +31,7 @@ class Nmea
 
     /**
      * @return Item
+     * @throws Exception
      */
     public function collect(): Item
     {
@@ -38,6 +40,8 @@ class Nmea
         $stream = fopen($this->config->get('device'), 'r');
         $pattern = sprintf('#^\$.{2}(%s),(.+)#', implode('|', $types));
         $sentences = [];
+
+        if (!is_resource($stream)) throw new Exception('Failed to open ' . $this->config->get('device'));
 
         do {
             $sentence = trim(fgets($stream));

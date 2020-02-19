@@ -6,7 +6,6 @@ use Application\Model\Page;
 use Exception;
 use Laminas\Http\Response;
 use Laminas\View\Model\ViewModel;
-use Roadbook\Model\Route;
 use Roadbook\Model\Waypoint;
 use Roadbook\Plugin\Maps;
 
@@ -30,14 +29,14 @@ class RoadbookController extends FileController
     {
         $id = $this->params()->fromRoute('id', 0);
         $collection = $this->getCollection();
-        if (!$collection->count()) return $this->redirect()->toRoute(null, ['action' => 'create'], [], true);
-        if (!is_numeric($id)) return $this->redirect()->toRoute(null, ['id' => $collection->find($id, false)], [], true);
+        if (!$collection->count()) return $this->redirect()->toUrl('/roadbook/create');
+        if (!ctype_digit($id)) return $this->redirect()->toUrl('/roadbook/index/' . $collection->find($id, false));
 
         /**
          * @var Waypoint $item
          * @var Waypoint $prev
          */
-        $item = $this->getItem();
+        $item = $collection->find((int)$id);
         $prev = $collection->prev($item);
 
         if ($this->isPost()) {
@@ -59,5 +58,13 @@ class RoadbookController extends FileController
             'distance' => $this->maps()->getDistance($prev->position, $item->position),
             'duration' => $this->maps()->getDuration($prev->position, $item->position),
         ]);
+    }
+
+    /**
+     * @return ViewModel
+     */
+    public function printAction()
+    {
+        return $this->getView();
     }
 }

@@ -1,0 +1,33 @@
+<?php $distance = 0; ?>
+<?php foreach ($this->collection as $item): ?>
+    <article class="dg c-3">
+        <div class="dt tc">
+            <div class="h-4 bg">
+                <p class="f-3"><?= ceil($distance * .001) ?> <small>km</small></p>
+                <p class="ttu"><?= $item->type ?></p>
+            </div>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td><?= $item->id ?></td>
+                </tr>
+                <tr>
+                    <td>Region</td>
+                    <td><?= $item->region ?></td>
+                </tr>
+                <tr>
+                    <td>Latitude</td>
+                    <td><?= $item->latitude ?></td>
+                </tr>
+                <tr>
+                    <td>Longitude</td>
+                    <td><?= $item->longitude ?></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="bg"><?= $item->comment ?></div>
+        <?= $this->partial('partial/maps', ['maps' => $item->maps]) ?>
+    </article>
+<?php endforeach; ?>
