@@ -52,12 +52,17 @@ class RoadbookController extends FileController
         }
 
         return $this->getView([
-            'title' => sprintf('Waypoint: %s', $item->name),
+            'title' => sprintf('%s - %s', $item->region, $item->name),
             'page' => Page::createFromCollection($collection, 1, $this->params()->fromRoute('id', 0)),
             'item' => $item,
             'distance' => $this->maps()->getDistance($prev->position, $item->position),
             'duration' => $this->maps()->getDuration($prev->position, $item->position),
         ]);
+    }
+
+    public function gridAction()
+    {
+        return parent::gridAction();
     }
 
     /**

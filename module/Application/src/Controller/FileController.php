@@ -109,6 +109,11 @@ abstract class FileController extends AbstractActionController
                         $this->getCollection()->delete($this->getFormId())->persist();
                         $this->message()->success();
                         break;
+
+                    case 'move':
+                        $this->getCollection()->move($this->getFormId(), $this->getFormParam())->persist();
+                        $this->message()->success();
+                        break;
                 }
             }
             catch (Exception $e) {
@@ -160,6 +165,7 @@ abstract class FileController extends AbstractActionController
             $collection = Collection::load($this->getFile(), $this->getClass());
             $this->collection = $this->config->get('file')->get('reverse', false) ? $collection->reverse() : $collection;
         }
+
         return $this->collection;
     }
 
@@ -186,7 +192,7 @@ abstract class FileController extends AbstractActionController
         if (!$this->session->offsetExists('file')) {
             $files = $this->getFiles();
             if (!$files->count()) return '';
-            $this->session->offsetSet('file', $files->current()->getFilename());
+            $this->session->offsetSet('file', $files->current()->getPathname());
         }
 
         return $this->session->offsetGet('file');

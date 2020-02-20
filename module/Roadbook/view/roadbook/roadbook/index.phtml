@@ -10,12 +10,12 @@
         <table>
             <tbody>
                 <tr>
-                    <td>Date</td>
-                    <td><?= $this->item->date ?></td>
+                    <td>Id</td>
+                    <td><?= $this->item->id ?></td>
                 </tr>
                 <tr>
-                    <td>Region</td>
-                    <td><?= $this->item->region ?></td>
+                    <td>Date</td>
+                    <td><?= $this->item->date ?></td>
                 </tr>
                 <tr>
                     <td>Latitude</td>
@@ -27,7 +27,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="bg"><?= $this->item->comment ?></div>
+        <div class="bg tl"><p><?= str_replace(',', '<br>', $this->item->comment) ?></p></div>
         <?= $this->partial('partial/maps', ['maps' => $this->item->maps]) ?>
     </article>
 </form>

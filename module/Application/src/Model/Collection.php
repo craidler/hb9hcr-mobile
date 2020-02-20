@@ -9,6 +9,9 @@ use ArrayObject, Exception;
  */
 class Collection extends ArrayObject
 {
+    const DIRECTION_UP = 0;
+    const DIRECTION_DN = 1;
+
     /**
      * @var string
      */
@@ -217,6 +220,25 @@ class Collection extends ArrayObject
         }
 
         throw new Exception('Can\'t find item by value ' . var_export($value, true));
+    }
+
+    /**
+     * @param Item|string|int $value
+     * @param int             $direction
+     * @return $this
+     * @throws Exception
+     */
+    public function move($value, int $direction): self
+    {
+        $ai = $this->find($value, false);
+        $bi = self::DIRECTION_UP == $direction ? $ai - 1 : $ai + 1;
+        $bi = $bi < 0 ? $this->count() - 1 : $bi;
+        $bi = $bi >= $this->count() ? 0 : $bi;
+        $a = $this->offsetGet($ai);
+        $b = $this->offsetGet($bi);
+        $this->offsetSet($bi, $a);
+        $this->offsetSet($ai, $b);
+        return $this;
     }
 
     /**
