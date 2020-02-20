@@ -1,5 +1,0 @@
-# 2010
-*.php -crlf
-
-# 2020
-*.php text eol=lf
