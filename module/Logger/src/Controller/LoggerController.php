@@ -26,7 +26,10 @@ class LoggerController extends FileController
      */
     public function ajaxAction()
     {
-        $data = [];
+        $data = [
+            'lat' => 0,
+            'lon' => 0,
+        ];
 
         try {
             $service = new Nmea($this->config->get('nmea'));
@@ -39,8 +42,10 @@ class LoggerController extends FileController
             foreach ($this->config->get('check')->toArray() as $k => $cmd) $data[$k] = exec($cmd);
         }
         catch (Exception $e) {
-
         }
+
+        $data['lat_hms'] = Coordinates::decToDms($data['lat'], Coordinates::LATITUDE);
+        $data['lon_hms'] = Coordinates::decToDms($data['lon'], Coordinates::LONGITUDE);
 
         return new JsonModel($data);
     }
