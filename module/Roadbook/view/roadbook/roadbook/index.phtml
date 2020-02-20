@@ -3,8 +3,9 @@
     <article class="dg c-3">
         <div class="dt tc">
             <div class="h-4 bg <?= $this->item->type ?>">
-                <p class="f-3"><?= ceil($this->distance * .001) ?> <small>km</small></p>
+                <p class="f-3"><?= ceil($this->distance * .001) ?><small>km</small></p>
                 <p class="ttu"><?= $this->item->type ?></p>
+                <p>(<?= ceil($this->distance_last * .001) ?><small>km</small>)</p>
             </div>
         </div>
         <table>

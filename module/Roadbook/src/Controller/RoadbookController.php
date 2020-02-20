@@ -35,9 +35,17 @@ class RoadbookController extends FileController
         /**
          * @var Waypoint $item
          * @var Waypoint $prev
+         * @var Waypoint $last
          */
+        $skip = $this->config->get('calculation')->get('skip')->toArray();
         $item = $collection->find((int)$id);
-        $prev = $collection->prev($item);
+        $last = $collection->prev($item);
+        $prev = $item;
+
+        do {
+            $prev = $collection->prev($prev);
+        }
+        while (in_array($prev->type, $skip));
 
         if ($this->isPost()) {
             switch ($this->getFormAction()) {
@@ -57,6 +65,8 @@ class RoadbookController extends FileController
             'item' => $item,
             'distance' => $this->maps()->getDistance($prev->position, $item->position),
             'duration' => $this->maps()->getDuration($prev->position, $item->position),
+            'distance_last' => $this->maps()->getDistance($last->position, $item->position),
+            'duration_last' => $this->maps()->getDuration($last->position, $item->position),
         ]);
     }
 

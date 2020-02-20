@@ -6,6 +6,7 @@ use Laminas\Config\Config;
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Router\Http\Segment;
 use Roadbook\Helper\Maps;
+use Roadbook\Model\Waypoint;
 use Roadbook\Service\GoogleMaps;
 
 return [
@@ -86,6 +87,9 @@ return [
         'file' => [
             'path' => __DIR__ . '/../data/roadbook',
             'ext' => 'json',
+        ],
+        'calculation' => [
+            'skip' => [Waypoint::TYPE_SUPPLY],
         ],
     ],
     GoogleMaps::class => [
