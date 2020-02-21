@@ -41,11 +41,13 @@ class RoadbookController extends FileController
         $item = $collection->find((int)$id);
         $last = $collection->prev($item);
         $prev = $item;
+        $i = 0;
 
         do {
             $prev = $collection->prev($prev);
+            $i++;
         }
-        while (in_array($prev->type, $skip));
+        while (in_array($prev->type, $skip) && $i < 100);
 
         if ($this->isPost()) {
             switch ($this->getFormAction()) {

@@ -14,7 +14,8 @@
     "laminas/laminas-mvc": "^3.1.1",
     "laminas/laminas-session": "^2.9.1",
     "ext-ctype": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-dom": "*"
   },
   "repositories": [
     {

@@ -12,6 +12,16 @@ use Roadbook\Service\GoogleMaps;
 return [
     'router' => [
         'routes' => [
+            'export' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/export[/:action][/:id]',
+                    'defaults' => [
+                        'controller' => Controller\ExportController::class,
+                        'action' => 'index',
+                    ],
+                ],
+            ],
             'roadbook' => [
                 'type' => Segment::class,
                 'options' => [
@@ -47,6 +57,7 @@ return [
     'controllers' => [
         'factories' => [
             Controller\RoadbookController::class => ControllerFactory::class,
+            Controller\ExportController::class => ControllerFactory::class,
             Controller\MapController::class => ControllerFactory::class,
         ],
     ],
@@ -90,6 +101,9 @@ return [
         ],
         'calculation' => [
             'skip' => [Waypoint::TYPE_SUPPLY],
+        ],
+        'export' => [
+            'path' => __DIR__ . '/../../../public/export',
         ],
     ],
     GoogleMaps::class => [
