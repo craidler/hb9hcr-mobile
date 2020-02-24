@@ -46,6 +46,7 @@ class LoggerController extends FileController
 
         $data['lat_hms'] = Coordinates::decToDms($data['lat'], Coordinates::LATITUDE);
         $data['lon_hms'] = Coordinates::decToDms($data['lon'], Coordinates::LONGITUDE);
+        $data['utc'] = sprintf('%02d:%02d:%02d', substr($data['utc'], 0, 2), substr($data['utc'], 3, 2), substr($data['utc'], 5, 2));
 
         return new JsonModel($data);
     }
