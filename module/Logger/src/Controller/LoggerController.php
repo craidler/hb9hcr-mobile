@@ -29,6 +29,13 @@ class LoggerController extends FileController
         $data = [
             'lat' => 0,
             'lon' => 0,
+            'utc' => gmdate('His'),
+            'alt' => 0,
+            'hdop' => 0,
+            'speed_m' => 0,
+            'course_t' => 0,
+            'gpsl' => system($this->config->get('check')->get('gpsl')),
+            'gpsd' => system($this->config->get('check')->get('gpsd')),
         ];
 
         try {
@@ -46,7 +53,7 @@ class LoggerController extends FileController
 
         $data['lat_hms'] = Coordinates::decToDms($data['lat'], Coordinates::LATITUDE);
         $data['lon_hms'] = Coordinates::decToDms($data['lon'], Coordinates::LONGITUDE);
-        $data['utc'] = sprintf('%02d:%02d:%02d', substr($data['utc'], 0, 2), substr($data['utc'], 3, 2), substr($data['utc'], 5, 2));
+        $data['utc'] = sprintf('%02d:%02d', substr($data['utc'], 0, 2), substr($data['utc'], 3, 2));
 
         return new JsonModel($data);
     }
@@ -57,6 +64,11 @@ class LoggerController extends FileController
      */
     public function indexAction()
     {
+        if ($this->isPost()) {
+            system($this->config->get('service')->get($this->getFormAction()));
+            return $this->redirect()->refresh();
+        }
+
         return $this->getView();
     }
 }

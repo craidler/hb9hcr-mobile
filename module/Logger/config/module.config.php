@@ -47,5 +47,9 @@ return [
             'gpsd' => 'ps -ef | grep -v grep | grep -c gpsd',
             'gpsl' => 'ps -ef | grep -v grep | grep -c gpsl',
         ],
+        'service' => [
+            'gpsd' => '',
+            'gpsl' => '',
+        ]
     ],
 ];

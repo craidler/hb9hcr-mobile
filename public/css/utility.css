@@ -171,3 +171,7 @@
 .fr {
     float: right;
 }
+
+.b-0 {
+    border: 0;
+}

@@ -1,70 +1,72 @@
 <?= $this->partial('partial/header', ['title' => 'Logger', 'file' => $this->file]) ?>
-<article data-widget="gpsl">
-    <div class="dg c-6 tc">
-        <div class="dt s-3 bg" data-name="gpsd">
-            <div>
-                <p>GPSD</p>
+<form method="post">
+    <article data-widget="gpsl">
+        <div class="dg c-6 tc">
+            <div class="dt s-3">
+                <div>
+                    <button class="b-0 w-100 bg" data-name="gpsd" name="action" value="gpsd">GPSD</button>
+                </div>
+            </div>
+            <div class="dt s-3">
+                <div>
+                    <button class="b-0 w-100 bg" data-name="gpsl" name="action" value="gpsl">GPSL</button>
+                </div>
+            </div>
+            <div class="dt s-2">
+                <div class="bg h-3">
+                    <p><span class="f-3" data-name="speed_m">-</span> <small>km/h</small></p>
+                    <p class="o-25">speed</p>
+                </div>
+            </div>
+            <div class="dt s-2">
+                <div class="bg h-3">
+                    <p><span class="f-3" data-name="alt">-</span> <small>m</small></p>
+                    <p class="o-25">altitude</p>
+                </div>
+            </div>
+            <div class="dt s-2">
+                <div class="bg h-3">
+                    <p><span class="f-3" data-name="hdop">-</span> <small>m</small></p>
+                    <p class="o-25">hdop</p>
+                </div>
+            </div>
+            <div class="dt s-3">
+                <div class="bg h-2">
+                    <p><span class="f-2" data-name="lat_hms">-</p>
+                </div>
+            </div>
+            <div class="dt s-3">
+                <div class="bg h-2">
+                    <p><span class="f-2" data-name="lon_hms">-</p>
+                </div>
+            </div>
+            <div class="dt s-3">
+                <div class="bg h-3">
+                    <p><span class="f-3" data-name="lat">-</span></p>
+                    <p class="o-25">latitude</p>
+                </div>
+            </div>
+            <div class="dt s-3">
+                <div class="bg h-3">
+                    <p><span class="f-3" data-name="lon">-</span></p>
+                    <p class="o-25">longitude</p>
+                </div>
+            </div>
+            <div class="dt s-3">
+                <div class="bg h-3">
+                    <p><span class="f-3" data-name="course_t">-</span> <small>&deg;</small></p>
+                    <p class="o-25">course true</p>
+                </div>
+            </div>
+            <div class="dt s-3">
+                <div class="bg h-3">
+                    <p><span class="f-3" data-name="utc">-</span> <small>UTC</small></p>
+                    <p class="o-25">time</p>
+                </div>
             </div>
         </div>
-        <div class="dt s-3 bg" data-name="gpsl">
-            <div>
-                <p>GPSL</p>
-            </div>
-        </div>
-        <div class="dt s-2">
-            <div class="bg h-3">
-                <p><span class="f-3" data-name="speed_m">-</span> <small>km/h</small></p>
-                <p class="o-25">speed</p>
-            </div>
-        </div>
-        <div class="dt s-2">
-            <div class="bg h-3">
-                <p><span class="f-3" data-name="alt">-</span> <small>m</small></p>
-                <p class="o-25">altitude</p>
-            </div>
-        </div>
-        <div class="dt s-2">
-            <div class="bg h-3">
-                <p><span class="f-3" data-name="hdop">-</span> <small>m</small></p>
-                <p class="o-25">hdop</p>
-            </div>
-        </div>
-        <div class="dt s-3">
-            <div class="bg h-2">
-                <p><span class="f-2" data-name="lat_hms">-</p>
-            </div>
-        </div>
-        <div class="dt s-3">
-            <div class="bg h-2">
-                <p><span class="f-2" data-name="lon_hms">-</p>
-            </div>
-        </div>
-        <div class="dt s-3">
-            <div class="bg h-3">
-                <p><span class="f-3" data-name="lat">-</span></p>
-                <p class="o-25">latitude</p>
-            </div>
-        </div>
-        <div class="dt s-3">
-            <div class="bg h-3">
-                <p><span class="f-3" data-name="lon">-</span></p>
-                <p class="o-25">longitude</p>
-            </div>
-        </div>
-        <div class="dt s-3">
-            <div class="bg h-3">
-                <p><span class="f-3" data-name="course_t">-</span> <small>&deg;</small></p>
-                <p class="o-25">course true</p>
-            </div>
-        </div>
-        <div class="dt s-3">
-            <div class="bg h-3">
-                <p><span class="f-3" data-name="utc">-</span> <small>UTC</small></p>
-                <p class="o-25">time</p>
-            </div>
-        </div>
-    </div>
-</article>
+    </article>
+</form>
 <footer class="dg c-5">
     <p class="s-2">&nbsp;</p>
     <a href="/logger/grid">grid</a>
@@ -72,7 +74,7 @@
 </footer>
 <script>
     jQuery(document).ready(function ($) {
-        $('[data-ajax]').each(function() {
+        $('[data-ajax]').each(function () {
             // todo: to stuff here to refresh
         });
     });

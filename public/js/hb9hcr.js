@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
                     update(data);
                 }, dataType: "json", complete: poll, timeout: 30000
             });
-        }, 500);
+        }, 1000);
     };
 
     let update = function (data) {
