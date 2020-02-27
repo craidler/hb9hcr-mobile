@@ -77,16 +77,6 @@ return [
             __DIR__ . '/../view',
         ],
     ],
-    'view_helpers' => [
-        'aliases' => [
-            'maps' => Maps::class,
-        ],
-        'factories' => [
-            Maps::class => function (ServiceManager $serviceManager) {
-                return (new Maps())->setService($serviceManager->get(GoogleMaps::class));
-            },
-        ],
-    ],
     'service_manager' => [
         'factories' => [
             GoogleMaps::class => function (ServiceManager $serviceManager) {
