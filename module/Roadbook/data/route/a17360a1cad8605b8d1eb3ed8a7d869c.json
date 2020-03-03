@@ -1,0 +1,85 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ3-KU7S_GOwwROpwVUH3ds_Q",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ3-KU7S_GOwwROpwVUH3ds_Q",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 26.1160949,
+               "lng" : -14.4828123
+            },
+            "southwest" : {
+               "lat" : 26.1160949,
+               "lng" : -14.4828123
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "1 m",
+                  "value" : 0
+               },
+               "duration" : {
+                  "text" : "1 min",
+                  "value" : 0
+               },
+               "end_address" : "Avenue Hassan II, Boujdour 71000",
+               "end_location" : {
+                  "lat" : 26.1160949,
+                  "lng" : -14.4828123
+               },
+               "start_address" : "Avenue Hassan II, Boujdour 71000",
+               "start_location" : {
+                  "lat" : 26.1160949,
+                  "lng" : -14.4828123
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "1 m",
+                        "value" : 0
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 0
+                     },
+                     "end_location" : {
+                        "lat" : 26.1160949,
+                        "lng" : -14.4828123
+                     },
+                     "html_instructions" : "Head on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003e\u003cspan dir=\"rtl\"\u003eشارع الحسن الثاني\u003c/span\u003e‎\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "qxk~CptkwA"
+                     },
+                     "start_location" : {
+                        "lat" : 26.1160949,
+                        "lng" : -14.4828123
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "qxk~CptkwA"
+         },
+         "summary" : "‫الطريق الوطنية رقم 1‬‎/‫شارع الحسن الثاني‬‎",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

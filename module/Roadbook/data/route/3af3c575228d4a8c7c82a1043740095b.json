@@ -1,0 +1,85 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJjcJzycz1OQwRTFrHLDbAmdY",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJjcJzycz1OQwRTFrHLDbAmdY",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 26.5400352,
+               "lng" : -13.8374522
+            },
+            "southwest" : {
+               "lat" : 26.5400352,
+               "lng" : -13.8374522
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "1 m",
+                  "value" : 0
+               },
+               "duration" : {
+                  "text" : "1 min",
+                  "value" : 0
+               },
+               "end_address" : "الطريق الوطنية رقم 1، Lemsid",
+               "end_location" : {
+                  "lat" : 26.5400352,
+                  "lng" : -13.8374522
+               },
+               "start_address" : "الطريق الوطنية رقم 1، Lemsid",
+               "start_location" : {
+                  "lat" : 26.5400352,
+                  "lng" : -13.8374522
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "1 m",
+                        "value" : 0
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 0
+                     },
+                     "end_location" : {
+                        "lat" : 26.5400352,
+                        "lng" : -13.8374522
+                     },
+                     "html_instructions" : "Head",
+                     "polyline" : {
+                        "points" : "gr~`D`smsA"
+                     },
+                     "start_location" : {
+                        "lat" : 26.5400352,
+                        "lng" : -13.8374522
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "gr~`D`smsA"
+         },
+         "summary" : "",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

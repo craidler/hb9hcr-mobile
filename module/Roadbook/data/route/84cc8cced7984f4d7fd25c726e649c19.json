@@ -1,0 +1,181 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJjcJzycz1OQwRTFrHLDbAmdY",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJdbMUP_qvNwwRpN6J-onWMHk",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 27.4731435,
+               "lng" : -12.99607
+            },
+            "southwest" : {
+               "lat" : 26.5395094,
+               "lng" : -13.8377468
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "150 km",
+                  "value" : 149925
+               },
+               "duration" : {
+                  "text" : "1 hour 51 mins",
+                  "value" : 6653
+               },
+               "end_address" : "الطريق الوطنية رقم 1",
+               "end_location" : {
+                  "lat" : 27.4731435,
+                  "lng" : -12.99607
+               },
+               "start_address" : "الطريق الوطنية رقم 1، Lemsid",
+               "start_location" : {
+                  "lat" : 26.5400352,
+                  "lng" : -13.8374522
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "74 m",
+                        "value" : 74
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 13
+                     },
+                     "end_location" : {
+                        "lat" : 26.5395094,
+                        "lng" : -13.8377468
+                     },
+                     "html_instructions" : "Head \u003cb\u003esouthwest\u003c/b\u003e toward \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "gr~`D`smsAJVHPtAPA?"
+                     },
+                     "start_location" : {
+                        "lat" : 26.5400352,
+                        "lng" : -13.8374522
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "106 km",
+                        "value" : 105720
+                     },
+                     "duration" : {
+                        "text" : "1 hour 14 mins",
+                        "value" : 4436
+                     },
+                     "end_location" : {
+                        "lat" : 27.1571925,
+                        "lng" : -13.2117103
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "}n~`D|tmsAiA}CSg@aAcCeHyQiHgRyAyDyDaKoAkDkAwCeF}M_CgGmA{CaAgCmAcDq@eBiAyCqAiDYu@mA}C}@cC_@aAk@{Aq@gBi@uA{BeF{AuC{A}BkCyDU]uCwDyGeJg@o@kCoDs@aAaGcIeE{F{LmP_C_DsDcFk@u@mDyEc@q@wAqBm@}@w@mAi@_A_@q@cDgGwDiH_FmJ_FkJcBgDyBeEoCgFcBeDyBeEqIePaB{Cu@yAS_@s@sAo@oAu@yA{BiEoHqNaCsEiDuGcE}HsKuSeHaNg@cAIM}IyP_B_DeC{Eq@yAs@eBoAcDy@iCg@}AyGoU_CcIe@eBm@aCq@cCcB{F]kAcFgQmEeOa@uAw@oC}BaIkBkGkDuLmAmE}@}CmDoL}AmFo@cCeByFaB_GuBiHWu@eDoLmA}DsBmHa@wA{CeK[gAu@sCOg@gC{IkCcJiE_O_@oAyCgKu@iCEOoCoJuAuE_B{F]mAoAgEaA_DkAyCcAoB}AgCc@m@WYa@e@GGiAmAuAqACAyAiA}AiAwFwD_FgDqBuAGEgGeEsBwAcAq@uAaAs@e@sJwGsFwD_FgDqFuDiCeBwAaAiBoAoA{@yBcBiDqD_B{Bo@gAi@}@eAaCoHoQq@{A_A_Ck@uAkAqC_AyBmB{E}BoFqDaJsC}GkFmMISaDwHsAcCiAgB}@oA}@eA{AcB_EyDwHqH}JqJuHiHeBgB}@w@USkCkC{FsFSS}CyCuAuAiE}DOQqDoDaBeBgAkAcByB}@mAgEiH{AiCsBkD{FuJeBwCaAcBmAoBq@kA{AgCsC{EoA{B_GuJ{B{DS]wAkCg@{@gAeCcAwB_CgGWq@uGeQcG_PqBmFaBiECIy@yByDeKgAyCqAiDwAwDuAqDKYeD}I{A_EqBiFiB_FuD{Jo@eB{CeIqDwJcCkG{CkIsAmDu@oB}CsIcAyCu@kCm@cCa@cBi@_COu@W}A[mBy@oFWeBw@{Go@aGc@}C_AmIcB_MGe@qBaQ_B_NgAsIeCgSqCcVs@qHS{Cw@aPYgGSoDi@uKEu@]uEMoEWmD]uEg@kDu@uD?Cy@kDcCmHgAeCeBcDeAcBu@mAyBsCuDiFiCaDeDyEsCcEi@w@wAyBuBsCaEqF{CaEaDgEqAaBgAuA{DiE{AyAuG_HsYmZcQsQkGqGkFqFgA_A}BoBkAcAmA_AyByAqAu@g@W{CgBsDkBmEaB}Ai@uBs@iCcA}MoEgIqCsOiF]MkEyA}Bw@sEyAaBg@oBk@aD{@IAqBo@oBi@kA]gCo@_Ba@kDy@kCm@kDw@oEaAoAWmDs@iCi@eASoE}@a@Ic@KmDs@cAUiB_@cASeAUgB_@cASiCk@sCm@YG_Ci@oAUo@M{Bg@gB_@_Ce@s@S[IoFuAgEeAqEoAw@U{HaCoC{@}Bs@mH}BME_FyAcHaCmCw@qBo@i@S_Bg@kBk@_@MgA]yBq@kBo@qBo@UIkF_BeBi@eGiBeC{@gGqBuFaBmKiDkFcBaA]eBg@wAc@sBo@oAa@yCaAUGaCy@wEyAgDeA{FgB{E_BeA]aBe@}C_AKCaDw@mA[q@QcGyAm@OUGq@Ss@OeAUmDu@cASgB_@eAUmDu@mDs@w@QqAW}Co@aEy@kCi@qBe@oAYwA[q@OiCk@UEyDw@kCg@eAUuDu@YGeASkDu@kAU_ASa@G_@Ge@KiB[KAwAWkAQmDk@sB]eBUqFy@gBY]Gg@IgBYgAUeASQE_FgAk@MeGaBc@KuBi@yC}@cCu@sDiAqIgC{@WcBg@iDeAiGmBe@OyC{@yAg@s@UGCaAWc@OgCu@cF{Ai@QuEuAyAe@eA]gEoAMEaGgBuAc@iCu@m@S_Cu@kBk@_EmAm@QiEqAkF_B{@WuC}@i@OaBi@kCw@y@WiDcAoDeA}Ae@a@MwC{@wBo@cBi@uAc@uBm@a@MgDeAoBm@sBk@mCs@_Be@}@YgA]k@QoBk@o@SwEoAw@WeI}BiBi@mA_@yC{@iF{A{C{@AAqIaCoBk@gBe@{@W_AWaBg@c@OUGm@QiA]q@S}@W_A[UGe@O}@UA?iD}@mBg@_Cs@kEqA}C_AiEoAuBo@u@S}@U}Ae@o@Q}A_@mDeAkCu@eBe@kD_AcAYQEq@QYGICgCo@gBc@uA]m@MmBa@_Cc@qBc@OE_Ey@aAUC?a@KsAWw@Oa@I{AWqCi@a@Ic@IcDo@ICeAQa@IeASkAUaB_@cAUgB_@A?iCg@a@IeASmDs@c@Ia@Iq@Mu@OeAUeASgB_@cAUmDw@gBa@GAmIuBk@MeFuAcAYsA]uAc@_Cs@cA]kBi@uAc@OEiEuAEC}Ag@iFeBw@WsE}AcA]yAg@_Cu@eFgBqDmAmAa@_GqBiEuAo@SqDqAoDkAoE_Be@QwAe@a@O{Ag@kBo@KE_F_BaA]eBk@aA]a@M}CeAi@QuBs@q@SeBg@iDcAgCu@cA[y@UsD_AeAWiD_AeBc@kD}@kBc@oFqA}Ac@}Bk@ICaCm@eBa@cAWkDy@gBc@k@MWIeBe@c@KcAUa@KiCm@eAWo@OqCu@kAYiBg@gAYcBa@mFqAc@KkD{@sCs@}A_@w@QoA[eAWwCu@WEeASuE{@cBWYGcGiAqASOCgEq@KC{PqCWEgF{@o@KoDm@qEs@qEu@kCc@kS_DwBa@}Ck@cDg@[GwFy@CAeB[_KcByCg@kDi@}AUaEm@aG{@cAKoHq@gAKKAcD][CmBSg@E{@G}Da@QA{BUgAKKAqHw@mCYc@Ec@EeAMgAKeAKuEc@_Iu@[CoAKeAKcJy@qD[_@CoBSoD]wBSy@KqDa@eAMc@Em@GWGc@GgB]eASSCq@OmDu@sBc@_Ci@yAc@mF}AUG_Cq@oE}AmCkA?AaFwBIEwB_AaAa@KGuDaB{JoEGCmD{AiAk@kF}BcDwAcBs@}JqEUKcEiBkB{@wEsBeAe@{BcAcAc@aJ}D{As@yHiDm@WuDaBaEiBcPiHmFaCcBu@yCoAcBq@}By@mAa@yAg@{Bu@k@OaCq@wCs@[GwA[yCm@wCg@}Fw@wAOiLqAqNaB{Gs@uJgAyLqAsEi@uMwAqAKcCYiLqAoDa@wFm@cLqAwFm@{Gu@_I{@uLsA{SmBa]qCiHm@{YcCg@EoC]{B]sAYo@MqE_A{^sHoE}@SE{KwBwH}A}AYuCm@mFiAkCi@eAIwAKiAKwCK{@CwKUsM[mDGaP]UAwAGeHKKAiCKgCHo@Bg@Dg@Hg@H[H}KbDuJrCoFzAcB`@yFbAcANG@I?c@?c@CIEGCGEIGQS{A{BsEgGoFsHaEqF{@kAgGqI{DqFeNeRuIwLuBqCk\\ud@oD{EeRmWsC}DcFcHgE{FsEoGqKcOiCkDoJuM}JeNeE{FgBaCqK_O{EyGoBqCqBoC{DsFsTqZy@eA}DsFsAiBY_@{@kAsAiBuAmBoEiGmEgG{JcNuPqUm@{@eEwF}CkEsJyMoEaG{DoFa@m@aDkEk@q@aA}As@kAy@wA_@y@c@sAWaAW}AE_@Eg@Cc@Co@Cy@?k@@g@@i@Do@D]BUDSpH}X~ByI|BkInAwEfD}L|A}FdEqOPq@nFwR~HkYpHqXv@uC`E_OlCsJBGtGiVpEmP|@eDxEcQpHqXrF{RxIa\\`D{LpCsJJ[nC}JvAkFjDwMlDiMpAsE`@wAP}@BKXaBPeBHwA?aBCmAMqAKgAQcAW_Aq@{Bo@iB}Ma`@_AqCcHsSwGiREMyGeR_@cA{@gC{CyIcAqCc@mAOc@m@yAc@_Ac@s@aAwA_@c@_BaBy@o@yCgB{A}@_CuAgCuAgF{C{BoA_Ai@aAi@}@e@wCcBsJsF_Ak@}B{A_C{Ag@_@[WAAc@e@}@oAq@{AU{@]}BIw@CiC?aACqD?kEBqAH_AN}@z@}EVcBz@uFlB_LPaABMVyAh@uDJ}@Js@De@Be@@c@?c@?k@Cq@Gq@Im@Ga@IYM]kBuF{AmEE_@?EAE?Y"
+                     },
+                     "start_location" : {
+                        "lat" : 26.5395094,
+                        "lng" : -13.8377468
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.1 km",
+                        "value" : 1066
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 144
+                     },
+                     "end_location" : {
+                        "lat" : 27.1622814,
+                        "lng" : -13.2041591
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e2nd\u003c/b\u003e exit and stay on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "mcwdDdlsoA@E?G?E?ECE?AACAAAA?AAAA?CAAAA?AAA?A?CA[YACKOa@sAGWEUEUAWAY?Y@WDe@Bc@@{@A[AUEYG[K]KWMUOWMOGIKKOMaAs@i@c@mAaAEGGIKOIOEOEOASCWEeAE_BCOAMCOIg@Oc@EISe@SWQQMMSOUKWIc@IWEUE_@EUAsE["
+                     },
+                     "start_location" : {
+                        "lat" : 27.1571925,
+                        "lng" : -13.2117103
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.9 km",
+                        "value" : 947
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 138
+                     },
+                     "end_location" : {
+                        "lat" : 27.1600826,
+                        "lng" : -13.1951393
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e to stay on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "gcxdD~|qoADaA?GEOB]?K?GAMAIMc@CSAE?I?M@k@B[@]Bc@@OBUBSFi@?EDSJu@Nw@Je@Lc@La@X_AFMl@iBNg@J_@@UA]Gq@AW@UJa@`B{Fb@yApAuEZmA"
+                     },
+                     "start_location" : {
+                        "lat" : 27.1622814,
+                        "lng" : -13.2041591
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "42.1 km",
+                        "value" : 42118
+                     },
+                     "duration" : {
+                        "text" : "32 mins",
+                        "value" : 1922
+                     },
+                     "end_location" : {
+                        "lat" : 27.4731435,
+                        "lng" : -12.99607
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e to stay on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "ouwdDrdpoA?OEEIEc@KQEe@O]Mc@OeA]aAUu@QOCeEq@yCa@cKyAmDg@c@MgAOaDi@sB]SK[QAAGIGCI?G@IDA?QB_@@{@KaAQ{Bc@k@MEAaCaAeFuBq@WoB{@cDuAcImDiBw@UKqAcAq@s@qFgGqHgI{@y@wEuEs@q@_CwBiAeAq@k@MMyAiAaAk@_BkAQKi@_@cC_BmBqAiNeJyAaAuCoBMIuNuJwKmHYQmBuAo@i@eAm@q@a@gJmEwAu@wAw@_DkBoDsBsJ_GyD_CiVyNwGoEqGyEwIqGeD}B}@i@iAo@uGcD}Au@yQyI_O_HeAe@qAm@qQsIyQwIeHiDuG{Cw@a@eMaGs@[gCmAeIyDgJmEgJiEiGmDuF{D]WgE_EuFkFeFsEaAw@_BiA{BuA{CyAgFyBaBa@cG}A_M}CsHmBgLyCm@Q_AYuBeA}Q}Im@YuUeLaPmH{BeAsTqKOIwHuD_CkAmHoD_NsGaOeHuG_DeKcFkKeFmDcBk@]o@a@o@g@kAgAy@u@i@o@q@}@yJeOgGiJsDuFcBqCoFoIm@iAm@yA_@iAs@{B_@{ASoAe@aDMwAQqCi@_Hs@aMk@{I_@yFW{Ba@{BEYm@aCqAcEo@yA}@gB{EmIwHoM_DmFkAoBeVua@sBiDwCgFaC}DoCoEuFuJ_GuJyEuImIsPaFyJiBqDmK{SyEgJgD_H_CwEiA}BgBgDa@q@e@s@a@o@m@w@c@g@oAuAy@s@{@s@_CaBaCoAkO}G{Aq@sGsC{BaAyG{CcBs@yHgDk_@sPoEqBiDyAeBy@sAg@}Ao@sAc@}Ac@cB]eDg@wCWqESwBKiCKiS{@oI_@}EQ}AIkMm@cHYcBEiBEm@Ak@?[?aBBm@@uAF{ALgAJiBPwOpAkQzA_CVS@cDXq@DkCF{@?iAAgAGe@CuAIkAQ_BYwBi@oKmCgHiBuSqFmFuAmMcD}DgAcQqEoQuEwGcB}RgFyCy@{@QuB[cAMo@C_BKi@CsQ_@uT[_S[sJQaLSo@Coj@_AuEKmBGc@Ai@Ei@Ei@GeBY]GkCo@gA]eA_@cAc@y@a@_CoAiFoCmGiDeMaHeQkJsEcCuGkDyBmAgNsHaFmCeCqAsN{HcCoAsCyA{@g@_FeCsFyCyEkC{DsB}BiAcBu@GCqBo@aAYeEs@gAOmC_@_Eo@}Cc@kEu@i@Me@MuBu@aBs@mBmAeCqBiCcCwEuEkAkA}DsDcD}Dw@{AU_@Q]{@sBk@eBm@aC}AiIkCuMe@}BgAmEe@yAq@uAs@eAIMiAoAsAiAsAw@o@_@mAq@cCsAwDuByAw@qAq@oEeCcCsAcDgBkAo@sBiAA?}DuB}BcAmDaAeAUgAW"
+                     },
+                     "start_location" : {
+                        "lat" : 27.1600826,
+                        "lng" : -13.1951393
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "gr~`D`smsATh@rAPeMc\\mc@ijAcOm`@gD{IwE{JgFwHmNkRgSqXsb@cl@a_@sr@e^uq@wkA{|BeFqNmN{f@}XaaA{q@c`Ckh@mhBoCiGaCuDkCuCqGgFqQ{Lqk@o`@}PmLiE_DiGmHoMwYiFcMi_@_~@yGaKq]a]i`@k_@aNuMkIyJ{\\mk@oYwf@cHwPmV}o@kQqe@q_@gcAiLuZaFmNcBoGsBwJeD_VyOiqAwGkj@gAmMoCoj@iAiSeAaKu@yD}DyMmDiHkLoPy_@yh@wNiQiw@{x@}TsTeJsGcE_CaKmE{XqJir@iUmZaIyx@yPwVkFy^eJmeAo\\{pAia@wc@mNsW{G_v@aPkj@aLs[aFuS}Dof@kNa\\}J_v@kUe|@wWmr@mSy{@yVoj@aPme@qMcVoFqPeDac@sIoQoDe_@eJas@aUe{@wYiXaJaY_Igv@oRmp@eP}ViFgd@wHu}AeWmUiDgMkA}U}Bm_A}ImWkCkOsC{PoEsNcFc^{OsiAmg@ov@_]iKuDaMkDeLyBqf@{FujAgMca@oEmt@sHobAiIoKcByjAuUyJsB}CUuTq@mu@eBgG\\wYjIsI|B}HrAyAAc@WqPkU_pAgfBeaAgsAqeBuaC}{AwuByAqC{@uCg@iEE}DPmCpa@}{A~f@yhBtrAu}E`AqGHyDQ_DgBgIqZq|@w[c~@eCqFaB{ByCqC}NqIeN_IiSiLaIoFuCsEs@yDMaE?qOlB_MxGgb@JsCU}DoFiQC_AOKICkAaCU{ADqB@qCe@kBs@gAgCqBgBcBWcASmE_@iB_AyAoAs@qB[iF]DiAAaAUoAJwD|@aGhC{II}BbFmQZ}AOKyBo@aFuAsVqDyGeAeIeBo@GoDWoHuBkP_HmLeFgBoAqS}TuMeM{NgK}v@ih@uGoEwTgLgm@m^g`@yX{NsHqf@mUalA_k@mTgKqRwJsGsE}LkLgHkG{E_DcKsEeJ_Cie@wLaYwMg`Akd@uV{LsgAgi@_FuEgZcd@sIaN{AcDgCqJoBkTwCsc@gD{MaS_^ev@iqAyMkUoPm\\yZum@sIoPyCcEeI_H}^sP_hAsf@cJ_DiGeAiJk@{e@sBk`@cBgHMaGLit@lGcIJoGg@o[{Hoo@sPi`AsVoKuBmWs@kaA}Acv@wAaDUwIoBcIuDoqAyr@cs@m_@wR_KyBs@gGmAsPcCqKgCoEaCoGuFcHaHaJqJ{CmGyAgFiF_XmBkIwAoD}@sA}CyCuI}EsPeJgNuH_EuBkHeCmCm@"
+         },
+         "summary" : "‫الطريق الوطنية رقم 1‬‎",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

@@ -1,0 +1,156 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ5-Mtt8LTNwwRnOdGBbRonn0",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJAe9LDf-kNwwRnB_pjIhAHCE",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 27.9465784,
+               "lng" : -12.8732252
+            },
+            "southwest" : {
+               "lat" : 27.4403166,
+               "lng" : -13.0230257
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "60.8 km",
+                  "value" : 60825
+               },
+               "duration" : {
+                  "text" : "41 mins",
+                  "value" : 2486
+               },
+               "end_address" : "Rte Camping Le Roi Bédouin",
+               "end_location" : {
+                  "lat" : 27.4403457,
+                  "lng" : -13.0230257
+               },
+               "start_address" : "N1, Tarfaya, Morocco",
+               "start_location" : {
+                  "lat" : 27.9465784,
+                  "lng" : -12.886935
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 208
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 30
+                     },
+                     "end_location" : {
+                        "lat" : 27.9448459,
+                        "lng" : -12.8863797
+                     },
+                     "html_instructions" : "Head \u003cb\u003esoutheast\u003c/b\u003e toward \u003cb\u003eN1\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "ciqiDj~smAJIZYZUZSXM`@K\\IZA`@A`@?~@D"
+                     },
+                     "start_location" : {
+                        "lat" : 27.9465784,
+                        "lng" : -12.886935
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "32.8 km",
+                        "value" : 32755
+                     },
+                     "duration" : {
+                        "text" : "22 mins",
+                        "value" : 1325
+                     },
+                     "end_location" : {
+                        "lat" : 27.6672688,
+                        "lng" : -12.9544169
+                     },
+                     "html_instructions" : "Slight \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eN1\u003c/b\u003e",
+                     "maneuver" : "turn-slight-right",
+                     "polyline" : {
+                        "points" : "i~piDzzsmAhAd@`Bp@`@NlAf@`Bt@t@\\r@Vv@Tf@Lr@Nl@Hl@DjABV@v@AbAEl@IfASx@Uv@U`@Q`JqE|NoH|GiD~BkA|DqB~BiA~FwC|@e@~@c@|BkAhDcBfCqAl@Yv@a@vGgDd@UnBaAlFmCfDaBpDkBbB{@~FwCz@c@tAq@jB_AfB}@rAq@DCnBaAl@Yb@SZK`@O\\K`AYb@Kb@Md@Kl@KdAOz@Kv@Ip@EjAG|@Ch@@t@?~@Bv@BnAHnCVdALlBRdAJfALjBPnCVfALpEb@zEf@fCV@?dDZlEb@rCXz@Hb@Bb@@v@BfA@vB@fA?zB@~EB`B@tCBhA@`D@pB@rA@v@?vADz@D`BPfAN|AZbARp@RfA^`A\\HBlBr@bAZjAb@rBt@nAb@vCbA|@\\bA^~@ZjDlAfEzAjC~@vAf@nAb@dA\\`C|@bMnEdItC~DvAnE|A`L|DxFpB`GtBlGxBnHjChHfChGvBvAh@bBj@vQnGfDlAhBl@~CjAbBj@bBl@bBl@rCbA|Ah@~DvAdDjApFjBzAj@dBj@tCbAdC~@pAb@rE~AbDhAjEzAdFdBdFbBnBr@~Ah@lBn@zDtAtDlAtE~AxDpA`DhAjC|@rC`A|GbCnP~FtCdApE|AhFlBbGvBb@NvCdArDpAdExAvHpCnFjBtBv@jDnAxAh@pC~@zBx@tAf@~GbClDpAhC|@lBp@nFlB`ItCdIrCzFtBh@Px@ZjDlAb@NlDnAzG`CvFpB|EdB~ChAnBp@fBn@vDvApGzBfHfCpDpA`Cx@~CjA~DxAdGtB`FfBdFfBzGbCpFnBxCdAx@ZtC`AdAXZFTFt@JbCZvBXrDd@jANnBV`D`@`Fn@fAL~BXtBX~Df@~ZzD|j@hHnC\\jf@hGfM`BfKpAnJlAzDd@`ALbDb@tBVv@Lb@Ht@Px@P|Br@~Aj@tCbAnBn@hDlAbIpCbDhA@@~Ah@~Ah@dDjAjDlArAd@bBj@lDpA`DfAlC~@r@VlAb@r@VrBt@xDpAdBl@pBr@bDhAjC|@tDpAbDhAnFjB|MvEzG~BdGtBrBt@r@VNFdBj@rN`FlHfClItClItCfHdCfBl@dC|@fDhAlJdDtAd@fDjArBr@xDrAxBt@n@TlC~@xAf@tCdA`Cx@`A\\pHhChExA~Bz@`AZr@Vz@Xb@L\\Jz@Tx@Pb@Hb@HVB\\DXD`@BpALpBPvCX@?x@FlALxCVjCTj@FdBNlALxBPn@F\\Dd@Fx@Jb@FjCd@hBXB?~KjBzHnAr@Hj@Fb@Ft@Ft@Dn@F~Jp@rBNjBLv@FzBN`@BrAJn@DxE\\hBLjCRtAHpBL`BHfAF~AJ|BLtCNvAHpAFj@?h@?b@CXC^C`@Eh@K`@Id@MNG`@Mt@YvAo@pB}@fCgAxCsAdAc@x@]n@Yd@Qv@YJE|@Yr@Sv@QXGx@On@KdAMj@GZCd@C"
+                     },
+                     "start_location" : {
+                        "lat" : 27.9448459,
+                        "lng" : -12.8863797
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "27.9 km",
+                        "value" : 27856
+                     },
+                     "duration" : {
+                        "text" : "19 mins",
+                        "value" : 1119
+                     },
+                     "end_location" : {
+                        "lat" : 27.4403166,
+                        "lng" : -13.0229777
+                     },
+                     "html_instructions" : "Continue onto \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "mwzgDbdanAtAEj@A`ECbECfCA|CCxCAhFCdCAzBAjCC~CAzDCjCAnDAxBAbBAfECr@AfB?nCC|@?|@?nAAfBArAAhAAx@?r@?pAA`CAlAA`DAdAAbA?`BAlAAfCA|@A~BAvCA`NIjDAjGE`BAdCAv@?hCArAA~CAbKGvDCfJEdDAjDC|BAnDCxEEtDEfDCvDEhCAbEEdDCzDErAAvAA~AApBCxCCjAAz@AdBCxCAlDEnDEdDCpBCxBAbBCpBA`AAZA~HGnGGvEEhBAbDEdDCxACbAA|AArAAtAAxAAfAApAAnEE`FKx@A|AG`AIr@Kr@Kp@Mb@KfB_@hOuD~TuFnHiBfEcA|JcCPEtEkApA[nA[jB_@dASxB]fBS|@Kx@IfAGpAGpESrBGlEQfOk@~I_@lCIrCKx@EdCK|I_@nGSpJ]vBKrDMdFShBGpBIpEQ`CKzES^AlCEj@?L@hABZ@dAFJ@n@Fb@Dr@J~Cl@xCl@bB^fAR`FdApKvBnCh@bGnAlL`CtR|D|@PhJlBdFbAl@LxDv@xAZlFdAjHzAzE`AvE`AtAX~EbApE|@|Cn@bCf@tAXtAXvBf@j@P~@Zx@Zz@`@bBx@nBnAbC~AhD|BjAx@~DlCnChBnAx@bC`B`@X`ElC|@l@vBvATNfAt@|A`A`An@zB|AbEpCbFfD|BzAbBhAbBhAd@\\tClBjCbB`DtBpBtA~EdDlD`C|CpBPL~@l@jChBx@h@n@`@j@^b@TlAn@xAv@lClAdDzAlBz@fHdDzHlD~LvF|I|DhCtA|@h@p@d@RNPNXTh@d@`B`BzB`CdFrFd@f@pBvBtGfHRR`BfBlDvDx@z@jEvE`ChCFHlGzGdAhAdEjEt@x@LNd@l@FFp@r@`GpGfHvHzBbCdAjA^^`A~@vAlAh@`@l@`@j@\\n@\\b@Rb@Rp@T^Lh@PdBb@nJxBrEdAdATlD`A|BbA|DtB@?rBhAjAn@bDfBbCrAnEdCpAp@xAv@vDtBbCrAlAp@n@^rAv@rAhAhAnAHLr@dAp@tAd@xAfAlEd@|BjCtM|AhIl@`Cj@dBz@rBP\\T^v@zAbD|D|DrDjAjAvEtEhCbCdCpBlBlA`Br@tBt@d@Lh@LjEt@|Cb@~Dn@lC^fANdEr@`AXpBn@FBbBt@|BhAzDrBxEjCrFxC~EdCz@f@"
+                     },
+                     "start_location" : {
+                        "lat" : 27.6672688,
+                        "lng" : -12.9544169
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "6 m",
+                        "value" : 6
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 12
+                     },
+                     "end_location" : {
+                        "lat" : 27.4403457,
+                        "lng" : -13.0230257
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eRte Camping Le Roi Bédouin\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "_mnfDrpnnAEH"
+                     },
+                     "start_location" : {
+                        "lat" : 27.4403166,
+                        "lng" : -13.0229777
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "ciqiDj~smAf@c@v@i@z@Yx@KbAA~@DhAd@bC`AnD|AhBt@~Ab@`BXxBHnA?pBO`Ci@xAg@|f@wVzRyJ|DoBpHuDbLyFld@gUlHsD|C{A~@_@~@[dBe@hAYrB[rBU|BMfBAtBBfCLtEd@fJ~@bc@hEnEb@fAD~HFd_@RnCD|CVdDj@tBf@`GtBrIxCp\\nLtC`AdQlGvb@hOhx@bYhm@bTtTxH|MzEtShHzSfHph@nQtd@fPhTzHnl@zShm@jT~h@fRdVrI~GfCxPbGrSpHh^hMzQrG`B`@jARzNjBzPvBth@vG`eBrTt^rExGz@zAVnBb@|Br@~Aj@dGrBlN~EdJ~ChOjF`]tLnp@hUhUbIv[|K|w@rX|^lM~TzHpHhC`AXtBf@|B\\`PxAlUrB~ARnDl@hYtExD`@xQnAhWfB`F\\rEVzLp@hDPtA?|@G`AIjAUt@UvAg@hEmB`L}ExCkApBm@pAYhB[pBU`AG`CGjTMxf@Uro@YjgAi@~n@YrTO~SQ|`@]|^]n`Ay@bMKzGM~CQfBWtAYpRuEn^_JlXyG`Dw@pDs@`Fq@vBUxCOdI[be@gBpT}@`Sq@jHYrSw@|I_@lDG~CFpAHrALrEx@|FlAjYzFdj@`Lfs@vNld@hJbDx@xBv@~CzArFnDdQnLvLbIrVlPhPvKhNdJt\\~TzA`ApBdAfFdCrGvCbRrI|WtLfE~BdAt@j@d@jCfCxNtOh]b_@rIdJzFdGr@|@x@z@jVxW`B~A`CnBxA~@rAp@tAh@hA^tM|CxGzAlD`A|BbA~DtBfNtHrPdJtI|ErAhAhAnA|@rAp@tAd@xAfAlEd@|BhF~Wl@`Cj@dBlApClAzBbD|D|DrDbH`HhCbCdCpBlBlA`Br@zCbAtFbA|IrAtEn@dEr@`AXxBr@`F~BtK~FrM~Gz@f@EH"
+         },
+         "summary" : "N1 and ‫الطريق الوطنية رقم 1‬‎",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

@@ -1,0 +1,109 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ10bgDElzNwwRcrTR8ho-oRc",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJdbMUP_qvNwwRpN6J-onWMHk",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 27.4731435,
+               "lng" : -12.99607
+            },
+            "southwest" : {
+               "lat" : 27.1846007,
+               "lng" : -13.1810991
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "39.0 km",
+                  "value" : 38991
+               },
+               "duration" : {
+                  "text" : "29 mins",
+                  "value" : 1731
+               },
+               "end_address" : "الطريق الوطنية رقم 1",
+               "end_location" : {
+                  "lat" : 27.4731435,
+                  "lng" : -12.99607
+               },
+               "start_address" : "الطريق الوطنية رقم 1، El-Aaiún 70000",
+               "start_location" : {
+                  "lat" : 27.1846007,
+                  "lng" : -13.1809089
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "52 m",
+                        "value" : 52
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 14
+                     },
+                     "end_location" : {
+                        "lat" : 27.1849876,
+                        "lng" : -13.1810991
+                     },
+                     "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e toward \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "wn|dDtkmoAs@?Yd@"
+                     },
+                     "start_location" : {
+                        "lat" : 27.1846007,
+                        "lng" : -13.1809089
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "38.9 km",
+                        "value" : 38939
+                     },
+                     "duration" : {
+                        "text" : "29 mins",
+                        "value" : 1717
+                     },
+                     "end_location" : {
+                        "lat" : 27.4731435,
+                        "lng" : -12.99607
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "eq|dDzlmoAmBqAiNeJyAaAuCoBMIuNuJwKmHYQmBuAo@i@eAm@q@a@gJmEwAu@wAw@_DkBoDsBsJ_GyD_CiVyNwGoEqGyEwIqGeD}B}@i@iAo@uGcD}Au@yQyI_O_HeAe@qAm@qQsIyQwIeHiDuG{Cw@a@eMaGs@[gCmAeIyDgJmEgJiEiGmDuF{D]WgE_EuFkFeFsEaAw@_BiA{BuA{CyAgFyBaBa@cG}A_M}CsHmBgLyCm@Q_AYuBeA}Q}Im@YuUeLaPmH{BeAsTqKOIwHuD_CkAmHoD_NsGaOeHuG_DeKcFkKeFmDcBk@]o@a@o@g@kAgAy@u@i@o@q@}@yJeOgGiJsDuFcBqCoFoIm@iAm@yA_@iAs@{B_@{ASoAe@aDMwAQqCi@_Hs@aMk@{I_@yFW{Ba@{BEYm@aCqAcEo@yA}@gB{EmIwHoM_DmFkAoBeVua@sBiDwCgFaC}DoCoEuFuJ_GuJyEuImIsPaFyJiBqDmK{SyEgJgD_H_CwEiA}BgBgDa@q@e@s@a@o@m@w@c@g@oAuAy@s@{@s@_CaBaCoAkO}G{Aq@sGsC{BaAyG{CcBs@yHgDk_@sPoEqBiDyAeBy@sAg@}Ao@sAc@}Ac@cB]eDg@wCWqESwBKiCKiS{@oI_@}EQ}AIkMm@cHYcBEiBEm@Ak@?[?aBBm@@uAF{ALgAJiBPwOpAkQzA_CVS@cDXq@DkCF{@?iAAgAGe@CuAIkAQ_BYwBi@oKmCgHiBuSqFmFuAmMcD}DgAcQqEoQuEwGcB}RgFyCy@{@QuB[cAMo@C_BKi@CsQ_@uT[_S[sJQaLSo@Coj@_AuEKmBGc@Ai@Ei@Ei@GeBY]GkCo@gA]eA_@cAc@y@a@_CoAiFoCmGiDeMaHeQkJsEcCuGkDyBmAgNsHaFmCeCqAsN{HcCoAsCyA{@g@_FeCsFyCyEkC{DsB}BiAcBu@GCqBo@aAYeEs@gAOmC_@_Eo@}Cc@kEu@i@Me@MuBu@aBs@mBmAeCqBiCcCwEuEkAkA}DsDcD}Dw@{AU_@Q]{@sBk@eBm@aC}AiIkCuMe@}BgAmEe@yAq@uAs@eAIMiAoAsAiAsAw@o@_@mAq@cCsAwDuByAw@qAq@oEeCcCsAcDgBkAo@sBiAA?}DuB}BcAmDaAeAUgAW"
+                     },
+                     "start_location" : {
+                        "lat" : 27.1849876,
+                        "lng" : -13.1810991
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "wn|dDtkmoAs@?Yd@wQwLsVqPqL_ImBuAo@i@wBoAgJmEwAu@wFcDcPsJc\\yRwGoEqGyE}NoKgCyAsJyEyQyI_O_HwCsAkd@kTy`@iRiZqNgJiEiGmDsGsE}LkLgHkG_BiA{BuA{CyAgFyBeJ_CsVkGuMkD_AYuBeAkSwJuUeLaPmHoXwMgI_EmL{Fa^yPue@mU{A_A{BoBy@u@i@o@q@}@yJeO{L_RsIaNm@iAm@yAsAeE_@{ASoAs@yF{@qL_B}W_@yFW{Bg@uCm@aCqAcEmBaE_W{b@sb@et@oCoEuFuJ_GuJyEuIoPm\\wNmYaKgSiEuIiCyEgAcBqA_BoAuAy@s@{@s@_CaBaCoAkO}GoJeEuK}E}K{E{e@eToGsCqDwAqDgAcB]eDg@wCWqESaGWug@wBoVgAmEKyAA}BBcCHcDXaSbBkQzA_CVwDZq@DkCFeCAmBKuAIkAQ_BYwBi@wTwFc[gIkSkFsc@gLu[kIuEkAyDi@oCO}Rc@uh@w@udAiBcISmAGsAMcCa@kCo@gA]iCcAyDqBwNyHk_@mSiNoHi]aRsN{HcCoAoEaCsM_HuK_GaF_CyBs@aAYeEs@uEo@}IsAuFcA{CcAaBs@mBmAeCqBiCcCcHaH}DsDcD}DmA{BmAqCk@eBm@aCiF_Xe@}BgAmEe@yAq@uA}@sAiAoAsAiAcCwAcNsHiQsJ_KoF}BcAmDaAmCm@"
+         },
+         "summary" : "‫الطريق الوطنية رقم 1‬‎",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

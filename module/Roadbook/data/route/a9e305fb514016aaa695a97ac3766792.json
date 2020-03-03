@@ -1,0 +1,85 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJdbMUP_qvNwwRpN6J-onWMHk",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJdbMUP_qvNwwRpN6J-onWMHk",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 27.4731435,
+               "lng" : -12.99607
+            },
+            "southwest" : {
+               "lat" : 27.4731435,
+               "lng" : -12.99607
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "1 m",
+                  "value" : 0
+               },
+               "duration" : {
+                  "text" : "1 min",
+                  "value" : 0
+               },
+               "end_address" : "الطريق الوطنية رقم 1",
+               "end_location" : {
+                  "lat" : 27.4731435,
+                  "lng" : -12.99607
+               },
+               "start_address" : "الطريق الوطنية رقم 1",
+               "start_location" : {
+                  "lat" : 27.4731435,
+                  "lng" : -12.99607
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "1 m",
+                        "value" : 0
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 0
+                     },
+                     "end_location" : {
+                        "lat" : 27.4731435,
+                        "lng" : -12.99607
+                     },
+                     "html_instructions" : "Head on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "cztfDlhinA"
+                     },
+                     "start_location" : {
+                        "lat" : 27.4731435,
+                        "lng" : -12.99607
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "cztfDlhinA"
+         },
+         "summary" : "‫الطريق الوطنية رقم 1‬‎",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

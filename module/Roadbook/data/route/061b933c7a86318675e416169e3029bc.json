@@ -1,0 +1,277 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJyW1fS9eUDA0RPlrbiZ0O5cM",
+         "types" : [ "establishment", "point_of_interest", "transit_station" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJU6V_zIabDA0Rdqy2GSa7bjc",
+         "types" : [ "establishment", "point_of_interest", "transit_station" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 36.1499067,
+               "lng" : -5.402881799999999
+            },
+            "southwest" : {
+               "lat" : 35.8761503,
+               "lng" : -5.522154599999999
+            }
+         },
+         "copyrights" : "Map data ©2020 Inst. Geogr. Nacional",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "40.3 km",
+                  "value" : 40309
+               },
+               "duration" : {
+                  "text" : "1 hour 58 mins",
+                  "value" : 7055
+               },
+               "end_address" : "Port of passengers, N16, Morocco",
+               "end_location" : {
+                  "lat" : 35.8761503,
+                  "lng" : -5.51643
+               },
+               "start_address" : "Algeciras (Puerto), 11201, Cádiz, Spain",
+               "start_location" : {
+                  "lat" : 36.1315122,
+                  "lng" : -5.4417253
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.3 km",
+                        "value" : 339
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 33
+                     },
+                     "end_location" : {
+                        "lat" : 36.1344813,
+                        "lng" : -5.441004100000001
+                     },
+                     "html_instructions" : "Head \u003cb\u003enortheast\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "}|o{Exye`@MKk@[]M]IgBQoBQa@Ew@GiD_@"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1315122,
+                        "lng" : -5.4417253
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.0 km",
+                        "value" : 951
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 102
+                     },
+                     "end_location" : {
+                        "lat" : 36.1289979,
+                        "lng" : -5.44373
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e3rd\u003c/b\u003e exit\u003cdiv style=\"font-size:0.9em\"\u003eGo through 1 roundabout\u003c/div\u003e",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "oop{Efue`@?EAEAEAEACAECCCCCCCCEAA?AAE?CAE?C@E?C@CBC@CBCBCDABCD?DAD?@AB?D?D@F?D@DBD@DBBBBBBBBB@B@D@B?D?B?DAB?DCBABCBC@CBE@EBGfD\\pBPrAJdCZfAf@j@b@j@p@`@r@r@tB?@`BlF?BA@ABA@?B?BA@?B?B?@?B@B?B@@?B@@@B@@@@@B@@@@@?@@B@@?B?@@@?B?@AB?@A@?BA@A@A@A@A@C@A?C@A@C?A?CbBeAzAcA"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1344813,
+                        "lng" : -5.441004100000001
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 200
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 28
+                     },
+                     "end_location" : {
+                        "lat" : 36.12951049999999,
+                        "lng" : -5.442125100000001
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e2nd\u003c/b\u003e exit",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "gmo{Ehff`@@?BA@?BABA@CBA@C@C@C@C@C@G?E?C?C?E?A?AACAC?CCCACAACCAACAGCC?C?C?C?C?C@C@A@C@SUGKe@uAM[AKAI@KHo@"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1289979,
+                        "lng" : -5.44373
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.6 km",
+                        "value" : 591
+                     },
+                     "duration" : {
+                        "text" : "3 mins",
+                        "value" : 171
+                     },
+                     "end_location" : {
+                        "lat" : 36.1306395,
+                        "lng" : -5.4377308
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e3rd\u003c/b\u003e exit",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "mpo{Eh|e`@@A@C@A?A@A@C?A?A@C?C?A?C?A?C?CAA?CAAAC?A?AAAAAAAAAC?AAA?AAC?A?A?C?A?A?A@A?A@A?C@ABCBA@A@?@A@AB?@A@?B?@AB?@?@OEGEIEIGIKCECEUe@_AeBSc@g@_Ag@aAO[GOAGAG?G?I?K@MDQFKXUj@e@fAaAb@_@DI@E@G?C?G?EAIIS_@q@s@qA"
+                     },
+                     "start_location" : {
+                        "lat" : 36.12951049999999,
+                        "lng" : -5.442125100000001
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "37.1 km",
+                        "value" : 37092
+                     },
+                     "duration" : {
+                        "text" : "1 hour 49 mins",
+                        "value" : 6543
+                     },
+                     "end_location" : {
+                        "lat" : 35.8777187,
+                        "lng" : -5.5217513
+                     },
+                     "html_instructions" : "Take the \u003cb\u003eAlgésiras, Espagne - Tanger Med, Maroc\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eTanger Med, Maroc - Algésiras, Espagne\u003c/b\u003e ferry\u003cdiv style=\"font-size:0.9em\"\u003eToll road\u003c/div\u003e",
+                     "maneuver" : "ferry",
+                     "polyline" : {
+                        "points" : "owo{Ex`e`@{FmGm@o@u@w@_DaCgAs@}Aq@kBs@eBk@sBm@wHgB}\\{E{d@eFw@SeBqAqA}B}@{Ca@qCS{BKgCRiC`@iDj@qCjEiLfP__@tNcX~LiPzEuDxJaGlGyC|NqEzW}D~UcC|zA_Hr_CiErgAh@ncAlErqCtNdx@lMrhBbd@nk@`Rte@hU~YvVfZxY|q@p`AhcEnuGdHlJxOfOpNnLfPxK~g@nXdpEzwAvrAxi@vMxD~I`CdKdCjPfBtWtBfKz@zAFlBBhAEh@K^Q\\Qd@Y"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1306395,
+                        "lng" : -5.4377308
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 175
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 21
+                     },
+                     "end_location" : {
+                        "lat" : 35.8763207,
+                        "lng" : -5.520855099999999
+                     },
+                     "html_instructions" : "Continue straight",
+                     "maneuver" : "straight",
+                     "polyline" : {
+                        "points" : "wj~yE|mu`@vF}CRMJE"
+                     },
+                     "start_location" : {
+                        "lat" : 35.8777187,
+                        "lng" : -5.5217513
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.6 km",
+                        "value" : 599
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 99
+                     },
+                     "end_location" : {
+                        "lat" : 35.8785157,
+                        "lng" : -5.514989799999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "_b~yEjhu`@]kACOH_B@[Ak@k@gEYcB_@gAEKcBeD}BsFw@yAY]"
+                     },
+                     "start_location" : {
+                        "lat" : 35.8763207,
+                        "lng" : -5.520855099999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "82 m",
+                        "value" : 82
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 18
+                     },
+                     "end_location" : {
+                        "lat" : 35.877973,
+                        "lng" : -5.5143665
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "wo~yEtct`@jB{B@?"
+                     },
+                     "start_location" : {
+                        "lat" : 35.8785157,
+                        "lng" : -5.514989799999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 km",
+                        "value" : 280
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 40
+                     },
+                     "end_location" : {
+                        "lat" : 35.8761503,
+                        "lng" : -5.51643
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e1st\u003c/b\u003e exit\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "il~yEx_t`@@@@??@@?@?@@@?@?@?@?@?@?@?@AJBDBB@B@DBFHp@r@hAvAr@~@x@lAv@vAFJ"
+                     },
+                     "start_location" : {
+                        "lat" : 35.877973,
+                        "lng" : -5.5143665
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "}|o{Exye`@y@g@{@WqHq@iD_@?ECKISQMMCSBOLITCPBXHNNLRBRELMDKBGfD\\dE\\dCZfAf@j@b@j@p@`@r@r@tB`BnFADCLAJHXPLTANSBKdEkCJGFIFS?SCKGMQKO?MDWSm@aBOg@?UJq@BEBI@KEYMMQASLIRAHWKSMMQYk@cDkGWk@CO@k@L]dA{@jBaBFO@YK]sAcCiH}Hu@w@_DaCgAs@}Aq@qE_BsBm@wHgB}\\{E{d@eFw@SeBqAqA}B}@{Ca@qCS{BKgCRiC`@iDj@qCjEiLfP__@tNcX~LiPzEuDxJaGlGyC|NqEzW}D~UcC|zA_Hr_CiErgAh@ncAlErqCtNdx@lMrhBbd@nk@`Rte@hU~YvVfZxY|q@p`AhcEnuGdHlJxOfOpNnLfPxK~g@nXdpEzwAvrAxi@vMxD~I`CdKdCjPfB|c@pDhEJhAEh@K|@c@|HkE]kACOJ{BAk@k@gEYcB_@gAiBqD}BsFw@yAY]jB{B@?DBL@P@RJx@|@|BvCxBpD"
+         },
+         "summary" : "Algésiras, Espagne - Tanger Med, Maroc/Tanger Med, Maroc - Algésiras, Espagne",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

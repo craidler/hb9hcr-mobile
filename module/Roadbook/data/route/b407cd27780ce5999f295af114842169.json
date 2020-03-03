@@ -1,0 +1,85 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJAe9LDf-kNwwRnB_pjIhAHCE",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJAe9LDf-kNwwRnB_pjIhAHCE",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 27.4618432,
+               "lng" : -13.0230257
+            },
+            "southwest" : {
+               "lat" : 27.4403457,
+               "lng" : -13.051782
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "4.0 km",
+                  "value" : 4009
+               },
+               "duration" : {
+                  "text" : "9 mins",
+                  "value" : 555
+               },
+               "end_address" : "Rte Camping Le Roi Bédouin",
+               "end_location" : {
+                  "lat" : 27.4618432,
+                  "lng" : -13.0517095
+               },
+               "start_address" : "Rte Camping Le Roi Bédouin",
+               "start_location" : {
+                  "lat" : 27.4403457,
+                  "lng" : -13.0230257
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "4.0 km",
+                        "value" : 4009
+                     },
+                     "duration" : {
+                        "text" : "9 mins",
+                        "value" : 555
+                     },
+                     "end_location" : {
+                        "lat" : 27.4618432,
+                        "lng" : -13.0517095
+                     },
+                     "html_instructions" : "Head \u003cb\u003enorthwest\u003c/b\u003e on \u003cb\u003eRte Camping Le Roi Bédouin\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "emnfD|pnnAi@bAy@t@_@NI@wAD{@VuBlCIf@UjAqAjHkDlHqCxH{BdJo@dAcCvDqA|DwAnBoCbHu@pBeApDaCrFw@dBy@fBuAxCcEbIq@bBkCrG}ArD{ApDsA~BMT_FhGoA`BgBzBaBlCk@tBEDuB|Bw@lCQZUP?@]J]DqAIsBKuAk@kAB{@B_BX}@d@U?wA@qBy@cAAOl@"
+                     },
+                     "start_location" : {
+                        "lat" : 27.4403457,
+                        "lng" : -13.0230257
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "emnfD|pnnAi@bAy@t@i@PwAD{@VuBlCIf@gBvJkDlHqCxH{BdJo@dAcCvDqA|DwAnBoCbHu@pBeApDyDxIoC`GcEbIq@bBiFfM{ApDsA~BmF~GwD|EaBlCk@tB{BbCw@lCQZUR]J]DeEUuAk@kAB{@B_BX}@d@U?wA@qBy@cAAOl@"
+         },
+         "summary" : "Rte Camping Le Roi Bédouin",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

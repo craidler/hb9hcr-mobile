@@ -1,0 +1,85 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ10bgDElzNwwRcrTR8ho-oRc",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ10bgDElzNwwRcrTR8ho-oRc",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 27.1846007,
+               "lng" : -13.1809089
+            },
+            "southwest" : {
+               "lat" : 27.1846007,
+               "lng" : -13.1809089
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "1 m",
+                  "value" : 0
+               },
+               "duration" : {
+                  "text" : "1 min",
+                  "value" : 0
+               },
+               "end_address" : "الطريق الوطنية رقم 1، El-Aaiún 70000",
+               "end_location" : {
+                  "lat" : 27.1846007,
+                  "lng" : -13.1809089
+               },
+               "start_address" : "الطريق الوطنية رقم 1، El-Aaiún 70000",
+               "start_location" : {
+                  "lat" : 27.1846007,
+                  "lng" : -13.1809089
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "1 m",
+                        "value" : 0
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 0
+                     },
+                     "end_location" : {
+                        "lat" : 27.1846007,
+                        "lng" : -13.1809089
+                     },
+                     "html_instructions" : "Head",
+                     "polyline" : {
+                        "points" : "wn|dDtkmoA"
+                     },
+                     "start_location" : {
+                        "lat" : 27.1846007,
+                        "lng" : -13.1809089
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "wn|dDtkmoA"
+         },
+         "summary" : "",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

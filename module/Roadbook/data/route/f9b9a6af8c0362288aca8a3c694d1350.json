@@ -1,0 +1,85 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJdbMUP_qvNwwRpN6J-onWMHk",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJhUBaiawMNwwR1o09GWsie0w",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 27.4731435,
+               "lng" : -12.99607
+            },
+            "southwest" : {
+               "lat" : 27.1963531,
+               "lng" : -13.1728683
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "37.4 km",
+                  "value" : 37435
+               },
+               "duration" : {
+                  "text" : "26 mins",
+                  "value" : 1571
+               },
+               "end_address" : "الطريق الوطنية رقم 1",
+               "end_location" : {
+                  "lat" : 27.1963531,
+                  "lng" : -13.1728683
+               },
+               "start_address" : "الطريق الوطنية رقم 1",
+               "start_location" : {
+                  "lat" : 27.4731435,
+                  "lng" : -12.99607
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "37.4 km",
+                        "value" : 37435
+                     },
+                     "duration" : {
+                        "text" : "26 mins",
+                        "value" : 1571
+                     },
+                     "end_location" : {
+                        "lat" : 27.1963531,
+                        "lng" : -13.1728683
+                     },
+                     "html_instructions" : "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e toward \u003cb\u003eRte Camping Le Roi Bédouin\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                     "polyline" : {
+                        "points" : "cztfDlhinAfAVdATlD`A|BbA|DtB@?rBhAjAn@bDfBbCrAnEdCpAp@xAv@vDtBbCrAlAp@n@^rAv@rAhAhAnAHLr@dAp@tAd@xAfAlEd@|BjCtM|AhIl@`Cj@dBz@rBP\\T^v@zAbD|D|DrDjAjAvEtEhCbCdCpBlBlA`Br@tBt@d@Lh@LjEt@|Cb@~Dn@lC^fANdEr@`AXpBn@FBbBt@|BhAzDrBxEjCrFxC~EdCz@f@rCxAbCnArNzHdCpA`FlCfNrHxBlAtGjDrEbCdQjJdM`HlGhDhFnC~BnAx@`@bAb@dA^fA\\jCn@\\FdBXh@Fh@Dh@Db@@lBFtEJnj@~@n@B`LRrJP~RZtTZrQ^h@B~AJn@BbALtBZz@PxCx@|RfFvGbBnQtEbQpE|DfAlMbDlFtAtSpFfHhBnKlCvBh@~AXjAPtAHd@BfAFhA@z@?jCGp@EbDYRA~BWjQ{AvOqAhBQfAKzAMtAGl@A`BCZ?j@?l@@hBDbBDbHXjMl@|AH|EPnI^hSz@hCJvBJpERvCVdDf@bB\\|Ab@rAb@|An@rAf@dBx@hDxAnEpBj_@rPxHfDbBr@xGzCzB`ArGrCzAp@jO|G`CnA~B`Bz@r@x@r@nAtAb@f@l@v@`@n@d@r@`@p@fBfDhA|B~BvEfD~GxEfJlKzShBpD`FxJlIrPxEtI~FtJtFtJnCnE`C|DvCfFrBhDdVta@jAnB~ClFvHnMzElI|@fBn@xApAbEl@`CDX`@zBVzB^xFj@zIr@`Mh@~GPpCLvAd@`DRnA^zAr@zB^hAl@xAl@hAnFnIbBpCrDtFfGhJxJdOp@|@h@n@x@t@jAfAn@f@n@`@j@\\lDbBjKdFdKbFtG~C`OdH~MrGlHnD~BjAvHtDNHrTpKzBdA`PlHtUdLl@X|Q|ItBdA~@Xl@PfLxCrHlB~L|CbG|A`B`@fFxBzCxAzBtA~AhA`Av@dFrEtFjFfE~D\\VtFzDhGlDfJhEfJlEdIxDfClAr@ZdM`Gv@`@tGzCdHhDxQvIpQrIpAl@dAd@~N~GxQxI|At@tGbDhAn@|@h@dD|BvIpGpGxEvGnEhVxNxD~BrJ~FnDrB~CjBvAv@vAt@zCxA"
+                     },
+                     "start_location" : {
+                        "lat" : 27.4731435,
+                        "lng" : -12.99607
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "cztfDlhinAlCl@lD`A|BbA~DtB~DxBhQrJbNrHbCvArAhAhAnA|@rAp@tAd@xAfAlEd@|BhF~Wl@`Cj@dBlApClAzBbD|D|DrDbH`HhCbCdCpBlBlA`Br@zCbAtFbA|IrAtEn@dEr@`AXxBr@`F~BtK~FrM~GnE`CbCnArNzHfJ~E`R`KhNnHj_@lSvNxHxDpBhCbAfA\\jCn@bC`@rALlAFbIRtdAhBth@v@|Rb@nCNxDh@tEjAt[jIrc@fLjSjFb[fIvTvFvBh@~AXjAPtAHlBJdC@jCGp@EvD[~BWjQ{A`ScBbDYbCI|BCxA@lEJnVfAtg@vB`GVpERvCVdDf@bB\\pDfApDvAnGrCze@dT|KzEdWbLjO|G`CnA~B`Bz@r@x@r@nAtApA~AfAbBhCxEhEtI`KfSf`@zv@xEtI~FtJtFtJnCnExGdLxY~f@~Vzb@lB`EpAbEl@`Cf@tCVzB^xF~A|Wz@pLr@xFRnA^zArAdEl@xAl@hArI`NzL~QxJdOp@|@h@n@x@t@zBnBzA~@te@lU`^xPlLzFvb@vS`PlHtUdLjSvJtBdA~@XtMjDxa@jKfFxBzCxAzBtA~AhAfHjG|LjLrGrEhGlDfJhElTfKzDhBx`@hRbi@~V~N~GxQxIrJxEfCxA|NnKpGxEvGnEb\\xRbPrJvFbDrFnC"
+         },
+         "summary" : "‫الطريق الوطنية رقم 1‬‎",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

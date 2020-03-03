@@ -1,0 +1,252 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJKXZeUQnrDA0R0QTx_npO4Cc",
+         "types" : [ "street_address" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJyW1fS9eUDA0RPlrbiZ0O5cM",
+         "types" : [ "establishment", "point_of_interest", "transit_station" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 36.1769726,
+               "lng" : -5.4409694
+            },
+            "southwest" : {
+               "lat" : 36.1288261,
+               "lng" : -5.4596838
+            }
+         },
+         "copyrights" : "Map data ©2020 Inst. Geogr. Nacional",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "7.5 km",
+                  "value" : 7508
+               },
+               "duration" : {
+                  "text" : "10 mins",
+                  "value" : 582
+               },
+               "end_address" : "Algeciras (Puerto), 11201, Cádiz, Spain",
+               "end_location" : {
+                  "lat" : 36.1315122,
+                  "lng" : -5.4417253
+               },
+               "start_address" : "Diseminado Poligono 15, 11, 11379 Los Barrios, Cádiz, Spain",
+               "start_location" : {
+                  "lat" : 36.1769726,
+                  "lng" : -5.451717599999999
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.1 km",
+                        "value" : 101
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 19
+                     },
+                     "end_location" : {
+                        "lat" : 36.1763752,
+                        "lng" : -5.4525428
+                     },
+                     "html_instructions" : "Head \u003cb\u003esouthwest\u003c/b\u003e toward \u003cb\u003eA-7\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "ayx{Efxg`@Vf@\\j@h@`A@@@?PJ"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1769726,
+                        "lng" : -5.451717599999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "2.3 km",
+                        "value" : 2317
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 122
+                     },
+                     "end_location" : {
+                        "lat" : 36.1575712,
+                        "lng" : -5.4573148
+                     },
+                     "html_instructions" : "Merge onto \u003cb\u003eA-7\u003c/b\u003e",
+                     "maneuver" : "merge",
+                     "polyline" : {
+                        "points" : "kux{Ej}g`@r@tA^t@nAbCR^@@PZTXHLLLVVNLFFVRZRn@ZD@x@Vn@NlA^v@RrBj@zBl@fD|@rCv@v@NxAXRD`@FB?|AT`@Hr@L`@Hr@Pr@Pb@LJBTFNFtA`@B@fEvA`@NXJrC~@v@VdBf@t@TD?XHTDd@LjB`@j@L`@Hv@Pd@HF@VD^DVBVBT@T?X@VAR?NALA^EJA`@IREFC`@M`@Q`@Sh@[VOPMf@]FGDCx@s@^[`AeAn@y@^i@`@g@"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1763752,
+                        "lng" : -5.4525428
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "58 m",
+                        "value" : 58
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 4
+                     },
+                     "end_location" : {
+                        "lat" : 36.1572633,
+                        "lng" : -5.456812999999999
+                     },
+                     "html_instructions" : "Take exit \u003cb\u003e108C\u003c/b\u003e on the \u003cb\u003eleft\u003c/b\u003e for \u003cb\u003eN-357\u003c/b\u003e toward \u003cb\u003eE-5\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003ePuerto Norte\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eAlgeciras Norte\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eCentro Comercial\u003c/b\u003e",
+                     "maneuver" : "ramp-left",
+                     "polyline" : {
+                        "points" : "y_u{Ed{h`@?K@At@gADM"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1575712,
+                        "lng" : -5.4573148
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.2 km",
+                        "value" : 1221
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 92
+                     },
+                     "end_location" : {
+                        "lat" : 36.153017,
+                        "lng" : -5.447832099999999
+                     },
+                     "html_instructions" : "Continue onto \u003cb\u003eCtra. Málaga\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eN-357\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "{}t{E`xh`@l@y@BEV]X_@X_@x@gApB_CJUDYDY@WAWE[EOGSKSO]IQCKEQCMCQA[Ai@?_@BwDBW@kA@cDB_ABkC@uA@g@?G?K@S@K@EBUBO@MDQDQDKDQFOL[LWLOBEJOJMRQRQTMJEHERGLCb@IZCP?PAT@VBTB`@LHBTJVLXTTRf@n@"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1572633,
+                        "lng" : -5.456812999999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "2.0 km",
+                        "value" : 2010
+                     },
+                     "duration" : {
+                        "text" : "3 mins",
+                        "value" : 167
+                     },
+                     "end_location" : {
+                        "lat" : 36.1386868,
+                        "lng" : -5.4413209
+                     },
+                     "html_instructions" : "Take the exit on the \u003cb\u003eleft\u003c/b\u003e",
+                     "maneuver" : "ramp-left",
+                     "polyline" : {
+                        "points" : "kct{E|_g`@VF@?@@`@`@BB^^NNPLPJTLZJ\\H^FX@`@?RAPCTCHCHCXIVMTKROBCNMTYV]R]?APc@Rs@Li@F]@GVcBJq@PsAHo@Hi@PuAn@cERy@Lg@BK\\aAPg@@AT_@Ta@JOf@o@JOLKh@k@r@i@h@WJIRMJC`@O`@ORGLC`@I\\Il@G`ACD?`A?fA@b@?b@@b@@jA@b@@p@@T?b@@b@?b@@b@?b@?b@@@?jCJbA?fB@P@~HTnBL"
+                     },
+                     "start_location" : {
+                        "lat" : 36.153017,
+                        "lng" : -5.447832099999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.4 km",
+                        "value" : 426
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 36
+                     },
+                     "end_location" : {
+                        "lat" : 36.134924,
+                        "lng" : -5.4411703
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e1st\u003c/b\u003e exit",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "yiq{Efwe`@DD@B@@BB@@B@B@B?@?B@B?BAB?@ABABA@ABA@C@Cv@OxAKrEDvDFpCS"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1386868,
+                        "lng" : -5.4413209
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.9 km",
+                        "value" : 855
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 83
+                     },
+                     "end_location" : {
+                        "lat" : 36.1289979,
+                        "lng" : -5.44373
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e1st\u003c/b\u003e exit\u003cdiv style=\"font-size:0.9em\"\u003eGo through 1 roundabout\u003c/div\u003e",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "grp{Ehve`@@DBBBBBBBBB@B@D@B?D?B?DAB?DCBABCBC@CBE@EBGfD\\pBPrAJdCZfAf@j@b@j@p@`@r@r@tB?@`BlF?BA@ABA@?B?BA@?B?B?@?B@B?B@@?B@@@B@@@@@B@@@@@?@@B@@?B?@@@?B?@AB?@A@?BA@A@A@A@A@C@A?C@A@C?A?CbBeAzAcA"
+                     },
+                     "start_location" : {
+                        "lat" : 36.134924,
+                        "lng" : -5.4411703
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.5 km",
+                        "value" : 520
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 59
+                     },
+                     "end_location" : {
+                        "lat" : 36.1315122,
+                        "lng" : -5.4417253
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e3rd\u003c/b\u003e exit\u003cdiv style=\"font-size:0.9em\"\u003eGo through 1 roundabout\u003c/div\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "gmo{Ehff`@@?BA@?BABA@CBA@C@C@C@C@C@G?E?C?C?E?A?AACAC?CCCACAACCAACAGCC?C?C?C?C?C@C@A@C@CBA@ABABABADAB?F?B?D?B@D@B@B?@Wf@_CbBAC?CAAAAAC?ACAAAAAAAAACAA?A?C?AAC@A?E@q@uBq@wBAAs@wBa@s@m@s@QOKG"
+                     },
+                     "start_location" : {
+                        "lat" : 36.1289979,
+                        "lng" : -5.44373
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "ayx{Efxg`@`BvCRJrAjCvB`E^f@d@d@jA|@t@\\hBf@tJlCzHtBpCh@vCb@jDr@xBj@pHbCfGrBzDfArEbAfCf@fBR|A@pAIhAUbA_@jAo@xAcA~@w@`BaBnAcB`@g@?K@Az@uAbB}BrAgBpB_CJUJs@?o@Kk@Sg@Yo@I]G_@CeABwEDcBJeMBoAJw@R}@La@Zs@h@s@f@c@`@S\\Mp@Ml@Cf@?l@Fj@Pl@Xn@h@f@n@VFB@tAtAx@f@x@Tx@Ht@Af@GRGp@Wh@[RQl@w@R_@d@wATgAv@qFRyA`AyG`@aB`@mARi@j@aAr@_AX[h@k@r@i@t@a@^QbA_@`@K~@Sl@G`ACfA?rDDfIHfA@lCJjD@pIVnBLDDBDLHL@LEJIx@SxAKrEDvDFpCS@DNNPDRAPMJWxGn@xEf@fAf@j@b@j@p@`@r@r@vB`BlF?BCDADAL@LLTRFTIJUbBiA|AcALEFIFO@UAMGOKISCOBIFGLCTBR@DWf@_CbBAGCCGIIGIAE@E@q@uBs@yBs@wBa@s@_AcAKG"
+         },
+         "summary" : "A-7",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

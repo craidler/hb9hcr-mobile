@@ -1,0 +1,109 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJhUBaiawMNwwR1o09GWsie0w",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ10bgDElzNwwRcrTR8ho-oRc",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 27.1963531,
+               "lng" : -13.1728683
+            },
+            "southwest" : {
+               "lat" : 27.1846007,
+               "lng" : -13.1810991
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "1.6 km",
+                  "value" : 1556
+               },
+               "duration" : {
+                  "text" : "3 mins",
+                  "value" : 203
+               },
+               "end_address" : "الطريق الوطنية رقم 1، El-Aaiún 70000",
+               "end_location" : {
+                  "lat" : 27.1846007,
+                  "lng" : -13.1809089
+               },
+               "start_address" : "الطريق الوطنية رقم 1",
+               "start_location" : {
+                  "lat" : 27.1963531,
+                  "lng" : -13.1728683
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "1.5 km",
+                        "value" : 1504
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 146
+                     },
+                     "end_location" : {
+                        "lat" : 27.1849876,
+                        "lng" : -13.1810991
+                     },
+                     "html_instructions" : "Head \u003cb\u003esouthwest\u003c/b\u003e on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "ex~dDlykoAjErBp@`@dAl@n@h@lBtAXPvKlHtNtJLHtCnBxA`AhNdJlBpA"
+                     },
+                     "start_location" : {
+                        "lat" : 27.1963531,
+                        "lng" : -13.1728683
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "52 m",
+                        "value" : 52
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 57
+                     },
+                     "end_location" : {
+                        "lat" : 27.1846007,
+                        "lng" : -13.1809089
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "eq|dDzlmoAXe@r@?"
+                     },
+                     "start_location" : {
+                        "lat" : 27.1849876,
+                        "lng" : -13.1810991
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "ex~dDlykoAjErBp@`@dAl@n@h@fCfBl[bTfV`PlBpAXe@r@?"
+         },
+         "summary" : "‫الطريق الوطنية رقم 1‬‎",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

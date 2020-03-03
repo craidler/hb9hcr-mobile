@@ -1,0 +1,109 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ3-KU7S_GOwwROpwVUH3ds_Q",
+         "types" : [ "route" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ_VBUKeakJAwRwuhDIz-xy1A",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 26.1198308,
+               "lng" : -14.4818769
+            },
+            "southwest" : {
+               "lat" : 24.6664283,
+               "lng" : -14.874807
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "173 km",
+                  "value" : 173334
+               },
+               "duration" : {
+                  "text" : "1 hour 49 mins",
+                  "value" : 6534
+               },
+               "end_address" : "الطريق الوطنية رقم 1، Oued Karaa",
+               "end_location" : {
+                  "lat" : 24.6664283,
+                  "lng" : -14.871622
+               },
+               "start_address" : "Avenue Hassan II, Boujdour 71000",
+               "start_location" : {
+                  "lat" : 26.1160964,
+                  "lng" : -14.482812
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.4 km",
+                        "value" : 396
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 38
+                     },
+                     "end_location" : {
+                        "lat" : 26.1195647,
+                        "lng" : -14.4819398
+                     },
+                     "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003e\u003cspan dir=\"rtl\"\u003eشارع الحسن الثاني\u003c/span\u003e‎\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "sxk~CptkwAm@IiBWkCa@iC_@KAcC[sAUa@U"
+                     },
+                     "start_location" : {
+                        "lat" : 26.1160964,
+                        "lng" : -14.482812
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "173 km",
+                        "value" : 172938
+                     },
+                     "duration" : {
+                        "text" : "1 hour 48 mins",
+                        "value" : 6496
+                     },
+                     "end_location" : {
+                        "lat" : 24.6664283,
+                        "lng" : -14.871622
+                     },
+                     "html_instructions" : "At the roundabout, take the \u003cb\u003e3rd\u003c/b\u003e exit and stay on \u003cb\u003e\u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003e\u003cspan dir=\"rtl\"\u003eشارع الحسن الثاني\u003c/span\u003e‎\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eContinue to follow \u003cspan dir=\"rtl\"\u003eالطريق الوطنية رقم 1\u003c/span\u003e‎\u003c/div\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "gnl~CbokwACIGGGGECG?E@E@GL@D?F?D@D@DDDDDHBXHrFv@j@FxDf@|@LhEl@fEl@hGz@`C\\RBdFt@pJtAp@H|F`AzHdA`@D~@HbAHp@Bn@B`@@d@?d@?p@Aj@An@Cr@EnBO~Fc@hE]xCWfL{@xBUv@IbAOtOmA|AK|AIjAEz@Cz@ApAAd@?z@?~@@z@B|@B`ADhCNdAJxANhAJf@FH@rALfD\\zFl@`@DrHx@xGn@hFh@~C`@~J|APBbHhAhFz@`GbAn@J|Fl@vBJxBHvBDjBDzELdGLtB?~AC~DGxDGnDOfEKvIQrFGxAKjHQvCEtCG~KUxKW\\Apj@mCpKc@hDMfDAdD?`I?fENzD?rL?dGA~OEfA@nA?tCFfCHrBNjCVnBRZDbRvCjItAdLlBfNvBxEv@bD^fD\\dD\\fEb@nANbObBzBV~BXfCRdLhAj@FxEf@~E`@nF\\nF\\xCPjHd@v@FtDPpBNzBLpF\\dF^xBTjCZhBVzAZJ@bB`@bFnAnEnAv@TlKvChJjCfEnAlD|@vK~CdBf@rJpCrMvDfEhAfMnDtDx@fC|@hFzAvHvBtBj@zA`@tMtDvCv@`Cp@nBl@jBj@fG|AlI`Cl@P|A\\rCp@n@LzARtBVD@xBRhBJfAHbCPtDNfDPpDTxEZjBRxAVfDj@r@Nh@JzA\\fBj@tAf@tAf@tBz@nB`AbCjAnFnCjAl@pFjC~@j@xCrAdDlAjHnC~FzBVJjCfAjCz@dFjBxEdB|@\\jBr@nSvHtBt@vJnDxAl@nBx@hBp@jE~AbBn@dE|ArDrAxDjAjCp@rNtDbDx@pI|BvEnA`IxB`FjAfCn@lEfAzDbAtA\\zBl@vBn@~Af@^J`A\\`A^bC`AtAj@bEpBxAx@`Ah@fDrBrDxBlAt@bB`Ah@\\rHpEpLfHtG`DpDzAjGdCv@^x@Z`Ah@fAd@zB|@fDnA|@TdCp@hBb@bARhDn@tE|@D@vCd@vBZnDr@l@JjATl@LlAXvAb@~Af@PFjDrAhDbBdCzAz@j@TNTPd@Zf@\\tHlFvA`ArCnBpDbCvBzArDdC|EdD|CnBhGxC~@d@bDrAxErAtDdAlBh@xLfDlMnDpFhBpAb@tAh@`Bx@~CzAxGpDtAt@bLnGdFrCpItEpEbCvAx@tCbBpH`E~BnAf@XxDtBvFzC`@TlGnDbFjC@@|CfBnDpBhBfAv@`@pAp@fCrAjBv@rGjC`E~AzFzB`DnAzAl@`A^xIhDdEfBLDzIbDpCjAhAd@tIjDbDhAJDhDtA|CnA|CzALFjB~@rAt@jBhAtEbDr@f@`@ZrDhChE~ClClBfCfBxGzElE~ChE|CxKhIxK|HPLzDrCxDpCjFlD|ExCjCxAr@^hAn@fGjDjCtAr@^bKtFbEpBnFtCbBz@zBjArDjBnBx@jC`AzBt@B?\\J|Bl@tDz@pH~A`JjBdARlCh@tIlBPDhMlClJnBVF~Bl@xDpAbFnBxDxB@@jCbBvAnAlBdB^^nBnB|@dAnD|EdLlPzGlJrE|GpBpCbEdGxB`DLZtMdRnSfZpAlBtDpFdClD`E~FvEzGxDxEbB`BvCpCv@h@vCpBpEpC@?`D~AtKfEvFxBfIvCh@RfA\\pG~BxPlGjJlD`A^|[rLbDpAn@VnDzAvFvCdAn@jAr@fBjAjAv@xD|BxGjEzBtAfEnCh@ZxD|BjJ~FrFhDxA~@hLjHrDzBjE|B`E~AtDpApDbAxDx@~MhC|Dt@pKnB\\HzAVvCj@t@N`GhA|Dp@zCb@h@FxD^`Hp@lNjAjGh@\\Br@H|l@nFfAJbr@jGD?xFj@tEr@hEr@vCj@?@nHnApLvBlNlCjGfAb@H|GjAfDh@b@F~BVbDVpAPxDJl@@lA?dB@zAB`DDxDJdZh@lDJhEHfABpBHlRTlR\\jc@z@hDBrAB`LN~^n@pGTpE^jDh@fEv@~@Xn@RnCt@xCfAvAl@^PbChAxI`ExWvL@@|J|DlQjIxLxF`EjBnAh@`DvArIxDzE|BpOvGpDbBrPpH~At@nAl@vIvDlD`BlAj@vFhCjDxAvC~@fEfA`Dt@jEt@xE|@rB\\vE|@xEz@dEr@pB\\|Dt@`AT\\Hh@FhB\\dEv@nB\\|JjBbXxEdAPj@Lx@PtTzDhM`CnKnBvI|AjKjBhKjBjFbApGjAjHnAfCb@hB\\xCj@rDr@~Cd@fF~@~IdBxM|BxHrApHvA|Dp@lE|@xBl@rDfAnCz@vAl@lEfBhLxE~RbIrAh@lBt@|D`BtF|BhFxBvEjB`G`C`EbB~CpAx@\\dHrC|HbDzD|AfEdBfGfCzGnC`IdDdHtCpJzDfBp@~DdBdIbDdEdBnBx@lCbA~EtBhDtA`C`AbDtAzEnB~DzAjD|AfFfCr@\\nCvA~Q`J|E`CdFfCb@ThI~DzJ|EzO|H|JbFfBv@tB`ArHtDrHrDvIjEbMfGtLdG~L`GvE`C`IvDjKjF~HvDvHxDfGtCnCnArCpAjAf@`Bj@dBh@pA\\~@V~Cp@dEz@bGrAtE`A~FpAhH`B`F`AdE~@lE|@hE`ApE`A`KvBrInB~H`BrH~AhIfBhLbC~H`BfJpBjIlBpSlEjHzAhFhArFhAnH~AxOhD|Cn@jDt@hCh@pAVlATfBX`Dd@hDh@lDh@tGdA~IxApSbDfC^vAT~AT~LpBjKbB~Dn@vCd@nATjAVxA`@dBf@tAb@nCbAtErBbC~@hBx@zAn@~At@zBdAxKtEhElBdDvAzKvEhBv@xDbBtCnAtAl@fGhCfFzBfBx@rBdAvAx@rBnAnBnAxA`AzAbAvBzAzE`DlAx@nChBzA~@lDbC|BzAfFlDjFtDvH|ExC`BvCtA~@b@jBp@pDnAjA^vA\\lB`@bKhB|LxBnGjA`F|@pEv@jF~@fEx@rFbA`Cb@nCd@|@P~AXhF`AtDp@xDp@vEx@pDp@|Bb@|Ch@pGjAzE|@rGlAdF~@jDl@hDp@rB\\dAR|@PlBf@rAb@jBl@rAh@fCfAnB~@pBfArCbB`DlBtA|@vBnAfHjEdGnDzDpBp@\\|@\\dCbAbEbB~Bz@fBr@xEnBzIjDzF~BvEdBfCdAbCz@vH~CtEfBxEjBlBp@rDxApBx@lJxD|EhBrAf@jBv@bBp@tCjAdBr@l@Xl@\\lAp@`CxAz@j@jAt@lA~@|FfEbCfBjBrAvAdAfDdCpEfD`FpDvA`AdAl@vAr@zAt@~CxAzGlCpE|AZL~GjCpBr@zFvBpChAxHtCfC`AfA`@zHvCtLrE`Bl@fIxCbHjChG|B`GxB|EjBdFjBhBn@pBj@|@RlAVtB`@xAThBXdCX~BRzAHjABlBFtC@dBBlB?dC@hHB|JJvHD|I?fFB`HDrE@|HFfE@hFBzKBnGBvED`C@`C@tB?jC?tACtAErBIbBKlEY~Fg@r@EhFa@hCUrF_@dE]tCUzF_@zCU~D[xFa@vDYdT}AlPoA|CUfDKjBCfC?`DBxBHfBJhALlBNfC^jBXdBZdCn@dHnB|ErAjLhDtCv@dCp@~Bp@lIbCpGfB~OtEzErAzErAtGlBzC|@vBl@lBh@l@Pj@Nv@RnD|@pHxApAXtWlFvH|AdATj]dHvNxCtAVlBZvDf@pBRdBLhADrDJx@@|D@dCAdCAjGI`HGnFG~CCdAApPMfKIvKGhMM|GE|DCjC?hC@pCDzDFxBBpDFxPTxCDzCDfBBlEDfDBpDAxACjAGn@C~BMrCSrF]rE]lJq@xGc@jM_A`Ga@`@CzBOvDW|E]fF]rF_@zCUxBSbCOnAGfBIjBCfBApA?tCFzCHjFFxJR~CF~@BdFH|D@lCEtBEdBMvAMhBOlAOnBY~B_@nFeAlCm@jJmBxBc@dCg@bAWtE}@|Bc@dBa@lBc@|@W~@Yv@YlAa@p@YrAi@vAs@bB}@zBiAjC_BbCcBtBeBnBiBpCqC`CsCrBkCjAcBdC{DtDmFlF_IjBmChBmCdCoDxBmCfBkBzA{AzAwArBeBbFoD|CcBrBcApB}@rBy@zAi@`Bi@`Bg@vA_@|A_@lAUpAUtAShBS`Hk@vJy@tLaAnGc@zQ}AfBM|SeBpCSzFc@|E_@lFc@nCUrE_@fGg@hDYdE[nIs@zCUlDWlDWnCUzAGnBCvD?h@@rA@|BJlAF\\@dBN|APzBZvDn@jE|@lFdAfFbAvBd@hATfDn@bHzAv@NbATF@pAX~JnB|MpC|LhCdAR`FbAfDr@fATjL~BdHzAjB^dFdAnDt@pB`@fDr@jAVfB^tBb@|Cn@|AZdBZhBXn@Jz@Lr@H|ANjAHzAJpAFpBFxELpELpCLh@BtKd@bDN`FPbHV`IRpHXbI\\~JZxJ`@lGRfK^|GThADlGV~CJpDLjK^fADpJ\\xFVpCH|Vz@fGTdBD`B?zA?fCIhBKbKk@|AKtKs@pEYfIk@bJk@rLw@xAIfWaBjIg@lAIjDU~@GfHe@jHe@tFUxIQlFOhDIfGMtCEjC@nBBvCLtAHl@FdD\\bALbAPbCd@xD|@hAXlFxAxFvAhQxEzGhBfBb@xDdAtJjCn@NdG|A`AT~Bd@tB\\|ARzBXfBNbBHvDJ`@?vDFjFDpC@jDB|BCrRJpQN|J@~HD^?lEB~DBtA@pE@nEDt@?dCH`CJ`CNfBNnANfC`@nAR`B\\nBb@lAZbDbAdBh@dAXxAd@hBl@hBl@t@TdDhAzC`AxAf@f@NtBr@|DrAnDjAtDnAzC`AtDnAlBl@bBj@pA`@bBd@r@NjAVf@JzAZfGnAzJhBhI|AhEz@xAXfCd@hB^rAVfCf@|E~@dARbARpAVjCh@hB\\p@N~@TdBd@nBh@|Bx@p@Vb@N\\NtB~@xBdAnCxAlCvA`DhBbBz@BBjCvA`FlCjCvApCzAdB`AxBjAdB|@`B~@B@xBdAdAb@v@Z~Bz@~Bv@|A`@~@TrBh@tA\\zAb@lBd@pBf@`Bb@jEhArBh@|Bl@~Bl@|Bj@fDz@vA`@t@RlAZn@PjCx@~@\\bBp@b@P`@PhAf@nBz@fAh@dBr@zAr@zBbAhBx@fBv@rCpA~B`AtAh@~Ah@~C|@zA^TFj@LpB`@dBVpAP`@FJ@bD\\nBR~AP`DZ`@DzCZzC\\dAHtBThCXlCVrBTxANtANzALh@FxEh@`AJrBZtAVtAXbBb@zCx@JD`@NdBj@~ClAvB|@vGlC~Al@rDxAjDtAvF|BHBtCjAvClA~B~@rChA`Bh@`ARpAXvATfBPbCRV@lGb@`F\\fKr@|Jp@hBLdAFhCRhCPrBN|AJ`BJ`AHvAJbBLfAFhBPp@Nh@J~@X^Jl@Xb@Rt@b@dAr@dA~@LJbB|ATTj@h@~ErEtApA|BvBrEhE`B|A~@z@bA|@jB~Az@h@fAj@b@Ph@Rh@Pf@LtB^^DlANfELbGb@`EVxBJhCRpBVn@Rt@\\bB|@z@f@r@Th@Pp@Nv@F`@DjB?d@Cn@EXEvA[|DcAXIbGaBtCu@jG_B~D{@|Ci@xBWxAYjBY|B[hEo@tBSZC|BIlAER?z@A~ACnABjAFzBZpA\\bBp@hErBjD`BxBdArBv@pBh@lEZxADrELbFLZ@Z@d@Bn@LlA\\r@ThAh@dBz@hAn@r@b@dB~@bAd@tBd@hBVzAJjB?zGCt\\S@?~A@x@BdAH`C^F@|Ct@rDx@^HfCh@lE`A`AXrFlAtBb@z@Tp@Pt@X~@b@zAn@t@Xt@ZlAh@|@\\~Af@jAf@tCpAzB|@XL`CbAjDtAdCfA|Bv@|@\\\\Ll@R\\JXDXDZDP@h@@L?VAZAl@Ir@Kr@St@Yp@[z@g@vBwAxByA`BaAh@WBCj@QfAWnAQZAh@Ab@@p@HD?|@Lb@H`@HrAd@l@LrBPn@@xA@rBIbDEJ?~BCxBGl@AX@R@h@D~E~@rAVhB`@dCd@pB`@nB\\jARd@F^Dn@@t@?`@ARAZCn@KrBm@p@QtCw@jDaA~@YnBa@f@Iv@Gl@?`BJjCXbCXr@Hz@Ff@BhA@b@Eb@EZE@?n@O`@Kr@Wd@Uh@[JIRO^[f@m@bAkAbAuAx@kAdAmA|@gA\\c@V]x@y@r@o@`@Yj@[JE`@Ql@Ql@Kt@G~@CtA@zAHT@vAHrAFjA@p@CdAMlBe@~Ae@`A]|@Yt@Wp@YBAdAe@ZM^QNKVQXYVYPYR[BEZk@Rc@Rg@Ro@L_@FOZ_Al@gBL[L[f@uAJ[Zy@Rk@Nc@Vu@JYLYJS^m@PW`@k@RUNMZWbAo@RKVORIXK\\G\\G^El@G^CZAP?T?\\?XBp@Fz@J|@JfCXvC\\f@Df@Fz@FnALhEh@v@HbBP`Fh@hCXbALvBRnBV\\DXD\\FZDXH~Ad@lA`@VF|E|ApLxDnIlCn@RlMbERF|@Xh@Vd@T\\Pj@b@xAjA|AtArE`E~AxA`@^ZZpF|E`BzAh@d@DD"
+                     },
+                     "start_location" : {
+                        "lat" : 26.1195647,
+                        "lng" : -14.4819398
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "sxk~CptkwAiVyDZn@le@vGzj@dIdKZziAoIjNJ`TlBfs@jI~XtEfRhAbU`@hSc@fz@gBzdAkExXOj{@PvNdApj@`Jl_@lF`]tD~n@~Fbk@jDtQhBnLnCrz@~U|uBtl@lRbFfGz@xc@nC`LfBbI|Bl`@fRlaBfn@~Q~Gl^fKbw@hSpUnHb]fRd`@xTnP|GlL|EpJ~B~\\fGrHrBlNzGvUfPzTjOjSbK~w@rU~w@zb@peAdl@dg@pS~q@bXjXnMxe@b]~x@fl@rh@zYrSnKjP|G|d@~J~c@pJtPvF~KnHzHzHbo@l~@faApuAjMnKrEpCvPfHpTbIxf@zQ`h@xRpNfIrl@`_@j\\pSlK|EfJtChf@hJfI|AdSfDte@fEpsBtR`z@hOhRtC|Mv@hy@vA~wAdC`l@~@bNt@bNnC`L|Dxf@dUhjAhh@z~@va@bWjJzTfEp`@hHhzC~i@rq@|Lbg@zIjSnFd}@r^bu@rZ~lB`w@jV~Jj_@~QndAvg@doC~rAxc@nK||@nR~eDls@~mB`[lKtB`PbGnh@`Ubo@pXx\\bTpj@d_@|MlGbMnDldAbR`f@tI`r@dM`LtB`KbD|NrHvSfMpP|IpPvGbx@j[xj@tTfU`Lxa@lZvMtIhVzJdi@hShdAb`@~NzEfKhBlLz@vML`dAb@vz@^lLIdTwAnk@gEvfAkHjOXjLvAvp@tQ`bAbYhq@~N`y@rPlNnB|K`@tUKroAcAjj@Pxq@h@~m@_E|u@iFvZqAzo@dA`Mg@fLyA`k@gL|QwFbM{GzNeM`a@ik@bMeOpQqMtLeFxJqC~IsA~i@kEjiAcJrs@wFrOa@hIV|I~@xYvFbZhGtmBr`@`VhEf_@~AfeC`JhkAdEjLC`^wBlpAgI~XiBf^aAxSM`M|@dMbCzb@dLjl@hOvLzAtN\\jpAj@`b@ZzLz@hLvB`WzHv|@bYhkAdUdStFtXpNr`@dTxSrHvu@xRpn@vWfUhF`WjCr[dDdX|D~\\bMbd@tQlIlBpOjA~o@nE`TdBvDjAdFjDzXpWpIvHpEzBfFdAzUxAdLjAhGxCtDn@zEOrh@gMv[yD|FKhJdArQlIdF`BfH`@nN^vEdAlHxDhDdB~E|@xk@K`FNr[`HvMxCfGfCxSpIxUdJlEPjEcA~IuFzDoB|Em@`J`BpJJhLQhTfDrIzAfDDfSeF|Fs@dLhApEFpB[dDuAfBcBtL_OlCkBrDw@pPX~NeElFqDnIqT`DsG|E}ClFc@jP`B|h@dGbt@lU`DnA`GvEtV|T"
+         },
+         "summary" : "‫الطريق الوطنية رقم 1‬‎",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}
