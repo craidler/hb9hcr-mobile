@@ -1,33 +1,16 @@
-<?php $distance = 0; ?>
-<?php foreach ($this->collection as $item): ?>
-    <article class="dg c-3">
-        <div class="dt tc">
-            <div class="h-4 bg <?= $item->type ?>">
-                <p class="f-3"><?= ceil($distance * .001) ?> <small>km</small></p>
-                <p class="ttu"><?= $item->type ?></p>
-            </div>
-        </div>
-        <table>
-            <tbody>
-                <tr>
-                    <td>Date</td>
-                    <td><?= $item->date ?></td>
-                </tr>
-                <tr>
-                    <td>Region</td>
-                    <td><?= $item->region ?></td>
-                </tr>
-                <tr>
-                    <td>Latitude</td>
-                    <td><?= $item->latitude ?></td>
-                </tr>
-                <tr>
-                    <td>Longitude</td>
-                    <td><?= $item->longitude ?></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="bg"><?= $item->comment ?></div>
-        <?= $this->partial('partial/maps', ['maps' => $item->maps]) ?>
-    </article>
-<?php endforeach; ?>
+<article class="dg c-3">
+    <table>
+        <tbody>
+            <?php foreach ($this->collection as $item): ?>
+            <tr>
+                <td><?= $item->date ?></td>
+                <td><?= $item->region ?></td>
+                <td><?= $item->name ?></td>
+                <td><?= implode(' ', $item->positionDD) ?></td>
+                <td><?= implode(' ', $item->positionDMS) ?></td>
+                <td><?= $item->comment ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</article>
